@@ -1,0 +1,69 @@
+﻿<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+    <!--#include virtual="/transinclude/meta.html" -->
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/nav.html" -->
+
+<div class="col-md-12">
+    <ul id="breadcrumb">
+        <li><a href="/index.html"><span class="icon icon-home"> </span>首页</a></li>
+        <li><a href="/admin/userManage/index.html"><span class="icon icon-home"> </span>审核用户</a></li>
+        <li><a href="javascript:void(0);"><span class="icon icon-beaker">法人账户</span></a></li>
+        <li><a href="javascript:void(0);"><span class="icon icon-beaker" id="FR"></span></a></li>
+    </ul>
+
+    <!-- <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form id="formSearchInfo">                  
+                    <div class="col-md-12 form-inline">
+                        <label>姓名</label>&nbsp;&nbsp;
+                        <input type="text" class="form-control" placeholder="姓名" name="Name">&nbsp;&nbsp;
+                        <button class="btn btn-info" id="searchBtn">
+                            <span class="glyphicon glyphicon-search"></span>&nbsp;搜 索
+                        </button>
+                        <button class="btn btn-default" id="resetBtn">
+                            <span class="glyphicon glyphicon-repeat"></span>&nbsp;全 部
+                        </button>                 
+                    </div>
+                   
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+    <div  class=" col-md-12 col-body">
+        <div id="baseInfo">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered table-hover" id="dataTable1">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>姓名</th>
+                                <th>账号</th>
+                                <th>账号类型</th>
+                                <th>联系人</th>
+                                <th>成果（数量）</th>
+                                <th>竞价（数量）</th>
+                                <th>议价（数量）</th>
+                                <th>交易（数量）</th>
+                                <th>详情</th>
+                                <th>审核</th>
+                                <th>状态更新</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="../../vendor/upload/jquery.ui.widget.js"></script>
+<script src="userCount.js"></script>
+<!--#include virtual="/transinclude/footer.html" -->

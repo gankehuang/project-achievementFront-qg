@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />-->
+        <!--[if IE]>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            <![endif]-->
+        <title>供需对接</title>
+        <!-- BOOTSTRAP CORE STYLE  -->
+        <link href="assets/css/bootstrap.css" rel="stylesheet" />
+        <!-- FONT AWESOME STYLE  -->
+        <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/css/fresh-bootstrap-table.css" rel="stylesheet" />
+
+        <!-- CUSTOM STYLE  -->
+        <link href="assets/css/style.css" rel="stylesheet" />
+ 
+
+        <!-- GOOGLE FONT -->
+        <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
+    <style type="text/css">
+        td {
+            font: 12px/18px "宋体",Arial,Helvetica,sans-serif;
+        }
+    </style>
+   
+    </head>
+    <body>
+        <div class="navbar navbar-inverse set-radius-zero">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+
+                        <img src="assets/img/logo1.png" />
+                    </a>
+
+                </div>
+
+                <div class="right-div col-lg-8">
+                   
+                    <div class="input-group">
+                        <input type="text" placeholder="请输入关键字" class="input-sm form-control"> <span class="input-group-btn">
+                            <button type="button" class="btn btn-sm btn-primary"> 搜索</button>
+                        </span>
+                    </div>
+                    <!--</div>-->
+                    <!--<a href="#" class="btn btn-danger pull-right">注册</a>
+                    <a href="#" class="btn btn-danger pull-right">登录</a>-->
+                </div>
+            </div>
+        </div>
+        <!-- LOGO HEADER END-->
+        <section class="menu-section">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-12">
+                        <div class="navbar-collapse collapse ">
+                            <ul id="menu-top" class="nav navbar-nav navbar-right">
+                                <li><a href="index.html" class="menu-top-active"><b>首页</b></a></li>
+
+                                <li><a href="news.html"><b>新闻中心</b></a></li>
+                                <li>
+                                    <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"><b>成果展示</b><i class="fa fa-angle-down"></i></a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="ResultsClass.html">成果分类导航</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">成果发布</a></li>
+                                        <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">优秀成果推荐</a></li>-->
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-toggle" id="A1" data-toggle="dropdown"><b>交易服务</b><i class="fa fa-angle-down"></i></a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="TechSupply.html">供需对接</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">定向委托</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">成果竞价平台</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">中介服务</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="TechnologyAndFinance.html">科技金融</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-toggle" id="A2" data-toggle="dropdown"><b>评估服务</b><i class="fa fa-angle-down"></i></a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="Assessment.html">成果评价公告</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="Evaluation.html">评估评价机构</a></li>
+                                        <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#">成果价格评估</a></li>
+                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">技术前景测评</a></li>-->
+                                    </ul>
+                                </li>
+                                <li><a href="tab.html"><b>政策咨讯</b></a></li>
+                                <li><a href="tab.html"><b>专家库</b></a></li>
+                                <!--<li><a href="table.html">TABLES</a></li>
+        <li><a href="blank.html">BLANK PAGE</a></li>-->
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- MENU SECTION END-->
+        <div class="content-wrapper">
+            <div class="container" style="color:#666666;font-size: 12px;font-weight: normal;width: 50%;height :auto ;margin: auto">
+
+                <div class="col-md-12 col-md-offset-0">
+                    <ul class="nav nav-tabs">
+
+                        <li class="active">
+                            <a data-toggle="tab" href="#tab-1" style="color: red;text-decoration: none" id="supplyId"><i class="fa fa-briefcase"></i>成果配对列表</a>
+                        </li>
+                       
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane active">
+                            <!--<div class="full-height-scroll">
+                          <div class="table-responsive">-->
+                            <table id="fresh-table" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <th data-field="id"></th>
+                                <th data-field="name" data-sortable="true"></th>
+
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种盐焗鸡卤汁分离鸡的精炼方法及鸡油粉末的制备方法</a>  </td>
+                                        <td>2012-10-26</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种旋转剪刀式荔枝采摘机</a></td>
+                                        <td>2012-05-24</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种用于田间的昆虫捕捉器</a></td>
+                                        <td>2013-03-06</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种防治仔猪黄白痢的中药制剂及其制备方法与应用</a></td>
+                                        <td>2013-07-26</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种具有安全装置的山地果园货运系统</a></td>
+                                        <td>2012-07-30</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">检测猪繁殖与呼吸综合征病毒的RT-LAMP核酸试纸条试剂盒及应用</a></td>
+                                        <td>2013-04-27</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种海藻氨基酸复合液体肥及其制备方法与应用</a></td>
+                                        <td>2012-12-19</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种活化钙镁磷肥及其制备方法</a></td>
+                                        <td>2010-05-07</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种兽用泰妙菌素混悬注射液及其制备方法</a></td>
+                                        <td>2013-04-28</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种家蚕病原微孢子虫LAMP可视化快速检测试剂盒及其检测方法</a></td>
+                                        <td>2013-01-24</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种有芯料的荔枝蜜饯及其制备方法</a></td>
+                                        <td>2013-11-19</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种乳制品中蛋白掺假的分析方法</a></td>
+                                        <td>2012-08-28</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种富硅矿物硅肥的理化综合促释制备方法</a></td>
+                                        <td>2012-06-30</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种基于反硝化除硫的黑臭河道底泥原位氧化技术</a></td>
+                                        <td>2013-06-09</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">检测猪流行性腹泻病 毒的RT-LAMP核酸试 纸条试剂盒及应用</a></td>
+                                        <td>2014-04-27</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种水稻株间机械弹性触觉除草器</a></td>
+                                        <td>2012-12-31</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">苦参碱和茶皂素的增效农药组合物</a></td>
+                                        <td>2010-12-02</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">叶绿醇在制备猪饲料添加剂方面的应用及猪饲料</a></td>
+                                        <td>2013-06-21</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种低咖啡因红碎茶</a></td>
+                                        <td>2012-12-14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="SupplyDetail.html" class="client-link">一种树冠振动型水果采收机</a></td>
+                                        <td>2012-04-17</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--</div>
+                    </div>-->
+                   
+                        <!--</div>
+                    </div>-->
+                    </div>
+                </div>
+            </div>
+            </div> 
+
+            <!-- CONTENT-WRAPPER SECTION END-->
+            <section class="footer-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="#">联系我们</a>|<a href="#">关于我们</a><br />
+                            Copyright &copy; 2017.Company name All rights reserved.
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- FOOTER SECTION END-->
+            <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+            <!-- CORE JQUERY  -->
+            <!--<script src="assets/js/jquery-1.10.2.js"></script>-->
+            <!-- BOOTSTRAP SCRIPTS  -->
+            <!--<script src="assets/js/bootstrap.js"></script>-->
+            <!-- CUSTOM SCRIPTS  -->
+            <!--<script src="assets/js/custom.js"></script>-->
+            <!-- 自己添加的js文件和方法-->
+
+            <script type="text/javascript" src="assets/js/jquery-1.11.2.min.js"></script>
+            <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+            <script type="text/javascript" src="assets/js/bootstrap-table.js"></script>
+            <script type="text/javascript">
+                var $table = $('#fresh-table'),
+                     $table2 = $('#fresh-table2'),
+                    $alertBtn = $('#alertBtn'),
+                    full_screen = false;
+
+                $().ready(function () {
+                    $table.bootstrapTable({
+                        //toolbar: ".toolbar",
+
+                        showRefresh: false,
+                        search: false,
+                        showToggle: false,
+                        showColumns: false,
+                        pagination: true,
+                        striped: false,
+                        pageSize: 10,
+                        //pageList: [8,10,25,50,100],
+
+                        formatShowingRows: function (pageFrom, pageTo, totalRows) {
+                            //do nothing here, we don't want to show the text "showing x of y from..."
+                        },
+                        formatRecordsPerPage: function (pageNumber) {
+                            return ""; //pageNumber;//+ " rows visible";
+                        },
+                        //icons: {
+                        //    refresh: 'fa fa-refresh',
+                        //    toggle: 'fa fa-th-list',
+                        //    columns: 'fa fa-columns',
+                        //    detailOpen: 'fa fa-plus-circle',
+                        //    detailClose: 'fa fa-minus-circle'
+                        //}
+                    });
+
+                    $table2.bootstrapTable({
+                        //toolbar: ".toolbar",
+
+                        showRefresh: false,
+                        search: false,
+                        showToggle: false,
+                        showColumns: false,
+                        pagination: true,
+                        striped: false,
+                        pageSize: 10,
+                        //pageList: [8, 10, 25, 50, 100],
+
+                        formatShowingRows: function (pageFrom, pageTo, totalRows) {
+                            //do nothing here, we don't want to show the text "showing x of y from..."
+                        },
+                        formatRecordsPerPage: function (pageNumber) {
+                            return "";//pageNumber + " rows visible";
+                        },
+                        //icons: {
+                        //    refresh: 'fa fa-refresh',
+                        //    toggle: 'fa fa-th-list',
+                        //    columns: 'fa fa-columns',
+                        //    detailOpen: 'fa fa-plus-circle',
+                        //    detailClose: 'fa fa-minus-circle'
+                        //}
+                    });
+
+
+                    //$(window).resize(function () {
+                    //    $table.bootstrapTable('resetView');
+                    //});
+
+
+                    window.operateEvents = {
+                        'click .like': function (e, value, row, index) {
+                            alert('You click like icon, row: ' + JSON.stringify(row));
+                            console.log(value, row, index);
+                        },
+                        //    'click .edit': function (e, value, row, index) {
+                        //        alert('You click edit icon, row: ' + JSON.stringify(row));
+                        //        console.log(value, row, index);
+                        //    },
+                        //    'click .remove': function (e, value, row, index) {
+                        //        $table.bootstrapTable('remove', {
+                        //            field: 'id',
+                        //            values: [row.id]
+                        //        });
+
+                        //    }
+                    };
+
+                    //$alertBtn.click(function () {
+                    //    alert("You pressed on Alert");
+                    //});
+
+                });
+
+
+                //function operateFormatter(value, row, index) {
+                //    return [
+                //        '<a rel="tooltip" title="Like" class="table-action like" href="javascript:void(0)" title="Like">',
+                //            '<i class="fa fa-heart"></i>',
+                //        '</a>',
+                //        '<a rel="tooltip" title="Edit" class="table-action edit" href="javascript:void(0)" title="Edit">',
+                //            '<i class="fa fa-edit"></i>',
+                //        '</a>',
+                //        '<a rel="tooltip" title="Remove" class="table-action remove" href="javascript:void(0)" title="Remove">',
+                //            '<i class="fa fa-remove"></i>',
+                //        '</a>'
+                //    ].join('');
+                //}
+
+
+            </script>
+
+</body>
+</html>

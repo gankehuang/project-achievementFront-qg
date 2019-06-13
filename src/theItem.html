@@ -1,0 +1,426 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <!--#include virtual="/transinclude/front-meta.html" -->
+    <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+    <script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+    <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+    
+    <link href="css/main.css" rel="stylesheet" />
+
+    <style>
+        .table-auction-market td {
+            background-color: #FFFFFF;
+            border: 1px solid #F2F2F2;
+            text-align: center;
+            color: #666;
+        }
+
+        .table-auction-market th {
+            color: #333;
+            text-align: center;
+            background-color: #D9DBDF;
+        }
+
+        .block-body .block-support a {
+            background-image: url(images/tt.png);
+            background-repeat: no-repeat;
+            background-size: 130px;
+            display: inline-block;
+            width: 130px;
+            height: 65px;
+            line-height: 65px;
+            color: #201a17;
+            font-size: 16px;
+        }
+
+        .block-body .block-support a:hover {
+            text-decoration: none;
+        }
+
+       
+        /* 成果推荐hover样式     科技成果交易公示hover样式*/
+        #notificationBlock .block-scroll-item, #ATTF100 .block-scroll-item,  #ATTF1000 .block-scroll-item, #topicNews .block-scroll-item{
+            padding-top: 5px; 
+            border: 1px solid white;
+            border-radius: 5px;
+
+        }
+        #notificationBlock .block-scroll-item:hover, #ATTF100  .block-scroll-item:hover,  #ATTF1000  .block-scroll-item:hover, #topicNews .block-scroll-item:hover{
+            border: 1px solid #D0D0D0;
+            transform:Scale(1.07);
+            transition:all 200ms ease;
+            background: white;
+            opacity: 0.7;
+            box-shadow: 0 0 5px rgba(134,118,118,0.5);
+        }
+        #myCarousel1 .img{
+            height: 450px;
+        }
+    </style>
+    
+</head>
+<body style="background-color: #f0f3ef">
+    <div id="loadingMask"></div>
+     <!--#include virtual="/transinclude/front-header.html" -->
+    <!--改动 距离-->
+    <div class="wrapper" id="wrapper">
+        <div class="w" style="position: relative; margin-top: 10px;">
+
+            <!-- 轮播 -->
+            <div class="middle" style="height: auto; margin: 0">
+                <div id="myCarousel1" class="carousel slide" style="width:100%; "> <!--  id="myCarousel" -->
+                    <!-- 轮播（Carousel）指标 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel1" data-slide-to="1" class=""></li>
+                        <!-- <li data-target="#myCarousel1" data-slide-to="2" class=""></li> -->
+                        <li data-target="#myCarousel1" data-slide-to="3" class=""></li>
+                    </ol>
+                    <!-- 轮播（Carousel）项目 --> <!--style="height:200px"-->
+                    <div class="carousel-inner">
+                        <div class="item">
+                            <a data-i="0" href="/itemNewsinfo.html?type=5" target="_blank">
+                                <div class="img" data-i="0" style="background: url(img/001.png) center center; background-size: cover;"></div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a data-i="1" href="/itemNewsinfo.html?type=6" target="_blank">
+                                <div class="img" data-i="1" style="background: url(img/002.png) center center; background-size: cover;"></div>
+                            </a>
+                        </div>
+                        <!-- <div class="item">
+                            <a data-i="2" href="/itemNewsinfo.html?type=3" target="_blank">
+                                <div class="img" data-i="2" style="background: url(img/12.jpg) center center; background-size: cover;"></div>
+                            </a>
+                        </div> -->
+                        <div class="item">
+                            <a data-i="3" href="/itemNewsinfo.html?type=7" target="_blank">
+                                <div class="img" data-i="3" style="background: url(img/003.png) center center;  background-size:cover;"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+              
+                <!-- 专题新闻 -->
+                <!-- <div class="block-bottom" style="margin-top: 10px;">
+                    <div class="news" style="width: 100%; border: none;">
+                        <div class="block-head block-achieve-head" style="background-color: lightblue; padding-left: 10px; font-size: 16px; height: 40px;line-height: 40px; border-bottom: 1px solid #3A99FF">
+                            专题新闻
+                            <a style="float:right;margin-right:20px; color: black" href="news.html">更多>></a>
+                        </div>
+                
+                        <div class="news-list" style="position:relative;" > id="NewsBlock"
+                            <div class="news-item">
+                               <div class="new-title"><a href="itemNewsinfo.html" target="_blank">2019（首届）全国农业科技成果转化大会—“营养型农业产业发展论坛暨国家营养型农业科技创新联盟成立大会</a></div>
+                               <div class="new-time"></div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div> -->
+            </div>
+        </div>
+
+
+        <a name="noticeRequire"></a>
+
+        <div class="w" style="margin-top:10px;overflow: hidden">
+            <div class="block-view block-achieve" style="border: none;">
+                <div class="block-head block-achieve-head" style="background-color: lightblue; border-bottom: 1px solid #3B4BA0; color: #2954A3; font-weight: bold; font-size: 18px">
+                    <img src="img/26.jpg" alt="" style="width: 30px">&nbsp;&nbsp;专题新闻
+                    <a style="float:right;margin-right:14px;" href="javascript:;" target="_blank">更多>></a>
+                </div>
+                <div class="carousel slide">
+                    <div class="block-scroll-body carousel-inner" id="topicNews">
+
+                        <div class="item active">   
+                            
+                            <div class="block-scroll-item" style="width: 33%">
+                                <div>
+                                    <a href="/itemNewsinfo.html?type=8" target="_blank">
+                                        <div style="height:150px;width: 100%; background:url('img/00401.jpg') no-repeat center;background-size:100% 100%; border: 1px solid lightgray">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="block-title" title="2019（首届）全国农业科技成果转化大会"><a href="/itemNewsinfo.html?type=8" target="_blank">2019（首届）全国农业科技成果转化大会</a></div>
+                            </div>
+                            <div class="block-scroll-item" style="width: 33%">
+                                <div>
+                                    <a href="/itemNewsinfo.html?type=9" target="_blank">
+                                        <div style="height:150px;width: 100%; background:url('img/00501.png') no-repeat center;background-size:100% 100%; border: 1px solid lightgray">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="block-title" title="农业知识产权培训会在四川成都成功举办"><a href="/itemNewsinfo.html?type=9" target="_blank">农业知识产权培训会在四川成都成功举办</a></div>
+                            </div>
+                            <div class="block-scroll-item" style="width: 33%">
+                                <div>
+                                    <a href="/itemNewsinfo.html?type=10" target="_blank">
+                                        <div style="height:150px;width: 100%; background:url('img/00601.jpg') no-repeat center;background-size:100% 100%; border: 1px solid lightgray">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="block-title" title="乡村振兴与区域农业发展论坛"><a href="/itemNewsinfo.html?type=10" target="_blank">乡村振兴与区域农业发展论坛</a></div>
+                            </div>
+
+
+
+
+                            <div class="block-scroll-item" style="width: 33%">
+                                <div>
+                                    <a href="/itemNewsinfo.html?type=5" target="_blank">
+                                        <div style="height:150px;width: 100%; background:url('img/001.png') no-repeat center;background-size:100% 100%; border: 1px solid lightgray">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="block-title" title="关于召开“2019（首届）全国农业科技成果转化大会”的通知"><a href="/itemNewsinfo.html?type=5" target="_blank">2019（首届）全国农业科技成果转化大会在成都隆重召开</a></div>
+                            </div>
+                            <div class="block-scroll-item" style="width: 33%">
+                                <div>
+                                    <a href="/itemNewsinfo.html?type=6" target="_blank">
+                                        <div style="height:150px;width: 100%; background:url('img/002.png') no-repeat center;background-size:100% 100%; border: 1px solid lightgray">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="block-title" title="关于召开“2019（首届）全国农业科技成果转化大会”的通知"><a href="/itemNewsinfo.html?type=6" target="_blank">2019（首届）全国农业科技成果转化大会迎来开门红</a></div>
+                            </div>
+                            <div class="block-scroll-item" style="width: 33%">
+                                <div>
+                                    <a href="/itemNewsinfo.html?type=7" target="_blank">
+                                        <div style="height:150px;width: 100%; background:url('img/003.png') no-repeat center;background-size:100% 100%; border: 1px solid lightgray">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="block-title" title="关于召开“2019（首届）全国农业科技成果转化大会”的通知"><a href="/itemNewsinfo.html?type=7" target="_blank">营养型农业产业发展论坛暨国家营养型农业科技创新联盟成立大会成功举办</a></div>
+                            </div>
+
+
+
+                            <div class="block-scroll-item" style="width: 33%">
+                                <div>
+                                    <a href="/itemNewsinfo.html?type=1" target="_blank">
+                                        <div style="height:150px;width: 100%; background:url('img/4.jpg') no-repeat center;background-size:100% 100%; border: 1px solid lightgray">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="block-title" title="关于召开“2019（首届）全国农业科技成果转化大会”的通知"><a href="/itemNewsinfo.html?type=1" target="_blank">关于召开“2019（首届）全国农业科技成果转化大会”的通知</a></div>
+                            </div>
+                            <div class="block-scroll-item" style="width: 33%">
+                                <div>
+                                    <a href="/itemNewsinfo.html?type=2" target="_blank">
+                                        <div style="height:150px;width: 100%; background:url('img/5.jpg') no-repeat center;background-size:100% 100%; border: 1px solid lightgray">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="block-title" title="四新驱动“农业物联网、大数据与作物精准栽培论坛”"><a href="/itemNewsinfo.html?type=2" target="_blank">四新驱动“农业物联网、大数据与作物精准栽培论坛”</a></div>
+                            </div>
+                            <!-- <div class="block-scroll-item" style="width: 25%">
+                                <div>
+                                    <a href="/itemNewsinfo.html?type=3" target="_blank">
+                                        <div style="height:150px;width: 100%; background:url('img/8.jpg') no-repeat center;background-size:100% 100%; border: 1px solid lightgray">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="block-title" title="非洲猪瘟下生猪产业发展大会将在成都召开"><a href="/itemNewsinfo.html?type=3" target="_blank">非洲猪瘟下生猪产业发展大会将在成都召开</a></div>
+                            </div> -->
+                            <div class="block-scroll-item" style="width: 33%">
+                                <div>
+                                    <a href="/itemNewsinfo.html?type=4" target="_blank">
+                                        <div style="height:150px;width: 100%; background:url('img/7.jpg') no-repeat center;background-size:100% 100%; border: 1px solid lightgray">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="block-title" title="2019（首届）全国农业科技成果转化大会—“营养型农业产业发展论坛暨国家营养型农业科技创新联盟成立大会"><a href="/itemNewsinfo.html?type=4" target="_blank">2019（首届）全国农业科技成果转化大会—“营养型农业产业发展论坛暨国家营养型农业科技创新联盟成立大会</a></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w" style="margin-top:10px;overflow: hidden">
+            <div class="block-view block-achieve" style="border: none;">
+                <div class="block-head block-achieve-head" style="background-color: lightblue; border-bottom: 1px solid #3B4BA0; color: #2954A3; font-weight: bold; font-size: 18px">
+                    <img src="img/24.jpg" alt="" style="width: 30px">&nbsp;&nbsp;ATTF 国家科学技术奖
+                    <a style="float:right;margin-right:14px;" href="itemNotification.html?type=1" target="_blank">更多>></a>
+                </div>
+                <div class="carousel slide">
+                    <div class="block-scroll-body carousel-inner" id="notificationBlock">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="w" style="margin-top:10px;overflow: hidden">
+            <div class="block-view block-achieve" style="border: none;">
+                <div class="block-head block-achieve-head" style="background-color: lightblue;border: none; border-bottom: 1px solid #3B4BA0; color: #2954A3; font-weight: bold; font-size: 18px">
+                    <img src="img/25.jpg" alt="" style="width: 30px">&nbsp;&nbsp;ATTF 100项重大农业科技成果
+                    <a style="float:right;margin-right:14px;" href="itemNotification.html?type=2" target="_blank">更多>></a>
+                </div>
+                <div class="carousel slide">
+                    <div class="block-scroll-body carousel-inner" id="ATTF100" >
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="w" style="margin-top:10px;overflow: hidden">
+            <div class="block-view block-achieve" style="border: none;">
+                <div class="block-head block-achieve-head" style="background-color: lightblue;border: none; border-bottom: 1px solid #3B4BA0; color: #2954A3; font-weight: bold; font-size: 18px">
+                    <img src="img/27.jpg" alt="" style="width: 30px">&nbsp;&nbsp;ATTF 1000项优秀农业科技成果
+                    <a style="float:right;margin-right:14px;" href="itemNotification.html?type=3" target="_blank">更多>></a>
+                </div>
+                <div class="carousel slide">
+                    <div class="block-scroll-body carousel-inner" id="ATTF1000">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script type="text/html" id="template_publicitylist">
+        {{each data as item i}}
+        <div class="item">
+            <a href="/PublicityDetail.html?id={{item.ID}}" target="_blank">
+                <div class="img" style="background:url({{item.ImagePath}}) center center;background-size:cover;"></div>
+                <p class="text" style="text-align: center;">{{item.AchieveName}}</p>
+            </a>
+        </div>
+        {{/each}}
+    </script>
+
+    <!--中间轮播图片信息-->
+    <script id="template" type="text/html">
+
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            {{each ImageVideo.resultData as item i}}
+            {{if item.type == 0}}
+            <li data-target="#myCarousel" data-slide-to="{{i}}" class="{{i == 0 ? 'active':''}}"></li>
+            {{/if}}
+            {{/each}}
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            {{if ImageVideo.resultData.length > 0}}
+
+                {{each ImageVideo.resultData as item i}}
+                    {{if item.type == 0}}
+
+                        {{if item.NewsName =='首届全国种公牛拍卖'}}
+                            <div class="item">
+                                <a data-i={{i}} href="newsinfoZD.html" target="_blank">
+                                    <div class="img" data-i={{i}} style="background: #fff url('{{item.Url}}') no-repeat center center; background-size: cover;"></div>
+                                </a>
+                            </div>
+                        {{else if item.NewsName == '首届中国（三亚）国际水稻论坛'}}
+                            <div class="item">
+                                <a data-i={{i}} href="news_rice.html" target="_blank">
+                                    <div class="img" data-i={{i}} style="background: #fff url('{{item.Url}}') no-repeat center center; background-size: cover;"></div>
+                                </a>
+                            </div>
+                        {{else}}
+                            <div class="item">
+                                <a href="newsinfo.html?id={{item.newsid}}" target="_blank">
+                                    <div class="img" data-i={{i}} style="background: #fff url('{{item.Url}}') no-repeat center center; background-size: cover;"></div>
+                                </a>
+                            </div>
+                        {{/if}}
+                        
+                      
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+
+        </div>
+
+    </script>
+
+ 
+    <!--新闻奖-->
+    <script id="notificationTemplate" type="text/html">
+        <div class="item active">
+            {{each data as item i}}
+            <!-- {{if i>=0 && i <= 9}} -->
+            <div class="block-scroll-item">
+                <div>
+                    <a href="achievementinfo.html?id={{item.AchID}}" target="_blank">
+                        <!-- <img style="border-radius:6px;width:100%;height:150px;" src="{{item.Pic ? item.Pic:'/assets/img/place.jpg'}}" alt="暂无图片或图片出错"> -->
+                        <div style="height:150px;width: 100%; background:url({{item.Pic ? item.Pic:'./assets/img/place.jpg'}}) no-repeat center;background-size:100% 100%; border: 1px solid lightgray">
+                        </div>
+                    </a>
+                </div>
+                <div class="block-title" title="{{item.AchieveName}}"><a href="achievementinfo.html?id={{item.AchID}}" target="_blank">{{item.AchieveName}}</a></div>
+            </div>
+            <!-- {{/if}} -->
+            {{/each}}
+        </div>
+    </script>
+
+
+    <!--机构推荐-->
+    <script id="organizationTemplate" type="text/html">
+        {{each data as item i}}
+        <div class="block-item">
+            <div class="block-title"><a href="company.html?name={{item.AgencyName}}" target="_blank">{{item.AgencyName}}</a></div>
+        </div>
+        {{/each}}
+    </script>
+
+    <!--需求推荐列表-->
+    <script id="requireTemplate" type="text/html">
+        {{each data as item i}}
+        <div class="block-item">
+            <div class="block-title"><a href="requireDetail.html?id={{item.ID}}" target="_blank">{{item.RequireName}}</a></div>
+        </div>
+        {{/each}}
+    </script>
+
+    <!--新闻动态列表-->
+    <script id="NewsTemplate" type="text/html">
+        {{each data as item i}}
+            {{if item.NewsTitle == "首届全国种公牛拍卖"}}
+            <div class="news-item">
+                <div class="new-title"><a href="newsinfoZD.html" target="_blank">{{item.NewsTitle}}</a></div>
+            </div>
+            {{else}}
+            <div class="news-item">
+                <div class="new-title"><a href="newsinfo.html?id={{item.ID}}" target="_blank" >{{item.NewsTitle}}</a></div>
+            </div>
+            {{/if}}
+            
+        {{/each}}
+    </script>
+
+
+
+    <script id="noticeTemplate" type="text/html">
+        {{each data as item i}}
+        <tr>
+            <td>{{item.Classify}}</td>
+            <td>{{item.Name}}</td>
+            <td>{{item.WeighNum}}</td>
+            <td>{{item.CreateDate}}</td>
+            <td>{{item.OwnerCompany}}</td>
+        </tr>
+        {{/each}}
+    </script>
+
+    <script id="noticeTemplate2" type="text/html">
+        {{each data as item i}}
+        <tr>
+            <td>{{item.PatentName}}</td>
+            <td>{{item.InventUnit}}</td>
+            <td>{{item.AverageScore}}</td>
+        </tr>
+        {{/each}}
+    </script>
+    <script src="theItem.js?v=asd0fu34rj"></script>
+    <!--#include virtual="/transinclude/front-footer.html" -->

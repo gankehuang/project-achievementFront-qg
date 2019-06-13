@@ -1,0 +1,267 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+    <!--#include virtual="/transinclude/meta.html" -->
+    <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/nav.html" -->
+<div class="col-md-12">
+    <ul id="breadcrumb">
+        <li><a href="/index.html"><span class="icon icon-home"> </span>首页</a></li>
+        <li><a href="javascript:void(0);"><span class="icon icon-beaker"> </span>用户中心首页</a></li>
+    </ul>
+
+    <div class="col-body">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="background-color: #3a5170;color:#fff">竞价情况</div>
+            <div class="panel-body">
+                <table class="table table-striped table-bordered table-hover" id="dataTable1">
+                    <thead>
+                    <tr>
+                        <th style="width:120px;">相关成果（图片）</th>
+                        <th>名称</th>
+                        <th>现价</th>
+                        <th>角色</th>
+                        <th style="width:350px;">
+                            <div style="display: flex">
+                                <div style="flex:1">
+                                    时间
+                                </div>
+                                <div style="flex:1">
+                                    价格
+                                </div>
+                            </div>
+                        </th>
+                        <th>成果详情</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" style="background-color: #3a5170;color:#fff">议价情况</div>
+            <div class="panel-body">
+                <table class="table table-striped table-bordered table-hover" id="dataTable2">
+                    <thead>
+                    <tr>
+                        <th>相关成果（图片）</th>
+                        <th>名称</th>
+                        <th>角色</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" style="background-color: #3a5170;color:#fff">自荐情况</div>
+            <div class="panel-body">
+                <table class="table table-striped table-bordered table-hover" id="dataTable3">
+                    <thead>
+                    <tr>
+                        <th>需求名称</th>
+                        <th>角色</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--竞价查看-->
+<div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" vertical-align=" middle">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="H1">
+                    竞价列表
+                </h4>
+
+            </div>
+
+            <div class="modal-body">
+                成果名称：
+                <table id="Table1" class="table table-striped table-bordered table-hover dataTables-example">
+                    <thead>
+                    <th>竞价者</th>
+                    <th>竞价</th>
+                    <th>时间</th>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--议价查看-->
+<div class="modal fade" id="checkModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" vertical-align=" middle">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="H2">
+                    议价列表
+                </h4>
+
+            </div>
+            <div class="modal-body">
+                成果名称：<span id="achName"></span>
+                <table id="Table2" class="table table-striped table-bordered table-hover dataTables-example">
+                    <thead>
+                    <th>议价者</th>
+                    <th>议价内容</th>
+                    <th>时间</th>
+                    <th>操作</th>
+
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="chatlist" id="chatlist">
+                    <!--
+                    <div class="chat me">
+                        <div class="name">我</div>
+                        <div class="text">nihaoeererererere</div>
+                    </div>
+                    <div class="chat other">
+                        <div class="name">网三</div>
+                        <div class="text">nihaoeererererere</div>
+                    </div>
+                    -->
+                </div>
+                <form id="disscussForm">
+                    <input type="hidden" name="disscussID"/>
+                    <input type="hidden" name="acheID"/>
+                    <textarea name="message" class="form-control" rows="3" ></textarea>
+                    <button type="button" class="btn btn-default pull-right" id="sendDisscuss">
+                        回复
+                    </button>
+                </form>
+                <br><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+
+<!-- 确认交易 -->
+<div class="modal fade" id="tradeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" vertical-align=" middle">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    确认交易
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="tradeForm">
+                    <input name="discussID" type="hidden">
+                    <div class="form-group" id="KeyNameList">
+                        <label class="col-md-4 control-label">交易金额</label>
+                        <div class="col-md-8">
+                            <input id="price" name="price" type="text" class="form-control" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+                <button type="button" class="btn btn-default submit">
+                    提交
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+
+<script id="template1" type="text/html">
+    {{each resultData as item i}}
+    <tr>
+        <td>{{item.CompetePerson}}</td>
+        <td>{{item.CompetePrice}}</td>
+        <td>{{item.CompeteDate}}</td>
+    </tr>
+    {{/each}}
+</script>
+
+
+
+<script id="template2" type="text/html">
+    {{each resultData as item i}}
+    <tr>
+        <td>
+            <a class="detail" href="javascript:void(0)" data-id="{{item.ID}}" data-name="{{item.DiscussPerson}}">{{item.DiscussPerson}}</a>
+            <a href="javascript:void(0);" class="pop-person"  data-id="{{item.UserID}}"><span class="glyphicon glyphicon-info-sign"></span></a>
+        </td>
+        <td>{{item.DiscussContent}}</td>
+        <td>{{item.DiscussDate}}</td>
+        <td>
+            {{if item.IsTradeShow}}
+            <button data-id="{{item.ID}}" class="trade">发起交易</button>
+            {{/if}}
+            {{if item.IsComfirmShow}}
+            <button data-id="{{item.ID}}" class="confirm">确认交易</button>
+            <button data-id="{{item.ID}}" class="refuse">拒绝交易</button>
+            {{/if}}
+        </td>
+    </tr>
+    {{/each}}
+</script>
+
+
+<script id="template3" type="text/html">
+    {{each resultData as item i}}
+    <div class="chat {{ item.UserID == userId ? 'me':'other'}}">
+        <div class="name">{{item.UserID == userId ? '我':item.UserName }}</div>
+        <div class="text">{{item.DiscussContent}}</div>
+    </div>
+    {{/each}}
+</script>
+
+
+<script src="index.js"></script>
+<!--#include virtual="/transinclude/footer.html" -->

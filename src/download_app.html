@@ -1,0 +1,106 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+
+    <!--#include virtual="/transinclude/front-meta.html" -->
+    <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+    <script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+    <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+    <title>全国农业科技成果转移服务中心</title>
+  
+    <link href="../css/main.css" rel="stylesheet" />
+    <style type="text/css">
+        .content{
+            color: #F9983F;
+        }
+        .btn-list{
+            padding: 0;
+        }
+        .btn-list .item{
+            display: inline-block;
+            width: 100%;
+            height: 200px;
+            font-size: 16px;
+            line-height: 50px;
+            cursor: initial;
+        }
+        .btn-list .item:nth-child(n+2){
+            margin-top: 30px;
+        }
+        .btn-list .item .icon{
+            display: inline-block;
+            width: 30px;
+            margin: -5px 10px 0 0;
+            vertical-align: middle;
+        }
+        .btn-list .item .content{
+            margin: 0 auto;
+            padding: 15px;
+            width: 180px;
+            height: 180px;
+            border: 1px solid #F9983F;
+            border-radius: 10px;
+            background: white;
+        }
+        .btn-list .item .qrcode{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!--#include virtual="/transinclude/front-header.html" -->
+    <!--改动 距离-->
+    <div class="container" style="width:100%;height:600px;margin-bottom:50px;padding: 20px 50px 50px;text-align: center;">
+        <h3 style="margin: 0 auto 50px;">APP下载</h3>
+        <img src="../Download/img/app_screen.png" style="height: 500px;" />
+        <div class="content" style="width: 300px;height: 500px;display: inline-block;vertical-align: top;margin-left:100px;">
+            <ul class="btn-list">
+                <li class="item android">
+                    <img class="icon" src="../Download/img/Android.png" />Android版
+                    <div class="content">
+                        <div class="qrcode"></div>
+                    </div>
+                </li>
+                <li class="item iPhone">
+                    <img class="icon" src="../Download/img/iPhone.png" />iPhone版
+                    <div class="content">
+                        <div class="qrcode"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+   
+
+    <script type="text/javascript" src="/assets/js/jquery.qrcode.min.js"></script>
+    <script>
+        Util.pageinit();
+
+        $(function(){
+            // 生成android版下载二维码
+            $('.android .qrcode').qrcode({
+              render: "canvas",
+              width: 150,
+              height: 150,
+              text: 'http://www.agrittex.com/download/app/android/achievement-android-1.0.apk'
+            });
+
+            // 生成iphone版下载二维码
+            $('.iPhone .qrcode').qrcode({
+              render: "canvas",
+              width: 150,
+              height: 150,
+              text: 'https://itunes.apple.com/cn/app/成果平台/id1373151153?mt=8'
+            });
+        });
+
+        // function toDownloadAndroid(){
+        //     window.open("http://www.agrittex.com/download/app/android/achievement-android-1.0.apk", "_blank");
+        // }
+
+        // function toDownloadiPhone(){
+        //     alert('正在上线审核中，敬请期待！')
+        // }
+    </script>
+
+    <!--#include virtual="/transinclude/front-footer.html" -->

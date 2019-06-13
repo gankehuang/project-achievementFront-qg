@@ -1,0 +1,307 @@
+﻿<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+    <!--#include virtual="/transinclude/meta.html" -->
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/nav.html" -->
+
+<div class="col-md-12">
+    <ul id="breadcrumb">
+        <li><a href="/index.html"><span class="icon icon-home"> </span>首页</a></li>
+        <li><a href="javascript:void(0);"><span class="icon icon-beaker"> </span>审核用户</a></li>
+    </ul>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form id="formSearchInfo">                  
+                    <div class="col-md-12 form-inline">
+                        <label>姓名</label>&nbsp;&nbsp;
+                        <input type="text" class="form-control" placeholder="姓名" name="Name">&nbsp;&nbsp;
+                        <label>单位性质</label>&nbsp;&nbsp;
+                        <select class="form-control" name="Properties" id="properties">
+                            <option value="0">全部</option>
+                            <option value="1">高校</option>
+                            <option value="2">企业</option>
+                            <option value="3">科研单位</option>
+                        </select>  &nbsp;&nbsp;
+                        <label>审核状态</label>&nbsp;&nbsp;
+                        <select class="form-control" name="IsApprove">
+                            <option value="">全部</option>
+                            <option value="1">通过</option>
+                            <option value="0">未通过</option>
+                        </select>
+                        <button class="btn btn-info" id="searchBtn">
+                            <span class="glyphicon glyphicon-search"></span>&nbsp;搜 索
+                        </button>
+                        <button class="btn btn-default" id="resetBtn">
+                            <span class="glyphicon glyphicon-repeat"></span>&nbsp;全 部
+                        </button>                 
+                    </div>
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-title">
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active" id="naturalperson1">
+                <a href="#naturalperson" data-toggle="tab">自然人账户</a>
+            </li>
+            <!-- <li><a href="#deparmentperson" data-toggle="tab">自然人(所级分配)账户</a></li> -->
+            <li id="legalPerson"><a href="#legalperson" data-toggle="tab">法人账户</a></li>
+        </ul>
+    </div>
+ 
+
+    <!--<div class="col-body">
+        <table class="table table-striped table-bordered table-hover table-new" id="dataTable">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>账号</th>
+                <th>账号类型</th>
+                <th>成果（数量）</th>
+                <th>竞价（数量）</th>
+                <th>议价（数量）</th>
+                <th>交易（数量）</th>
+                <th>详情</th>
+                <th>审核</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>-->
+    <div id="myTabContent" class="tab-content col-md-12 col-body">
+        <div class="tab-pane fade in active" id="naturalperson">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered table-hover" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>姓名</th>
+                                <th>账号</th>
+                                <th>账号类型</th>
+                                <th>联系人</th>
+                                <th>成果（数量）</th>
+                                <th>竞价（数量）</th>
+                                <th>议价（数量）</th>
+                                <th>交易（数量）</th>
+                                <th>详情</th>
+                                <th>审核</th>
+                                <th>状态更新</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- 自然人（所级分配）账户 -->
+        <!-- <div class="tab-pane fade" id="deparmentperson">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered table-hover" id="dataTable1">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>姓名</th>
+                                <th>账号</th>
+                                <th>账号类型</th>
+                                <th>联系人</th>
+                                <th>成果（数量）</th>
+                                <th>竞价（数量）</th>
+                                <th>议价（数量）</th>
+                                <th>交易（数量）</th>
+                                <th>详情</th>
+                                <th>审核</th>
+                                <th>状态更新</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="tab-pane fade" id="legalperson">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered table-hover" id="dataTable2">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>姓名</th>
+                                <th>账号</th>
+                                <th>账号类型</th>
+                                <th>单位性质</th>
+                                <th>联系人</th>
+                                <th>成果（数量）</th>
+                                <th>竞价（数量）</th>
+                                <th>议价（数量）</th>
+                                <th>交易（数量）</th>
+                                <th>已分配账户（数量）</th>
+                                <th>详情</th>
+                                <th>审核</th>
+                                <th>状态更新</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+    <!--不通过原因短信邮件发送弹出框-->
+    <div class="modal fade" id="tradeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" vertical-align=" middle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">
+                        不通过原因
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="tradeForm">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">发送方式</label>
+                            <div class="col-md-4">
+                                <!--<select class="form-control" name="SendWay" id="SendWay" onchange="choose(this)" required>
+                                    <option value="2">请选择</option>
+                                    <option value="1">邮件发送</option>
+                                    <option value="0">短信发送</option>
+                                </select>-->
+
+                                <input type="checkbox" name="way" id="checkyj" value="1" />邮件发送 
+                                <input type="checkbox" name="way" id="checkdx" value="2" />短信发送 
+                            </div>
+                        </div>
+                        <!--邮件发送-->
+                        <div id="Mail" style="display:none;">
+                            <div class="form-group" id="MailContent">
+                                <label class="col-md-4 control-label">邮箱</label>
+                                <div class="col-md-4">
+                                    <input type="text" name="LoginName" class="form-control" id="LoginName" readonly />
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">邮件内容</label>
+                                <div class="col-md-8">
+                                    <!--<input id="reason" name="reason" type="text" class="form-control" value="此成果未审核通过，原因为：" required>-->
+                                    <textarea name="mail" class="form-control" rows="3" id="youxiang"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <!--短信发送-->
+                        <div id="Phone" style="display:none;">
+                            <div class="form-group" id="PhoneContent">
+                                <label class="col-md-4 control-label">手机号码</label>
+                                <div class="col-md-4">
+                                    <input type="text" name="Phone" class="form-control" id="Call" readonly />
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">短信内容</label>
+                                <div class="col-md-8">
+                                    <!--<input id="reason" name="reason" type="text" class="form-control" value="此成果未审核通过，原因为：" required>-->
+                                    <textarea name="message" class="form-control" rows="3" id="tel"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                    <button type="button" class="btn btn-default submit">
+                        提交
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <script>
+        //function choose(ch) {
+        //    var value = $(ch).val();
+        //    if (value == 2) {
+        //        $(ch).prop("required", true);
+        //        $("#Mail").hide();
+        //        $("#Phone").hide();
+        //    }
+        //    else if (value == 1) {
+        //        $("#Mail").show();
+        //        $("#Phone").hide();
+        //    }
+        //    else if (value == 0) {
+        //        $("#Phone").show();
+        //        $("#Mail").hide();
+        //    }
+        //}
+        var yj = false;
+        $("#checkyj").on("click", function (e) {
+                if (this.checked == true) {
+                    $("#Mail").show();
+                    if ($("#youxiang").val().length == 0) {
+                        $("#youxiang").val('此用户信息审核未通过，原因为：');
+                    }
+                    //$("#Phone").hide();
+                    //$("#tel").val("");
+                    yj = true;
+                    //if (dx == true) {
+                    //    $("#Phone").show();
+                    //    $("#youxiang").val("");
+                    //}
+                    //else {
+                    //    $("#Phone").hide();
+                    //    $("#tel").val("");
+                    //}
+                }
+                else {
+                    this.checked = false;
+                    $("#Mail").hide();
+                    $("#youxiang").val("");
+                    yj = false;
+                }
+        });
+        var dx = false;
+        $("#checkdx").on("click", function (e) {
+                if (this.checked == true) {
+                    $("#Phone").show();
+                    if ($("#tel").val().length == 0) {
+                        $("#tel").val('此用户信息审核未通过，原因为：');
+                    }
+                    //$("#Mail").hide();
+                    //$("#youxiang").val("");   
+                    dx = true;
+                    //if (yj == true) {
+                    //    $("#Mail").show();
+                    //    $("#tel").val("");
+                    //}
+                    //else {
+                    //    $("#Mail").hide();
+                    //    $("#youxiang").val("");
+                    //}
+                }
+                else {
+                    this.checked = false;
+                    $("#Phone").hide();
+                    $("#tel").val("");
+                    dx = false;
+                }           
+        });
+    </script>
+
+<script src="index.js"></script>
+<!--#include virtual="/transinclude/footer.html" -->

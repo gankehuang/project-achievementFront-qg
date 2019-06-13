@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Bootstrap Advance Admin Template</title>
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!--CUSTOM BASIC STYLES-->
+    <link href="assets/css/basic.css" rel="stylesheet" />
+    <!--CUSTOM MAIN STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
+
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border-left: 1px solid #46A3FF;
+            border-top: 1px solid #46A3FF;
+            /*background: #efefef;*/
+        }
+
+        th, td {
+            border-right: 1px solid #46A3FF;
+            border-bottom: 1px solid #46A3FF;
+            padding: 5px 5px 5px;
+        }
+
+        th {
+            font-weight: bold;
+            background: #ccc;
+        }
+
+        input[type='text'] {
+            width: 200px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse set-radius-zero">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+
+                    <img src="/assets/img/logo1.png" />
+                </a>
+
+            </div>
+
+            <div class="right-div col-lg-8">
+
+                <div class="input-group">
+                    <input type="text" placeholder="请输入关键字" class="input-sm form-control"> <span class="input-group-btn">
+                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button>
+                    </span>
+                </div>
+                <!--</div>-->
+                <!--<a href="#" class="btn btn-danger pull-right">注册</a>
+                <a href="#" class="btn btn-danger pull-right">登录</a>-->
+            </div>
+
+        </div>
+    </div>
+    <div id="wrapper" style=" margin-top: 50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-2 col-xs-6" style=" background-color :#5bc0de ;color :black ;height :80%">
+                    <div class="sidebar-collapse" style="z-index: 1; position: absolute;width: 240px;">
+                        <ul class="nav" id="main-menu">
+
+                            <li>
+                                <a href="#" class="active-menu-top"><i class="fa fa-desktop "></i>成果管理 <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level collapse in">
+                                    <!--<li>
+            <a class="active-menu-top" href="panel-tabs.html"><i class="fa fa-toggle-on"></i>发布成果</a>
+        </li>-->
+                                    <li>
+                                        <a  href="notification.html"><i class="fa fa-bell "></i>成果管理</a>
+                                    </li>
+                                    <li>
+                                        <a href="Records.html"><i class="fa fa-circle-o "></i>交易记录</a>
+                                    </li>
+                                    <!--<li>
+            <a href="RequireCommand.html"><i class="fa fa-eyedropper "></i>需求推荐</a>
+        </li>-->
+
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-yelp "></i>需求管理 <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <!--<li>
+                    <a href="invoice.html"><i class="fa fa-coffee"></i>发布需求</a>
+                </li>-->
+                                    <li>
+                                        <a href="RequireMain.html"><i class="fa fa-flash "></i>需求管理</a>
+                                    </li>
+                                    <li>
+                                        <a href="TransRecords.html"><i class="fa fa-key "></i>交易记录</a>
+                                    </li>
+                                    <!--<li>
+                    <a href="ResultCommand.html"><i class="fa fa-send "></i>成果推荐</a>
+                </li>-->
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="ReviewManage.html"><i class="fa fa-flash "></i>审核管理 </a>
+
+                            </li>
+                            <li>
+                                <a  href="index.html"><i class="fa fa-anchor "></i>竞价大厅</a>
+                            </li>
+                            <li>
+                                <a href="tradingCenter.html"><i class="fa fa-bug "></i>交易中心</a>
+                            </li>
+                             <li>
+                                <a href="#" ><i class="fa fa-yelp "></i>用户管理<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level ">
+                                    <li>
+                                        <a href="UserManage.html" ><i class="fa fa-flash "></i>审核用户</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bicycle "></i>个人中心 <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <!--<li>
+                    <a href="Time.html"><i class="fa fa-code "></i>时间轴</a>
+                </li>-->
+                                    <li>
+                                        <a href="form.html"><i class="fa fa-desktop "></i>基本信息 </a>
+                                    </li>
+                                    <li>
+                                        <a href="form-advance.html"><i class="fa fa-code "></i>密码修改</a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--</nav>-->
+                <!-- /. NAV SIDE  -->
+                <div id="page-wrapper">
+                    <div id="page-inner">
+                        <div class="row">
+                            <div class="col-md-10 col-sm-10 col-xs-6">
+                                <a href="/index.html">首页</a> >> <a href="javascript:void(0);">发布成果</a>
+                                <table cellspacing="0" cellpadding="0" align="center" style="color: #333333;
+                    width: 100%;">
+                                    <tr>
+                                        <td colspan="4" style="text-align:left"><strong>温馨提示带<font color="red">*</font>的为必填项</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><font color="red">*</font><strong>成果名称：</strong></td>
+                                        <td colspan="3"><input type="text" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><font color="red">*</font><strong>成果简介：</strong></td>
+                                        <td colspan="3"><textarea rows="5" cols="60" id="chatText"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><font color="red">*</font><strong>成果关键词：</strong></td>
+                                        <td colspan="3">
+                                            <input type="text" style="width:100px;" />&nbsp;<input type="text" style="width:100px;" />&nbsp;<input type="text" style="width:100px;" />
+                                            &nbsp;<input type="text" style="width:100px;" />&nbsp;<input type="text" style="width:100px;" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>研发起止时间：</strong></td>
+                                        <td colspan="3"><input type="date" style="height:25px" />至<input type="date" style="height:25px" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>成果权属类型：</strong></td>
+                                        <td colspan="3">
+                                            <input type="radio" checked value="option1" id="optionsRadios1" name="optionsRadios" />独占
+                                            <input type="radio" value="option1" id="Radio1" name="optionsRadios" />共有
+                                            <input type="radio" value="option1" id="Radio2" name="optionsRadios" />其他
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>产权归属的国家和地区：</strong></td>
+                                        <td colspan="3">
+                                            <input type="radio" checked value="option1" id="Radio3" name="Radios" />中国大陆地区 &nbsp;
+                                            <select name="">
+                                                <option selected>北京市（京）</option>
+                                                <option>选项 2</option>
+                                                <option>选项 3</option>
+                                                <option>选项 4</option>
+                                            </select><br />
+                                            <input type="radio" value="option1" id="Radio4" name="Radios" />中国港澳台地区<br />
+                                            <input type="radio" value="option1" id="Radio5" name="Radios" />国外<br />
+                                            <input type="radio" value="option1" id="Radio6" name="Radios" />国内外合作<br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>产权归属单位<br />（或归属人）：</strong></td>
+                                        <td colspan="3"><input type="text" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>知识产权编号：</strong></td>
+                                        <td colspan="3">
+                                            <p /><input type="checkbox" value="option1" id="inlineCheckbox1" />品种审定、认定和鉴定证书编号：<input type="text" /><p />
+                                            <input type="checkbox" value="option2" id="inlineCheckbox2" />植物新品种权编号：<input type="text" /><p />
+                                            <input type="checkbox" value="option3" id="inlineCheckbox3" />专利号：<input type="text" /><p />
+                                            <input type="checkbox" value="option2" id="Checkbox1" />计算机软件著作权号：<input type="text" /><p />
+                                            <input type="checkbox" value="option3" id="Checkbox2" />其他类别及编号：<input type="text" /><p />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>所属领域：<font color="red">（可多选）</font></strong></td>
+                                        <td colspan="3">
+                                            <input type="checkbox" value="option1" id="Checkbox3" />种业<br />
+                                            <input type="checkbox" value="option2" id="Checkbox4" />种植<br />
+                                            <input type="checkbox" value="option3" id="Checkbox5" />养殖<br />
+                                            <input type="checkbox" value="option4" id="Checkbox6" />农产品与食品加工、储藏与物流<br />
+                                            <input type="checkbox" value="option5" id="Checkbox7" />植物保护<br />
+                                            <input type="checkbox" value="option6" id="Checkbox8" />动物疫病防控<br />
+                                            <input type="checkbox" value="option7" id="Checkbox9" />资源与环境<br />
+                                            <input type="checkbox" value="option8" id="Checkbox10" />农机装备与农业设施<br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>是否新型产业：</strong></td>
+                                        <td colspan="3">
+                                            <input type="radio" checked value="option1" id="Radio7" name="Radios1" />是
+                                            &nbsp;请选择产业：
+                                            <input type="radio" value="option2" id="Radio9" name="Radios2" />节能环保
+                                            <input type="radio" value="option3" id="Radio10" name="Radios2" />生物产业
+                                            <input type="radio" value="option4" id="Radio11" name="Radios2" />新能源
+                                            <input type="radio" value="option5" id="Radio12" name="Radios2" />新材料
+                                            <input type="radio" value="option6" id="Radio13" name="Radios2" />其他国家或者地方政府优先支持发展的产业<input type="text" /><br />
+                                            <input type="radio" value="option7" id="Radio8" name="Radios1" />否
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>成果成熟度：</strong></td>
+                                        <td colspan="3">
+                                            <input type="radio" checked value="option1" id="Radio14" name="Radios3" />可以量产
+                                            <input type="radio" value="option2" id="Radio15" name="Radios3" />通过中试
+                                            <input type="radio" value="option3" id="Radio16" name="Radios3" />通过小试
+                                            <input type="radio" value="option4" id="Radio17" name="Radios3" />已有样品
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>技术水平：</strong></td>
+                                        <td colspan="3">
+                                            <input type="radio" value="option1" id="Radio18" name="Radios4" />国际领先
+                                            <input type="radio" value="option2" id="Radio19" name="Radios4" />国际先进
+                                            <input type="radio" value="option3" id="Radio20" name="Radios4" />国内领先
+                                            <input type="radio" value="option4" id="Radio21" name="Radios4" />国内先进
+                                            <input type="radio" value="option4" id="Radio22" name="Radios4" />国内一般
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>成果获奖情况：</strong></td>
+                                        <td colspan="3"><textarea rows="5" cols="60" id="Textarea1"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>是否经过第三方评估：</strong></td>
+                                        <td colspan="3">
+                                            <input type="radio" value="option1" id="Radio23" name="Radios5" />是
+                                            <input type="radio" value="option2" id="Radio24" name="Radios5" />否
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>预期交易方式：</strong></td>
+                                        <td colspan="3">
+                                            <input type="radio" value="option1" id="Radio25" name="Radios6" />完全转让
+                                            <input type="radio" value="option2" id="Radio26" name="Radios6" />许可转让
+                                            <input type="radio" value="option1" id="Radio27" name="Radios6" />许可实施
+                                            <input type="radio" value="option2" id="Radio28" name="Radios6" />技术入股
+                                            <input type="radio" value="option1" id="Radio29" name="Radios6" />合作开发
+                                            <input type="radio" value="option2" id="Radio30" name="Radios6" />其他
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>预期交易价格：</strong></td>
+                                        <td colspan="3">
+                                            <input type="text" style="width:100px;" onkeyup="value=value.replace(/[^\d.]/g,'')" />至
+                                            <input type="text" style="width:100px;" onkeyup="value=value.replace(/[^\d.]/g,'')" />万元
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>转化所需条件和成果应用注意事项：</strong></td>
+                                        <td colspan="3"><textarea rows="5" cols="60" id="Textarea2"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4"><strong>联系方式</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>联系人及联系部门：</strong></td>
+                                        <td><input type="text" /></td>
+                                        <td align="right"><strong>联系电话：</strong></td>
+                                        <td><input type="text" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>传真：</strong></td>
+                                        <td><input type="text" /></td>
+                                        <td align="right"><strong>手机：</strong></td>
+                                        <td><input type="text" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>E-mail：</strong></td>
+                                        <td><input type="text" /></td>
+                                        <td align="right"><strong>联系地址（邮编）：</strong></td>
+                                        <td><input type="text" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4"><strong>成果有关情况说明</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>成熟度说明：</strong></td>
+                                        <td colspan="3"><textarea rows="5" cols="60" id="Textarea3"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>知识产权情况说明：</strong></td>
+                                        <td colspan="3"><textarea rows="5" cols="60" id="Textarea4"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>推广情况说明：</strong></td>
+                                        <td colspan="3"><textarea rows="5" cols="60" id="Textarea5"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>有无合作案例：</strong></td>
+                                        <td colspan="3">
+                                            <input type="radio" value="option1" id="Radio31" name="Radios6" />有
+                                            <input type="radio" value="option2" id="Radio32" name="Radios6" />无
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>相关图片上传：<></td>
+                                        <td style="border-right-style:none;"><input type="button" value="添加下一张图片" /><div style="margin-top:4px"><img src="assets/img/1.jpg" width="100px" height="100px" alt="" /></div><a>删除</a></td>
+                                        <td colspan="2" style="border-left-style:none;">
+                                            <p />图片名称：<input type="text" /><p />
+                                            图片说明：<br /><textarea rows="3" cols="30" id="Textarea6"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><strong>相关视频上传：<></td>
+                                        <td style="border-right-style:none;"><input type="button" value="添加下一个视频" /><div style="margin-top:4px"><img src="assets/img/1.jpg" width="100px" height="100px" alt="" /></div><a>删除</a></td>
+                                        <td colspan="2" style="border-left-style:none;">
+                                            <p />视频名称：<input type="text" /><p />
+                                            视频说明：<br /><textarea rows="3" cols="30" id="Textarea7"></textarea>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td align="right" width="25%"><strong><font color="red">*</font>是否公开证明信息：</strong></td>
+                                        <td colspan="3">
+                                            <input type="radio" value="option1" id="Radio33" name="Radios7" />是
+                                            <input type="radio" value="option2" id="Radio34" name="Radios7" />否
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" align="right" style="padding-right:20px">
+                                            <button type="submit">提交</button>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /. PAGE INNER  -->
+                </div>
+                <!-- /. PAGE WRAPPER  -->
+            </div>
+        </div>
+    </div>
+            <!-- /. WRAPPER  -->
+    <div id="footer-sec">
+        &copy; 2014 YourCompany | More Templates <a href="" target="_blank" title="联系我们">联系我们</a> - Collect from <a href="/" title="关于我们" target="_blank">关于我们</a>
+    </div>
+            <!-- /. FOOTER  -->
+            <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+            <!-- JQUERY SCRIPTS -->
+            <script src="assets/js/jquery-1.10.2.js"></script>
+            <!-- BOOTSTRAP SCRIPTS -->
+            <script src="assets/js/bootstrap.js"></script>
+            <!-- METISMENU SCRIPTS -->
+            <script src="assets/js/jquery.metisMenu.js"></script>
+            <!-- CUSTOM SCRIPTS -->
+            <script src="assets/js/custom.js"></script>
+
+
+</body>
+</html>

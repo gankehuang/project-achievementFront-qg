@@ -1,0 +1,593 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+    <!--#include virtual="/transinclude/front-meta.html" -->
+    <title>成果详情</title>
+    <link href="css/main.css" rel="stylesheet" />
+    <style>
+        #img_min, #img_max{  
+            overflow: hidden; 
+            cursor: crosshair ;
+        }
+        #img_max{  
+            display: none;
+            z-index: 999;  
+              
+        }  
+        #img_max>img{  
+            position: absolute;  
+            top: 0;  
+            left: 0;  
+            display: block;  
+            width: 1500px;  
+        }  
+        #mousebg{  
+            display: none;  
+            position: absolute;  
+            width: 60px;  
+            height: 60px;  
+            background-color: rgba(255,255,255,.7);  
+            top: 0;  
+            left: 0;  
+            z-index: 0;
+        }
+       
+        #topInfo .margin-more .info{
+            height: 100px; 
+            display: none;
+        }
+
+        #topInfo .margin-more:hover .info{
+           display: block;
+        }
+        #dealDetail{
+            padding: 10px 10px;
+        }
+        /* #dealDetail a{
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 10px; 
+            display: inline-block;
+            background-color: #FFF9F5;
+            border: 1px solid #FFF2E8;
+        }
+        #dealDetail a:hover{
+            background-color: #FFF2E8;
+        } */
+    </style>
+</head>
+<body>
+    <div id="loadingMask"></div>
+    <!--#include virtual="/transinclude/front-header.html" -->
+    <div id="wrapper" class="wrapper">
+        <div class="w" style="margin-top:20px;overflow: hidden; border: 1px solid lightgray; padding: 10px; background: #ffffff">
+            <div class="info-imgs" style="width:390px;height:280px;background:url(/images/achimg-temp/temp.jpg) no-repeat center;background-size:cover;">
+                <div id="myCarousel" class="carousel slide">
+
+                </div>
+            </div>
+
+            <!-- 放大镜图片 -->
+            <div id="img_max" style="width: 550px; height: 500px; border: 1px solid lightgray; position: absolute; left: 41%; background: white; ">
+                <img id="img2_img" src="http://test.i-sma.cn/File/Pic/b06a4e53-d640-45c3-80b0-28b896c4b184.jpg" />
+            </div>
+
+            <div class="block-view" style="border:none; margin-left:10px; padding-left: 10px;">
+                <h3 id="achTitle"></h3>
+                <div id="code" style="float:right; margin-top:-51px;margin-right:5px;"></div>
+                <div class="block-body" id="mainMessage" style="margin-left: -10px;">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="w" style="margin-top: 10px;margin-bottom: 20px;  ">
+            <div class="block-view" style="flex:none; width:250px; border:none; border: 1px solid lightgray; background: #ffffff">
+                <div class="block-body" style="background-color: #FCEFE5; padding: 0;" id="productInfo">
+
+                </div>
+
+                <div class="block-body" style="background-color: #FCEFE5; padding: 0; margin-top: 30px;" id="topInfo">
+                    <!-- <h4>人气排行榜</h4>
+                    <div class="block-item margin-more">
+                        <div class="block-title"><span>第一名：中优117</span></div>
+                        <div class="block-more">[点击量：0]</div>
+                    </div>
+                    <div class="block-item margin-more">
+                        <div class="block-title"><span>第二名：中优117</span></div>
+                        <div class="block-more">[点击量：0]</div>
+                    </div>
+                    <div class="block-item margin-more">
+                        <div class="block-title"><span>第三名：中优117</span></div>
+                        <div class="block-more">[点击量：0]</div>
+                    </div>
+                    <div class="block-item margin-more">
+                        <div class="block-title"><span>第四名：中优117</span></div>
+                        <div class="block-more">[点击量：0]</div>
+                    </div>
+                    <div class="block-item margin-more">
+                        <div class="block-title"><span>第五名：中优117</span></div>
+                        <div class="block-more">[点击量：0]</div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="block-view" style="border-left: none;">
+                <div class="tab-list">
+                    <div class="tab-title active" data-index="1">成果简介</div>
+                    <div class="tab-title" data-index="2">成果详情</div>
+                    <div class="tab-title dealDetail" data-index="3">交易详情</div>
+                </div>
+                <div class="tab-box" >
+                    <div class="tab-content" data-index="1">
+                        <div class="block-body" id="wordDesc">
+
+                        </div>
+                    </div>
+                    <div class="tab-content" data-index="2" style="display: none;">
+                        <div class="block-body" id="imgVidel">
+
+                        </div>
+                    </div>
+                    <div class="tab-content" data-index="3" style="display: none;">
+                        <div class="block-body" id="dealDetail">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" tabindex="-1" role="dialog" id="completeModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><span class="glyphicon glyphicon-info-sign"></span>竞价</h4>
+                </div>
+                <div class="modal-body" id="completeArea">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-reset cancel" data-dismiss="modal">关闭</button>
+                    <button type="button" name="button" class="btn btn-primary btn-save">出价</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" tabindex="-1" role="dialog" id="discussModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><span class="glyphicon glyphicon-info-sign"></span>竞价</h4>
+                </div>
+                <div class="modal-body">
+                    <textarea name="discussContent" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-reset cancel" data-dismiss="modal">关闭</button>
+                    <button type="button" name="button" class="btn btn-primary btn-save">出价</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script id="template" type="text/html">
+
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators" style="width: auto; margin: 0 auto;">
+            {{each ImageVideo as item i}}
+            {{if item.type == 0}}
+            <li data-target="#myCarousel" data-slide-to="{{i}}" class="{{i == 0 ? 'active':''}}"></li>
+            {{/if}}
+            {{/each}}
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div id="img_min" class="carousel-inner">
+            {{if ImageVideo.length == 0}}
+            <div class="item active">
+                {{if AchievementClassify.length != 0}}
+                <div style="height:100%;background:url(/images/achimg-temp/{{AchievementClassify[AchievementClassify.length-1].ClassifyName}}.jpg) no-repeat center; background-size: cover;">
+                    {{/if}}
+                    {{if AchievementClassify.length == 0}}
+                    <div style="height:100%;background:url(/images/achimg-temp/temp.jpg) no-repeat center; background-size: cover;">
+                        {{/if}}
+                    </div>
+                    {{/if}}
+                    {{if ImageVideo.length > 0}}
+                    {{each ImageVideo as item i}}
+                    {{if item.type == 0}}
+                    <div class="item" data-i={{i}} style="background:#fff url({{item.url}}) no-repeat center center;background-size:contain;">
+                    </div>
+                    {{/if}}
+                    {{/each}}
+                    {{/if}}
+                </div>
+
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <p id="mousebg"></p> 
+        </div>
+
+    </script>
+
+
+
+    <script id="mainTemplate" type="text/html">
+        <div class="block-item">
+            <div class="block-title" style="background-color: #FFF2E8; padding: 3px 10px;"><span style="color: #6C6C6C">发布人：&nbsp;&nbsp;&nbsp;<a style="color: #337ab7;" href="company.html?name={{OwnerOrganization}}">{{OwnerOrganization}}</a></span></div>
+        </div>
+        <div class="block-item">
+            <div class="new-title" style="background-color: #FFF9F5; padding: 3px 10px; width: 100%"><span style="color: #6C6C6C">发布时间：&nbsp;&nbsp;&nbsp;</span><span style="color: #00BA97">{{CreatDate}}</span></div>
+        </div>
+        <div class="block-item">
+            <div class="new-title" style="background-color: #FFFFFF; padding: 3px 10px; border-bottom: 1px dashed #D9D9D9; width: 100%;"><span style="font-weight: bold; font-size: 15px; color: #6C6C6C">关键词：&nbsp;&nbsp;&nbsp;</span>{{keywords}}</div>
+        </div>
+        <div class="block-item">
+            <div class="new-title" style="padding: 3px 10px;">
+                <span style="color: #6C6C6C">
+                    分类：&nbsp;&nbsp;&nbsp;
+                    {{each AchievementClassify as item i}}
+                    ><a href="/notification.html?id={{item.ClassifyID}}" target="_blank" style="margin-left: 5px;">{{item.ClassifyName}}</a>
+                    {{/each}}
+                </span>
+            </div>
+        </div>
+        <div class="block-item">
+            <div class="new-title" style="padding: 3px 10px;"><span style="font-size: 16px; font-weight: bold; color: red;">出价方式：&nbsp;&nbsp;&nbsp;</span>{{IsCompetePrice == 0 ? '议价':'竞价'}}</div>
+        </div>
+        <div class="block-item">
+            <div class="new-title" style="padding: 3px 10px;">
+                <button type="submit" class="btn btn-danger btn-price" data-type="{{IsCompetePrice}}" style="width: 130px;"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;报价</button>
+                <button type="submit" class="btn btn-success btn-collection" style="margin-left:10px;width: 130px;"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;收藏</button>
+            </div>
+        </div>
+
+    </script>
+
+
+    <script id="productTemplate" type="text/html">
+
+        <div class="margin-more">
+            <div class="block-title" style="width: 100%; height: 30px; background: #3F7FCE; color: white; padding-left: 5px; font-weight: bold;"><span>相关信息</span></div>
+        </div>
+        
+        {{each AchievementImageIPRNumber as item i}}
+        
+        <div class="margin-more">
+            <div class="block-title" style="width: 100%; height: 30px; background: #EEEEEE; padding-left: 10px; font-weight: bold; border-bottom: 1px solid #fff"><span>{{item.IPRNumberTypeName}}：</span></div>
+        </div>
+        <div class="margin-more">
+            <div class="block-title" style="width: 100%; height: auto; background: #ffffff; padding-left: 15px"><span>{{item.IPRNumber}}</span></div>
+        </div>
+
+        {{/each}}
+        <div class="margin-more">
+            <div class="new-title" style="width: 100%; height: 30px; background: #EEEEEE; padding-left: 10px; font-weight: bold;"><span>产权归属单位：</span></div>
+        </div>
+        <div class="margin-more">
+            <div class="new-title" style="width: 100%; height: auto; background: #FFFFFF; padding-left: 15px"><span><a href="company.html?name={{Achievement.OwnerOrganization}}">{{Achievement.OwnerOrganization}}</a></span></div>
+        </div>
+
+        <div class="margin-more">
+            <div class="new-title" style="width: 100%; height: 30px; background: #EEEEEE; padding-left: 10px; font-weight: bold;"><span>成果获奖情况：</span></div>
+        </div>
+        <div class="margin-more">
+            <div class="new-title" style="border-bottom: 1px solid #EEEEEE; width: 100%; height: auto; background: #FFFFFF; padding-left: 15px"><span>{{Achievement.Award}}</span></div>
+        </div>
+    </script>
+
+
+    <!-- top10排行 -->
+    <script id="top10" type="text/html">
+
+        <div class="margin-more">
+            <div class="block-title" style="width: 100%; height: 30px; background: #D87171; color: white; padding-left: 5px; font-weight: bold;">
+                <span>TOP排行榜</span>
+                <!-- <img src="./images/top10.png" style="float: right; width: 22px; margin: 2px 5px; margin-right: 10px;"> -->
+            </div>
+        </div>
+        {{each list as item i}}
+
+        {{ if i == 0 }}
+        <div class="margin-more" style="padding:0 6px; background: #fff; border-bottom: 1px solid #EEEEEE;">
+            <span style="background: #F54545; padding: 0px 2px; color: white; font-size: 12px; float: left; height: 18px; line-height: 18px; margin-top: 5px;">{{i<9?'0'+(i+1):(i+1)}}</span>&nbsp;&nbsp;
+            <a href="/achievementinfo.html?id={{item.AchID}}" style="width: 77%; display: inline-block;">{{item.AchieveName}}</a>
+            <span style="background: url(./images/hot.png) no-repeat -344px -34px; width: 20px; height: 20px; display: inline-block; float: right;margin-top: 5px;"></span>
+            <div class="info">
+                <img src="{{item.Pic}}" style="width: 50%; height: 90%; border: 1px solid #EEEEEE; float: left;" alt="">
+                <ul style="width: 48%; height: 90%; float: right; list-style: none; padding: 0; color: #B1B2B1; font-size: 12px">
+                    <li style=" line-height: 20px;"><span style="font-weight: bold; color: gray;">出价方式：</span>{{item.IsCompetePrice==1 ? '竞价':'议价'}}</li>
+                    <li style=" line-height: 20px;"><span style="font-weight: bold; color: gray;">拥有人：</span>{{item.Creator}}</li>
+                </ul>
+            </div>
+        </div>
+        {{/if}}
+        {{ if i == 1 }}
+        <div class="margin-more" style="padding:0 6px; background: #fff; border-bottom: 1px solid #EEEEEE;">
+            <span style="background: #FF8547; padding: 0px 2px; color: white; font-size: 12px;float: left; height: 18px; line-height: 18px; margin-top: 5px;">{{i<9?'0'+(i+1):(i+1)}}</span>&nbsp;&nbsp;
+            <a href="/achievementinfo.html?id={{item.AchID}}" style="width: 77%; display: inline-block;">{{item.AchieveName}}</a>
+            <span style="background: url(./images/hot.png) no-repeat -344px -34px; width: 20px; height: 20px; display: inline-block; float: right;margin-top: 5px"></span>
+            <div class="info">
+                <img src="{{item.Pic}}" style="width: 50%; height: 90%; border: 1px solid #EEEEEE; float: left;" alt="">
+                <ul style="width: 48%; height: 90%; float: right; list-style: none; padding: 0; color: #B1B2B1; font-size: 12px">
+                    <li style=" line-height: 20px;"><span style="font-weight: bold; color: gray;">出价方式：</span>{{item.IsCompetePrice==1 ? '竞价':'议价'}}</li>
+                    <li style=" line-height: 20px;"><span style="font-weight: bold; color: gray;">拥有人：</span>{{item.Creator}}</li>
+                </ul>
+            </div>
+        </div>
+        {{/if}}
+        {{ if i == 2 }}
+        <div class="margin-more" style="padding:0 6px; background: #fff; border-bottom: 1px solid #EEEEEE;">
+            <span style="background: #FFAC38; padding: 0px 2px; color: white; font-size: 12px;float: left; height: 18px; line-height: 18px; margin-top: 5px;">{{i<9?'0'+(i+1):(i+1)}}</span>&nbsp;&nbsp;
+            <a href="/achievementinfo.html?id={{item.AchID}}" style="width: 77%; display: inline-block;" >{{item.AchieveName}}</a>
+            <span style="background: url(./images/hot.png) no-repeat -344px -34px; width: 20px; height: 20px; display: inline-block; float: right;margin-top: 5px"></span>
+            <div class="info">
+                <img src="{{item.Pic}}" style="width: 50%; height: 90%; border: 1px solid #EEEEEE; float: left;" alt="">
+                <ul style="width: 48%; height: 90%; float: right; list-style: none; padding: 0; color: #B1B2B1; font-size: 12px">
+                    <li style=" line-height: 20px;"><span style="font-weight: bold; color: gray;">出价方式：</span>{{item.IsCompetePrice==1 ? '竞价':'议价'}}</li>
+                    <li style=" line-height: 20px;"><span style="font-weight: bold; color: gray;">拥有人：</span>{{item.Creator}}</li>
+                </ul>
+            </div>
+        </div>
+        {{/if}}
+        {{if i > 2}}
+        <div class="margin-more" style="padding:0 6px; background: #fff; border-bottom: 1px solid #EEEEEE;">
+            <span style="background: #8EB9F5; padding: 0px 2px; color: white; font-size: 12px;float: left; height: 18px; line-height: 18px; margin-top: 5px;">{{i<9?'0'+(i+1):(i+1)}}</span>&nbsp;&nbsp;
+            <a href="/achievementinfo.html?id={{item.AchID}}" style="width: 85%; display: inline-block;" >{{item.AchieveName}}</a>
+            <div class="info">
+                <img src="{{item.Pic}}" style="width: 50%; height: 90%; border: 1px solid #EEEEEE; float: left;" alt="">
+                <ul style="width: 48%; height: 90%; float: right; list-style: none; padding: 0; color: #B1B2B1; font-size: 12px">
+                    <li style=" line-height: 20px;"><span style="font-weight: bold; color: gray;">出价方式：</span>{{item.IsCompetePrice==1 ? '竞价':'议价'}}</li>
+                    <li style=" line-height: 20px;"><span style="font-weight: bold; color: gray;">拥有人：</span>{{item.Creator}}</li>
+                </ul>
+            </div>
+        </div>
+        {{/if}}
+        {{/each}}
+    </script>
+
+
+
+    <!--更改-->
+    <script id="imgVideo" type="text/html">
+
+        {{if Achievement.Feature!="无" && Achievement.Feature!="" }}
+        <p><strong>特征特性：</strong>{{Achievement.Feature}}</p>
+        {{/if}}
+
+        <!-- <p><strong>抗逆性：</strong>{{Achievement.Antireversion}}</p> -->
+        {{if Achievement.SuitableArea!="无" && Achievement.SuitableArea!="" }}
+        <p><strong>适宜种植区域：</strong>{{Achievement.SuitableArea}}</p>
+        {{/if}}
+
+        {{if Achievement.Origin!="无" && Achievement.Origin!="" }}
+        <p><strong>品种来源：</strong>{{Achievement.Origin}}</p>
+        {{/if}}
+
+        <!-- <p><strong>是否转基因：</strong>{{Achievement.IsGMO}}</p> -->
+        {{if Achievement.IsNewIndustry!="无" && Achievement.IsNewIndustry!="" }}
+        <p><strong>是否新型产业：</strong>{{Achievement.IsNewIndustry}}</p>
+        {{/if}}
+
+        {{if Achievement.IsNewIndustry == '是'}}
+        <p><strong>新型产业：</strong>{{Achievement.NewIndustryName}}</p>
+        {{/if}}
+
+        {{if Achievement.DevelopFromDate!="无" && Achievement.DevelopFromDate!="" }}
+        <!--<p><strong>研发开始时间：</strong>{{Achievement.DevelopFromDate}}</p>-->
+        {{/if}}
+
+        {{if Achievement.DevelopEndDate!="无" && Achievement.DevelopEndDate!="" }}
+        <!--<p><strong>研发结束时间：</strong>{{Achievement.DevelopEndDate}}</p>-->
+        {{/if}}
+
+        {{if Achievement.Maturity!="无" && Achievement.Maturity!="" }}
+        <p><strong>成果成熟度：</strong>{{Achievement.Maturity}}</p>
+        {{/if}}
+
+        <!-- <p><strong>技术水平：</strong>{{Achievement.TechLevel}}</p> -->
+        {{if Achievement.MaturityDesc!="无" && Achievement.MaturityDesc!="" }}
+        <p><strong>成熟度说明：</strong>{{Achievement.MaturityDesc}}</p>
+        {{/if}}
+
+        {{each ImageVideo as item i}}
+        {{if item.type == 0}}
+        <img src="{{item.url}}" title="{{fileDesc}}">
+        {{/if}}
+
+        {{if item.type == 1}}
+        <video src="{{item.url}}" controls="controls"></video>
+        {{/if}}
+        {{/each}}
+    </script>
+    
+    <!-- 交易详情 -->
+    <script id="dealDetailTemplate">
+        
+
+        {{each list as item i}}
+
+            <p><b>转化条件及成果应用事项:&nbsp;&nbsp;</b> {{item.RegistNumber}}</p>
+            <p><b>预期交易方式:&nbsp;&nbsp;</b> {{item.ExpectTransMethodID==1?"完全转让":item.ExpectTransMethodID==2?"许可转让":item.ExpectTransMethodID==3?"许可实施":item.ExpectTransMethodID==4?"技术入股":item.ExpectTransMethodID==5?"合作开发":"其他"}}</p>
+            <p><b>预期交易价格:&nbsp;&nbsp;</b> </p>
+            <p><b>有无转让:&nbsp;&nbsp;</b> {{item.IsTransfer == 0?"有": item.IsTransfer == 1?"无":"" }}</p>
+
+        {{/each}}
+
+
+    </script>
+
+
+    <script id="completeTpl" type="text/html">
+        <h5>{{AchieveName}}</h5>
+        <div class="row">
+            <label class="col-md-4 control-label">起拍价格</label>
+            <div class="col-md-8">
+                {{CompeteStartPrice}}元
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-md-4 control-label">加价幅度</label>
+            <div class="col-md-8">
+                {{PriceAddRange}}元
+            </div>
+        </div>
+
+        <div class="row">
+            <label class="col-md-4 control-label">现价</label>
+            <div class="col-md-8">
+                {{CurrentPrice}}元
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-md-4 control-label">竞拍次数</label>
+            <div class="col-md-8">
+                {{CurrentCompeteCount}}
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-md-4 control-label">截止日期</label>
+            <div class="col-md-8">
+                {{CompeteEndDate}}
+            </div>
+        </div>
+    </script>
+
+
+
+
+    <!--议价查看-->
+    <div class="modal fade" id="checkModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" vertical-align=" middle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="H2">
+                        议价列表
+                    </h4>
+
+                </div>
+                <div class="modal-body">
+                    <table id="Table2" class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                        <th>议价者</th>
+                        <th>议价内容</th>
+                        <th>时间</th>
+                        <th>操作</th>
+
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class="chatlist" id="chatlist">
+                        <!--
+                        <div class="chat me">
+                            <div class="name">我</div>
+                            <div class="text">nihaoeererererere</div>
+                        </div>
+                        <div class="chat other">
+                            <div class="name">网三</div>
+                            <div class="text">nihaoeererererere</div>
+                        </div>
+                        -->
+                    </div>
+                    <label>回复</label>
+                    <textarea name="message" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                    <button type="button" class="btn btn-default submit">
+                        提交
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+
+
+    <!-- 确认交易 -->
+    <div class="modal fade" id="tradeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" vertical-align=" middle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">
+                        确认交易
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="tradeForm">
+                        <input name="discussID" type="hidden">
+                        <div class="form-group" id="KeyNameList">
+                            <label class="col-md-4 control-label">交易金额</label>
+                            <div class="col-md-8">
+                                <input id="price" name="price" type="text" class="form-control" required>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                    <button type="button" class="btn btn-default submit">
+                        提交
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+
+    <script id="template2" type="text/html">
+        {{each resultData as item i}}
+        <tr>
+            <td>
+                <a class="detail" href="javascript:void(0)" data-id="{{item.ID}}" data-name="{{item.DiscussPerson}}">{{item.DiscussPerson}}</a>
+                <a href="javascript:void(0);" class="pop-person" data-id="{{item.UserID}}"><span class="glyphicon glyphicon-info-sign"></span></a>
+            </td>
+            <td>{{item.DiscussContent}}</td>
+            <td>{{item.DiscussDate}}</td>
+            <td>
+                {{if item.IsTradeShow}}
+                <button data-id="{{item.ID}}" class="trade">发起交易</button>
+                {{/if}}
+                {{if item.IsComfirmShow}}
+                <button data-id="{{item.ID}}" class="confirm">确认交易</button>
+                <button data-id="{{item.ID}}" class="refuse">拒绝交易</button>
+                {{/if}}
+            </td>
+
+        </tr>
+        {{/each}}
+    </script>
+
+
+    <script id="template3" type="text/html">
+        {{each resultData as item i}}
+        <div class="chat {{ item.UserID == userId ? 'me':'other'}}">
+            <div class="name">{{item.UserID == userId  ? '我':item.UserName }}</div>
+            <div class="text">{{item.DiscussContent}}</div>
+        </div>
+        {{/each}}
+    </script>
+    <script src="login/assets/js/jquery.qrcode.min.js"></script>
+    <script src="achievementinfo.js"></script>
+    <!--#include virtual="/transinclude/front-footer.html" -->

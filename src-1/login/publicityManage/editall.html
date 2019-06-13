@@ -1,0 +1,446 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+<!--#include virtual="/transinclude/meta.html" -->
+<link rel="stylesheet" href="../../vendor/bootstrap/bootstrap-datetimepicker.min.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-select.min.css">
+</head>
+<style>
+    select.form-control{
+        width: auto;
+        display: inline-block;
+    }
+    .btn-white{
+        background: white;
+        border: 1px solid #ccc;
+        box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+    }
+    .bootstrap-select{
+        position: absolute;
+        top: -5px;
+        left: 15px;
+    }
+    .bootstrap-select .btn-white{
+        font-size: 14px;
+    }
+    .bootstrap-select .btn-white:focus{
+        outline: none !important;
+    }
+</style>
+<body>
+
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/nav.html" -->
+<div class="col-md-12">
+    <!-- <div class="alert alert-warning" role="alert">请知悉：公示编辑后需要重新审核！</div> -->
+    <ul id="breadcrumb">
+        <li><a href="/index.html"><span class="icon icon-home"> </span>首页</a></li>
+    </ul>
+    <div class="col-md-12 col-body">
+        <div id="myTabContent" class="tab-content col-md-10">
+        	<div class="tab-pane fade in active" id="home">
+                <div class="panel panel-default">
+                	<div class="panel-body">
+                        <form class="form-horizontal" role="form" id="form_all">
+                            <!-- 公示信息 -->
+                            <div class="form-group AchievementSource" id="AchievementSource_1">
+                                <label class="col-md-2 control-label">转化成果项目名称</label>
+                                <div class="col-md-10">
+                                    <input name="AchieveName" type="text" class="form-control" placeholder="转化成果项目名称不能为空！" required>
+                                    <br>
+                                    <div class="alert alert-warning" role="alert">请知悉：若选择关联成果可以不上传图片；图片大小不能超过2M！</div>
+                                    <div class="form-group" id="UploadImage">
+                                        <label class="col-md-2 control-label">相关图片上传</label>
+                                        <div class="form-group col-md-4">
+                                            <span class="btn btn-new-red fileinput-button">
+                                                <i class="glyphicon glyphicon-open"></i><span>&nbsp;上传</span>
+                                                <input type="file" id="imgUpload" name="fileupload" accept="image/png,image/gif,image/jpeg">
+                                            </span>
+                                            <button class="btn btn-success" id="clearImgs">清空图片</button>
+                                        </div>
+                                        <div class="col-md-12 box-img" id="imgBoxs"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group AchievementSource" id="AchievementSource_0">
+                                <label class="col-md-2 control-label">关联到已发布成果</label>
+                                <div class="col-md-10">
+                                    <select name="AchID" class="show-tick" id="SelectAchID" style="visibility:hidden;"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">转让方式</label>
+                                <div class="col-md-10">
+                                    <select class="form-control" name="TransferMethod" required>
+                                        <option value>请选择</option>
+                                        <option value="1">独家许可</option>
+                                        <option value="2">许可</option>
+                                        <option value="3">转让</option>
+                                        <option value="4">作价投资</option>
+                                        <option value="5">质押融资</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="alert alert-success" role="alert">转让单位</div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">转让单位名称</label>
+                                <div class="col-md-10">
+                                    <input name="TransferUnitName" type="text" class="form-control" placeholder="转让单位名称不能为空！" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">转让单位所属省份</label>
+                                <div class="col-md-10" style="padding:0;">
+                                    <div class="col-md-2">
+                                        <select class="form-control SelectTransferUnitProvince" name="TransferUnitProvince" required></select>
+                                    </div>
+                                    <label class="col-md-2 control-label">转让单位性质</label>
+                                    <div class="col-md-2">
+                                        <select class="form-control" name="TransferUnitProperty" required>
+                                            <option value>请选择</option>
+                                            <option value="1">科研机构</option>
+                                            <option value="2">涉农高校</option>
+                                            <option value="3">企业</option>
+                                            <option value="4">个人</option>
+                                        </select>
+                                    </div>
+                                    <label class="col-md-2 control-label">转让单位负责人</label>
+                                    <div class="col-md-4">
+                                        <input name="TransferUnitManager" type="text" class="form-control" placeholder="课题组或创新团队负责人" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alert alert-success" role="alert">受让单位</div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">受让单位名称</label>
+                                <div class="col-md-10">
+                                    <input name="AssigneeUnitName" type="text" class="form-control" placeholder="转让单位名称不能为空！" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">受让单位所属省份</label>
+                                <div class="col-md-10" style="padding:0;">
+                                    <div class="col-md-2">
+                                        <select class="form-control SelectTransferUnitProvince" name="AssigneeUnitProvince" required></select>
+                                    </div>
+                                    <label class="col-md-2 control-label">受让单位性质</label>
+                                    <div class="col-md-2">
+                                        <select class="form-control" name="AssigneeUnitProperty" required>
+                                            <option value>请选择</option>
+                                            <option value="1">企业</option>
+                                            <option value="2">合作社</option>
+                                            <option value="3">科研机构</option>
+                                            <option value="4">涉农高校</option>
+                                            <option value="5">个人</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">联系人</label>
+                                <div class="col-md-4">
+                                    <input name="AssigneeUnitContacts" type="text" class="form-control" placeholder="受让单位联系人" required>
+                                </div>
+                                <label class="col-md-2 control-label">联系人手机</label>
+                                <div class="col-md-4">
+                                    <input name="AssigneeUnitPhone" type="text" class="form-control" placeholder="受让单位联系人手机" required onblur="yzphone(this)"><span id="s1" style="color:red"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">联系电话</label>
+                                <div class="col-md-4">
+                                    <input name="AssigneeUnitTelePhone" type="text" class="form-control" placeholder="受让单位联系电话">
+                                </div>
+                                <label class="col-md-2 control-label">联系邮箱</label>
+                                <div class="col-md-4">
+                                    <input name="AssigneeUnitEmail" type="text" class="form-control" placeholder="受让单位联系邮箱" onblur="yzemail(this)"><span id="s2" style="color:red"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">联系地址</label>
+                                <div class="col-md-4">
+                                    <input name="AssigneeUnitAddress" type="text" class="form-control" placeholder="受让单位联系地址">
+                                </div>
+                                <label class="col-md-2 control-label">联系地址邮编</label>
+                                <div class="col-md-4">
+                                    <input name="AssigneeUnitPostCode" type="text" class="form-control" placeholder="受让单位联系地址邮编">
+                                </div>
+                            </div>
+                            <div class="alert alert-success" role="alert">知识产权</div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">知识产权保护方式</label>
+                                <div class="col-md-10">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="IPRMode" value="0" checked required> 无
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="IPRMode" value="1" required> 专利
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="IPRMode" value="2" required> 植物新品种权
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="IPRMode" value="3" required> 正在申请中
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group SelectFromIPRMode" id="IPRMode_1" style="display: none;">
+                                <label class="col-md-2 control-label">专利名称</label>
+                                <div class="col-md-10" style="padding:0;">
+                                    <div class="col-md-5">
+                                        <input name="PatentName" type="text" class="form-control" placeholder="专利名称不能为空！" required>
+                                    </div>
+                                    <label class="col-md-2 control-label">专利号</label>
+                                    <div class="col-md-5">
+                                        <input name="PatentNumber" type="text" class="form-control" placeholder="专利号不能为空！" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group SelectFromIPRMode" id="IPRMode_2" style="display: none;">
+                                <label class="col-md-2 control-label">植物新品种权名称</label>
+                                <div class="col-md-10" style="padding:0;">
+                                    <div class="col-md-5">
+                                        <input name="PlantVarietyRights" type="text" class="form-control" placeholder="植物新品种名称不能为空！" required>
+                                    </div>
+                                    <label class="col-md-2 control-label">获得日期</label>
+                                    <div class="col-md-5">
+                                        <div class='input-group date datetimepicker'>
+                                            <input type="text" class="form-control" placeholder="获得日期 yyyy-MM-dd" name="AchieveDate">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group SelectFromIPRMode" id="IPRMode_3" style="display: none;">
+                                <div class="col-md-10" style="padding:0;">
+                                    
+                                    <label class="col-md-2 control-label">申请日期</label>
+                                    <div class="col-md-5">
+                                        <div class='input-group date datetimepicker'>
+                                            <input type="text" class="form-control" placeholder="获得日期 yyyy-MM-dd" name="ApplicationDate">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 合同信息 -->
+                            <div class="alert alert-success" role="alert">合同信息</div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">合同编号</label>
+                                <div class="col-md-10">
+                                    <input name="ContractNumber" type="text" class="form-control" placeholder="转化成果项目名称不能为空！" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">合同登记省份</label>
+                                <div class="col-md-3">
+                                    <select class="form-control ContractRegisterProvince" name="ContractRegisterProvince" required></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">合同签约时间</label>
+                                <div class="col-md-10" style="padding:0;">
+                                    <div class="col-md-5">
+                                        <div class='input-group date datetimepicker'>
+                                            <input type="text" class="form-control" placeholder="获得日期 yyyy-MM-dd" name="ContractSigningDate" required>
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--合同开始结束时间-->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">合同结束时间</label>
+                                <div class="col-md-5">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PubPermanent" value="1"  required>永久
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PubPermanent" value="" checked required> 否
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">合同开始时间</label>
+                                <div class="col-md-10" style="padding:0;">
+                                    <div class="col-md-5">
+                                        <div class='input-group date datetimepicker'>
+                                            <input type="text" class="form-control" placeholder="获得日期 yyyy-MM-dd" name="ContractBeginDate" required>
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <label class="col-md-2 control-label"  id="timeend1">合同结束时间</label>
+                                    <div class="col-md-5" id="timeend2" >
+                                        <div class='input-group date datetimepicker'>
+                                            <input type="text" class="form-control" placeholder="获得日期 yyyy-MM-dd" name="ContractEndDate" required>
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">合同金额</label>
+                                <div class="col-md-4">
+                                    <div class='input-group'>
+                                        <input name="LastContractAmount" type="number" class="form-control" placeholder="合同金额不能为空！" required>
+                                        <span class="input-group-addon">万元</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <label class="col-md-6 control-label">知识产权部分转让金额</label>
+                                    <div class="col-md-6" style="padding-right:0;">
+                                        <div class='input-group'>
+                                            <input name="LastIPRAmount" type="number" class="form-control" placeholder="只能填数字">
+                                            <span class="input-group-addon">万元</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-center" style="color:#aaa;">（含专利权、植物新品种权、技术秘密等）</p>
+                                </div>
+                                <label class="col-md-3 control-label">技术服务部分转让金额</label>
+                                <div class="col-md-3">
+                                    <div class='input-group'>
+                                        <input name="LastOtherAmount" type="number" class="form-control" placeholder="只能填数字">
+                                        <span class="input-group-addon">万元</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">销售提成办法</label>
+                                <div class="col-md-10">
+                                    <textarea name="LastSalesCommission" type="text" class="form-control" placeholder="可不填" requiredd></textarea> 
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">价格确定方式</label>
+                                <div class="col-md-3">
+                                    <select class="form-control TransactionMode" name="TransactionMode" required>
+                                        <option value>请选择</option>
+                                        <option value="1">协议定价</option>
+                                        <option value="2">挂牌交易</option>
+                                        <option value="3">拍卖</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">合同附件</label>
+                                <div class="col-md-10">
+                                    <div id="UploadPath" style="display:none;">已上传附件：<a href=""></a></div>
+                                    <span class="btn btn-new-red fileinput-button">
+                                        <i class="glyphicon glyphicon-open"></i><span class="upload-text" style="margin-left:10px;">上传</span>
+                                        <input type="file" id="contractFJUpload" name="fileupload" accept="application/pdf">
+                                    </span>
+                                    <div class="alert alert-warning" role="alert" style="display: inline-block;">请知悉：公告合同只有上传人和管理员可见，请将盖章后的合同扫描为PDF后上传，大小不能超过200M! 
+</div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="col-md-12" style="text-align:right;">
+                            <button type="button" name="button" class="btn btn-primary btn-save">保存信息</button>
+                        </div>
+                	</div>
+                </div>
+        	</div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog"
+    aria-labelledby="uploadProgressModal"
+    id="uploadProgressModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><span class="glyphicon glyphicon-info-sign"></span>上传进度</h4>
+            </div>
+            <div class="modal-body">
+                <div class="progress form-control">
+                    <div class="progress-bar progress-bar-info">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-reset cancel" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="imgTpl" type="text/html">
+    {{each resultData as item i}}
+    <div class="img-responsive" data-id="{{item.ID}}">
+        <img src="{{item.Url}}"/>
+        <span class="glyphicon glyphicon-remove"></span>
+    </div>
+    {{/each}}
+</script>
+
+    <script>
+        //验证手机
+        function yzphone(phone) {
+
+            var phone = $(phone).val()
+            if (phone == null || phone == "") {
+                $("#s1").html("")
+            }
+            else {
+                var reg = /^1[3|4|5|7|8][0-9]{9}$/
+
+                if (reg.test(phone)) {
+
+                    $("#s1").html("");
+                }
+                else//否则 证明有错误的
+                {
+                    //提示
+                    $("#s1").html("手机格式不正确！");
+                    return;
+                }
+            }
+
+
+        }
+
+        //验证邮箱
+        function yzemail(email) {
+            var reg = /^\w+([-.+]\w+)*@\w+\.\w{1,}$/
+            var email = $(email).val()
+            if (email == null || email == "") {
+                $("#s2").html("")
+            }
+            else {
+                if (!reg.test(email)) {
+                    $("#s2").html("邮箱不合法！")
+                    return;
+                }
+                else {
+                    $("#s2").html("")
+                }
+            }
+
+
+        }
+    </script>
+
+<script src="../../vendor/bootstrap/moment.min.js"></script>
+<script src="../../vendor/bootstrap/bootstrap-datetimepicker.min.js"></script>
+<script src="../../vendor/upload/jquery.ui.widget.js"></script>
+<script src="../../vendor/upload/jquery.fileupload.js"></script>
+<script src="../../vendor/validate/1.13.1/jquery.validate.js"></script>
+<script src="/assets/js/bootstrap-select.js"></script>
+<script src="editall.js"></script>
+<!--#include virtual="/transinclude/footer.html" -->

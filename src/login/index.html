@@ -1,0 +1,533 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Bootstrap Advance Admin Template</title>
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+       <!--CUSTOM BASIC STYLES-->
+    <link href="assets/css/basic.css" rel="stylesheet" />
+    <!--CUSTOM MAIN STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
+    <style type="text/css">
+      .modal-body  th {
+            padding: 0;
+            background: #4E8DDC;
+        }
+
+        .modal-body tr {
+            background: #f00;
+        }
+
+            .modal-body tr:nth-child(2n) {
+                background: #C4E1FF;
+            }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse set-radius-zero" >
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+
+                    <img src="/assets/img/logo1.png"  />
+                </a>
+
+            </div>
+
+            <div class="right-div col-lg-8">
+
+                <div class="input-group">
+                    <input type="text" placeholder="请输入关键字" class="input-sm form-control"> <span class="input-group-btn">
+                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button>
+                    </span>
+                </div>
+                <!--</div>-->
+                <!--<a href="#" class="btn btn-danger pull-right">注册</a>
+                <a href="#" class="btn btn-danger pull-right">登录</a>-->
+            </div>
+           
+        </div>
+    </div>
+
+    <!--<section class="menu-section">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="navbar-collapse collapse ">
+                        <ul id="menu-top" class="nav navbar-nav navbar-right">
+                           
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>-->
+    <div id="wrapper" style=" margin-top: 50px;">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-2 col-sm-2 col-xs-6" style=" background-color :#5bc0de ;color :black ;height :80%">
+                    <div class="sidebar-collapse" style="z-index: 1; position: absolute;width: 240px;">
+                        <ul class="nav" id="main-menu">
+
+                            <li>
+                                <a href="#" class="active-menu-top"><i class="fa fa-desktop "></i>成果管理 <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level collapse in">
+                                    <li>
+                                        <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>发布成果</a>
+                                    </li>
+                                    <li>
+                                        <a class="active-menu" href="notification.html"><i class="fa fa-bell "></i>成果管理</a>
+                                    </li>
+                                    <li>
+                                        <a href="Records.html"><i class="fa fa-circle-o "></i>交易记录</a>
+                                    </li>
+                                    <li>
+                                        <a href="RequireCommand.html"><i class="fa fa-eyedropper "></i>需求推荐</a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-yelp "></i>需求管理 <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="invoice.html"><i class="fa fa-coffee"></i>发布需求</a>
+                                    </li>
+                                    <li>
+                                        <a href="RequireMain.html"><i class="fa fa-flash "></i>需求管理</a>
+                                    </li>
+                                    <li>
+                                        <a href="TransRecords.html"><i class="fa fa-key "></i>交易记录</a>
+                                    </li>
+                                    <li>
+                                        <a href="ResultCommand.html"><i class="fa fa-send "></i>成果推荐</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                              <li>
+                                <a href="tradingCenter.html"><i class="fa fa-bug "></i>交易中心</a>
+                            </li>
+                            <li>
+                                <a href="Favorite.html"  ><i class="fa fa-anchor "></i>收藏夹</a>                               
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bicycle "></i>个人中心 <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="Time.html"><i class="fa fa-code "></i>时间轴</a>
+                                    </li>
+                                     <li>
+                                        <a href="BaseInfor.html"><i class="fa fa-desktop "></i>基本信息 </a>
+                                    </li>
+                                    <li>
+                                        <a href="EditPwd.html"><i class="fa fa-code "></i>密码修改</a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--</nav>-->
+                <!-- /. NAV SIDE  -->
+                <div id="page-wrapper">
+                     <div id="page-inner">
+                        <div class="row">
+                            <div class=" col-md-10 col-sm-10 col-xs-6">
+
+                               <div class="panel panel-success">
+					            <div class="panel-heading">
+					   <b>竞价情况</b>
+					</div>
+					                                                                                                                                                                                                                                                                                                                                <div class="panel-body">
+						            <div class="table-responsive">
+							            <table class="table table-striped table-bordered table-hover">
+								            <thead>
+									            <tr>
+										            <th>相关成果(图片)</th>
+										            <th>名称</th>
+										            <th>现价</th>
+                                                    <th>角色</th>
+										            <th style="border-right-style:none;">时间</th>
+										            <th style="border-right-style:none;border-left-style:none;">价格</th>
+                                                    <th style="border-left-style:none;">操作</th>
+										
+									            </tr>
+								            </thead>
+								            <tbody>
+									            <tr>
+										            <td rowspan="3"><img src="assets/img/1.jpg" width="100px" height="100px"alt="" /></td>
+										            <td rowspan="3">Mark</td>
+                                                    <td rowspan="3">Mark</td>
+                                                    <td rowspan="3">成果拥有者</td>
+										            <td style="border-right-style:none;">2014-05-15</td>
+                                                    <td style="border-right-style:none;border-left-style:none;">Mark</td>
+										            <td style="border-left-style:none;"><a >[查看]</a>&nbsp;<a >[加价]</a></td>
+										
+									            </tr>
+									           <tr>
+								
+										            <td style="border-right-style:none;">2014-05-15</td>
+                                                    <td style="border-right-style:none;border-left-style:none;">Mark</td>
+										            <td style="border-left-style:none;"><a >[查看]</a>&nbsp;<a >[加价]</a></td>
+										
+									            </tr>
+                                                <tr>
+								
+										            <td style="border-right-style:none;">2014-05-15</td>
+                                                    <td style="border-right-style:none;border-left-style:none;">Mark</td>
+										            <td style="border-left-style:none;"><a >[查看]</a>&nbsp;<a >[加价]</a></td>
+										
+									            </tr>
+									             <tr>
+										            <td rowspan="3"><img src="assets/img/1.jpg" width="100px" height="100px"alt="" /></td>
+										            <td rowspan="3">Mark</td>
+                                                    <td rowspan="3">Mark</td>
+                                                    <td rowspan="3">成果参与者</td>
+										            <td style="border-right-style:none;">2014-05-15</td>
+                                                    <td style="border-right-style:none;border-left-style:none;">Mark</td>
+										            <td style="border-left-style:none;"><a >[查看]</a>&nbsp;<a >[加价]</a></td>
+										
+									            </tr>
+									           <tr>
+								
+										            <td style="border-right-style:none;">2014-05-15</td>
+                                                    <td style="border-right-style:none;border-left-style:none;">Mark</td>
+										            <td style="border-left-style:none;"><a >[查看]</a>&nbsp;<a >[加价]</a></td>
+										
+									            </tr>
+                                                <tr>
+								
+										            <td style="border-right-style:none;">2014-05-15</td>
+                                                    <td style="border-right-style:none;border-left-style:none;">Mark</td>
+										            <td style="border-left-style:none;"><a >[查看]</a>&nbsp;<a >[加价]</a></td>
+										
+									            </tr>
+								            </tbody>
+							            </table>
+						            </div>
+					            </div>
+				</div>
+                                
+
+                            </div>
+                          
+
+                        </div>
+                      <div class="row">
+                        <div class=" col-md-10 col-sm-10 col-xs-6">
+
+                               <div class="panel panel-success">
+					            <div class="panel-heading">
+					               <b>议价情况</b>
+					            </div>
+					                                                                                                                                                                                                                                                                                                                                            <div class="panel-body">
+						            <div class="table-responsive">
+                                   
+							            <table class="table table-striped table-bordered table-hover">
+								            <thead>
+									            <tr>
+										           <th>相关成果(图片)</th>
+										            <th>名称</th>
+                                                    <th>角色</th>
+                                                    <th>操作</th>
+									            </tr>
+								            </thead>
+								            <tbody>
+									              <tr>
+										            <td ><img src="assets/img/1.jpg" width="100px" height="100px"alt="" /></td>
+										            <td >Mark</td>
+                                                    <td >成果拥有者</td>
+										            <td style="border-left-style:none;"><a >[查看]</a></td>
+										
+									            </tr>
+                                                 <tr>
+										            <td ><img src="assets/img/1.jpg" width="100px" height="100px"alt="" /></td>
+										            <td >Mark</td>
+                                                    <td >成果参与者</td>
+										            <td style="border-left-style:none;"><a >[查看]</a></td>
+										
+									            </tr>
+                                                 <tr>
+										            <td ><img src="assets/img/1.jpg" width="100px" height="100px"alt="" /></td>
+										            <td >Mark</td>
+                                                    <td >成果拥有者</td>
+										            <td style="border-left-style:none;"><a >[查看]</a></td>
+										
+									            </tr>
+								            </tbody>
+							            </table>
+						            </div>
+					            </div>
+				</div>
+                                
+
+                            </div>
+                      </div>
+                       <div class="row">
+                        <div class=" col-md-10 col-sm-10 col-xs-6">
+
+                               <div class="panel panel-success">
+					            <div class="panel-heading">
+					               <b>自荐情况</b>
+					            </div>
+					                                                                                                                                                                                                                                                                                                                                            <div class="panel-body">
+						            <div class="table-responsive">
+                                   
+							            <table class="table table-striped table-bordered table-hover">
+								            <thead>
+									            <tr>
+										            <th>需求名称</th>
+                                                    <th>角色</th>
+                                                    <th>操作</th>
+									            </tr>
+								            </thead>
+								            <tbody>
+									              <tr>
+										            <td >Mark</td>
+                                                    <td >成果拥有者</td>
+										            <td style="border-left-style:none;"><a >[查看]</a></td>
+										
+									            </tr>
+                                                 <tr>
+										          
+										            <td >Mark</td>
+                                                    <td >成果参与者</td>
+										            <td style="border-left-style:none;"><a >[查看]</a></td>
+										
+									            </tr>
+                                                 <tr>
+										           
+										            <td >Mark</td>
+                                                    <td >成果拥有者</td>
+										            <td style="border-left-style:none;"><a >[查看]</a></td>
+										
+									            </tr>
+								            </tbody>
+							            </table>
+						            </div>
+					            </div>
+				</div>
+                                
+
+                            </div>
+                      </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+     <div class="modal fade" id="ResJJModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" vertical-align=" middle">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="H1">
+                                竞价列表
+                            </h4>
+                             
+                        </div>
+                         
+                        <div class="modal-body">
+                        成果名称：
+                           <table id="Table2" class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
+                                    <th>竞价者</th>
+                                    <th>竞价</th>
+                                    <th>时间</th>
+                                    <th>操作</th>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>张三</td>
+                                            <td>50万</td>
+                                            <td>2015-05-08 09:10</td>
+                                            <td><button>发起交易</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                关闭
+                            </button> 
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>                      
+       <div class="modal fade" id="ResYJModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" vertical-align=" middle">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="H2">
+                                议价列表
+                            </h4>
+                            
+                        </div>
+                        <div class="modal-body">
+                        成果名称：
+                           <table id="Table3" class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
+                                    <th>议价者</th>
+                                    <th>议价内容</th>
+                                    <th>时间</th>
+                                    <th>操作</th>
+                                     
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>王三</td>
+                                            <td>发货电话费看到回复肯德基发快递</td>
+                                            <td>2015-05-08 09:10</td>
+                                            <td><button>发起交易</button></td>
+                                        </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                关闭
+                            </button> 
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div> 
+            
+             <div class="modal fade" id="ReqJJModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" vertical-align=" middle">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="H3">
+                                竞价列表
+                            </h4>
+                             
+                        </div>
+                         
+                        <div class="modal-body">
+                        需求名称：
+                           <table id="Table1" class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
+                                    <th>竞价者</th>
+                                    <th>竞价</th>
+                                    <th>时间</th>
+                                    <th>操作</th>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>李四</td>
+                                            <td>50万</td>
+                                            <td>2015-05-08 09:10</td>
+                                            <td><button>发起交易</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                关闭
+                            </button> 
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>                      
+       <div class="modal fade" id="ReqYJModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" vertical-align=" middle">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="H4">
+                                议价列表
+                            </h4>
+                            
+                        </div>
+                        <div class="modal-body">
+                        需求名称：
+                           <table id="Table4" class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
+                                    <th>议价者</th>
+                                    <th>议价内容</th>
+                                    <th>时间</th>
+                                    <th>操作</th>
+                                     
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>王三</td>
+                                            <td>发货电话费看到回复肯德基发快递</td>
+                                            <td>2015-05-08 09:10</td>
+                                            <td><button>发起交易</button></td>
+                                        </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                关闭
+                            </button> 
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>                
+                    <!-- /. WRAPPER  -->
+    <div id="footer-sec">
+        &copy; 2014 YourCompany | More Templates <a href="" target="_blank" title="联系我们">联系我们</a> - Collect from <a href="/" title="关于我们" target="_blank">关于我们</a>
+    </div>
+                    <!-- /. FOOTER  -->
+                    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+                    <!-- JQUERY SCRIPTS -->
+                    <script src="assets/js/jquery-1.10.2.js"></script>
+                    <!-- BOOTSTRAP SCRIPTS -->
+                    <script src="assets/js/bootstrap.js"></script>
+                    <!-- METISMENU SCRIPTS -->
+                    <script src="assets/js/jquery.metisMenu.js"></script>
+                    <!-- CUSTOM SCRIPTS -->
+                    <script src="assets/js/custom.js"></script>
+
+
+
+</body>
+</html>

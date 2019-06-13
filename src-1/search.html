@@ -1,0 +1,163 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+
+    <!--#include virtual="/transinclude/front-meta.html" -->
+    <title>搜索结果</title>
+    <link href="css/main.css" rel="stylesheet" />
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/front-header.html" -->
+<div class="wrapper">
+    <div class="w">
+        <div class="line"></div>
+    </div>
+    <div class="w" style="position:relative; margin-bottom: 10px;">
+        <div class="column left">
+            <!-- <div class="tab-list">
+                <div class="tab-title active" data-index="1">种类</div><div class="tab-title" data-index="2">地域</div><div class="tab-title" data-index="3" style="border-right: none;">单位</div>
+            </div> -->
+            <div class="tab-box" id="classNav">
+                <div class="tab-content" data-index="1">
+                    <ul class="nav-level" id="classListNav">
+
+                    </ul>
+                </div>
+                <div class="tab-content" data-index="2" style="display: none;">
+                    <ul class="nav-level" id="areaListNav">
+
+                    </ul>
+
+                </div>
+                <div class="tab-content" data-index="3" style="display: none;">
+                    <ul class="nav-level" id="unitListNav">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="column" style="margin-left:20px;height:auto;">
+            <table class="table-none" id="dataTable">
+                <thead style="display: none;">
+                <tr>
+                    <th>详情</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script id="classTemplate" type="text/html">
+    {{each resultData as item i}}
+    <li><a href="javascript:void(0);" data-id="{{item.ID}}" title="{{item.ClassfyName}}"
+        class="{{(!item.ChildClassfy || item.ChildClassfy.length == 0) ? 'leaf':''}}"> {{item.ClassfyName}}</a>
+        {{if item.ChildClassfy && item.ChildClassfy.length > 0}}
+        <ul>
+            {{each item.ChildClassfy as leafs index}}
+            <li><a href="javascript:void(0);" class="leaf" data-id="{{leafs.ID}}" title="{{leafs.ClassfyName}}" data-content="w343"
+                class="leaf">{{leafs.ClassfyName}}</a></li>
+            {{/each}}
+        </ul>
+
+        {{/if}}
+    </li>
+    {{/each}}
+</script>
+
+<script id="contentTemplate" type="text/html">
+    {{each resultData as item i}}
+    <div style="margin-bottom:10px;">
+        <label style="font-size: 16px;"><a href="javascript:void(0);" data-id="{{item.ID}}">{{item.ClassfyName}}</a></label>
+        {{if item.ChildClassfy && item.ChildClassfy.length > 0}}
+        {{each item.ChildClassfy as leafs index}}
+        <span style="margin-left: 10px;"><a href="javascript:void(0);" data-id="{{leafs.ID}}" title="{{leafs.ClassfyName}}">{{leafs.ClassfyName}}</a></span>
+        {{/each}}
+
+        {{/if}}
+    </div>
+    {{/each}}
+</script>
+
+
+<script id="areaTemplate" type="text/html">
+    {{each resultData as item i}}
+    <!--<div>-->
+    {{if i!=0 && i%2 == 0}}
+    <br>
+    {{/if}}
+    <label class="province"><a href="javascript:void(0);" data-provinceID="{{item.ID}}">{{item.Province}}</a></label>
+    <!--</div>-->
+    {{/each}}
+</script>
+
+
+
+<script id="unitTemplate" type="text/html">
+    {{each resultData as item i}}
+        {{if i == 0}}
+            <div class="item">
+        {{/if}}
+        <label><a href="javascript:void(0);" data-id="{{classifyID}}" data-OrganizationName="{{item.OrganizationName}}">{{item.OrganizationName}}({{item.Sum}})</a></label>
+        {{if (i+1)%3 == 0}}
+            </div>
+            <div class="item">
+        {{/if}}
+    {{/each}}
+</script>
+
+
+
+<script id="resultTpl" type="text/html">
+    {{if ISAch}}
+        <div style="display: flex;margin-top: 20px;">
+            <div style="width:120px;">
+                <a style="" href="/achievementinfo.html?id={{ID}}" target="_blank">
+                    <img style="max-width:100px;max-height:100px;" src="{{Pic ? Pic:'/images/achimg-temp/'+ (Classify.split(",")[Classify.split(",").length-1] || 'temp') +'.jpg'}}">
+                </a>
+            </div>
+            <div style="flex:1;margin-left:10px;text-align: left;">
+                <div style="font-size:18px;">
+                    <a style="" href="/achievementinfo.html?id={{ID}}" target="_blank">
+                        {{Name}}
+                    </a>
+                </div>
+                <div style="font-size:12px;line-height: 20px;">出价方式：{{IsCompetePrice==1 ? '竞价':'议价'}}&nbsp;&nbsp;&nbsp;&nbsp; </div>
+                <div style="font-size:12px;line-height: 20px;">发布人：{{Creator}}&nbsp;&nbsp;&nbsp;&nbsp; 更新时间：{{CreateDate}}</div>
+            </div>
+        </div>
+    {{else}}
+        <div style="display: flex;margin-top: 20px;">
+            <div style="width:120px;">
+                <a style="" href="/company.html?name={{Name}}" target="_blank">
+                    <img style="max-width:100px;max-height:100px;" src="assets/img/timg.jpeg">
+                </a>
+            </div>
+            <div style="flex:1;margin-left:10px;text-align: left;">
+                <div style="font-size:18px;">
+                    <a style="" href="/company.html?name={{Name}}" target="_blank">
+                        {{Name}}
+                    </a>
+                </div>
+                <div style="font-size:12px;line-height: 20px;">
+                    <span>最近发布：</span>
+                    {{each AchievementList as item i}}
+                    <a style="" href="/achievementinfo.html?id={{item.ID}}" target="_blank">
+                        {{item.Name}}
+                    </a>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    {{/if}}
+
+</script>
+
+<script src="search.js"></script>
+<!--#include virtual="/transinclude/front-footer.html" -->

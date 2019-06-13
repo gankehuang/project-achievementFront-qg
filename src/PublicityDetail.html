@@ -1,0 +1,188 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+    <!--#include virtual="/transinclude/front-meta.html" -->
+    <title>公示详情</title>
+    <link href="css/main.css" rel="stylesheet" />
+    <style type="text/css">
+        label.error {
+            font-weight: bold;
+            color: #e53935;
+            float: right;
+        }
+        .error.form-control {
+            border-color: #e53935;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+        .btn-submit{
+            margin: 10px 0;
+        }
+        #PublicityDetail .block-body{
+            padding: 15px;
+        }
+        .wrapper .w .block-view{
+            border: none;
+        }
+        .block-body p{
+            margin: 0;
+            text-indent: 0;
+        }
+        blockquote{
+            font-size: 14px;
+            border-left-color: rgba(60,176,53,.5);
+        }
+        blockquote:nth-of-type(2){
+            border-left-color: rgba(60,176,53,.6);
+        }
+        blockquote:nth-of-type(3){
+            border-left-color: rgba(60,176,53,.7);
+        }
+        blockquote:nth-of-type(4){
+            border-left-color: rgba(60,176,53,.8);
+        }
+        blockquote:nth-of-type(5){
+            border-left-color: rgba(60,176,53,.9);
+        }
+        blockquote.block-body{
+            margin: 0;
+            border-left-color: #2c77b1;
+        }
+        blockquote.block-body .title{
+            font-size: 16px;
+            color: #2c77b1;
+        }
+        #dissentlist .item{
+            line-height: 1.5;
+            padding: 5px 0;
+        }
+        .countdown, #dissentlist .time{
+            font-size: 10px;
+            color: #aaa;
+            margin-left: 15px;
+        }
+        .countdown{
+            color: #f60;
+        }
+    </style>
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/front-header.html" -->
+<div class="wrapper" id="PublicityDetail">
+    <div class="w" style="margin:15px auto;overflow: hidden">
+        <div class="regulations block-view" data-key="regulations" style="width:390px;max-width:390px;min-height:100%;text-align:justify;text-indent:30px;">
+            <div class="block-body">
+                <h5 class="text-left" style="text-indent:0;color:#aaa;">相关法律法规</h5>
+                <h4 class="text-center" style="line-height:1.5;margin:40px 0;">国务院关于印发实施<br>《中华人民共和国促进科技成果转化法》<br>若干规定的通知</h4>
+                <h5 class="text-right" style="padding:0 20px;">国发〔2016〕16号</h5>
+                <p style="padding:20px 20px 0;line-height:35px;font-size:15px;">
+                    一、促进研究开发机构、高等院校技术转移
+                </p>
+                <p style="padding:20px;line-height:35px;font-size:15px;">
+                    （三）国家设立的研究开发机构、高等院校对其持有的科技成果，应当通过协议定价、在技术交易市场挂牌交易、拍卖等市场化方式确定价格。协议定价的，科技成果持有单位应当在本单位公示科技成果名称和拟交易价格，公示时间不少于15日。单位应当明确并公开异议处理程序和办法。
+                </p>
+            </div>
+        </div>
+        <div class="block-view" style="border:none;margin:0 0 0 15px;min-height:100%;">
+            <div class="block-body">
+                <h3 data-key="AchieveName"></h3>
+                <p class="text-left" style="color:#aaa;margin-bottom:10px;">发布者：<span data-key="CreatUserName"></span></p>
+                <img src="" id="PublicityImage" style="max-width:350px;float:right;">
+                <blockquote>
+                    <p class="relatedAch" style="display: none;">相关成果：</p><div id="achievement"></div>
+                    <p>转让方式：<span data-key="TransferMethod_2str"></span></p>
+                    <div id="contract_amount">
+                        <p>合同金额：￥<span data-key="ContractAmount" id="money"></span>万元</p>
+                        <p class="amount-part" style="display:none;color:#aaa;">知识产权部分转让金额：￥<span data-key="IPRAmount"></span>万元
+                            <br>商业秘密或者技术服务部分转让金额：￥<span data-key="OtherAmount"></span>万元</p>
+                        <p>销售提成情况：<span data-key="SalesCommission"></span></p>
+                    </div>
+                    <p>创建时间：<span data-key="CreatDate"></span></p>
+                    <p>状态：<span data-key="Status_2str"></span></p>
+                </blockquote>
+                <blockquote>
+                    <p>转让单位名称：<span data-key="TransferUnitName"></span></p>
+                    <p>转让单位省份：<span data-key="TransferUnitProvince_str"></span></p>
+                    <p>转让单位性质：<span data-key="TransferUnitProperty_2str"></span></p>
+                </blockquote>
+                <blockquote>
+                    <p>受让单位名称：<span data-key="AssigneeUnitName"></span></p>
+                    <p>受让单位省份：<span data-key="AssigneeUnitProvince_str"></span></p>
+                    <p>受让单位性质：<span data-key="AssigneeUnitProperty_2str"></span></p>
+                    <p class="Contacts" style="display:none;">受让单位联系人：<span data-key="AssigneeUnitContacts"></span></p>
+                    <p class="Phone" style="display:none;">受让单位联系人手机：<span data-key="AssigneeUnitPhone"></span></p>
+                    <p class="TelePhone" style="display:none;">受让单位联系电话：<span data-key="AssigneeUnitTelePhone"></span></p>
+                    <p class="Email" style="display:none;">受让单位邮箱：<span data-key="AssigneeUnitEmail"></span></p>
+                    <p class="Address" style="display:none;">受让单位联系地址：<span data-key="AssigneeUnitAddress"></span></p>
+                    <p class="PostCode" style="display:none;">受让单位联系地址邮编：<span data-key="AssigneeUnitPostCode"></span></p>
+                </blockquote>
+                <blockquote>
+                    <p>知识产权保护方式：<span data-key="IPRMode_2str"></span></p>
+                    <p class="IPRMode_1" style="display:none;">专利名称：<span data-key="PatentName"></span></p>
+                    <p class="IPRMode_1" style="display:none;">专利号：<span data-key="PatentNumber"></span></p>
+                    <p class="IPRMode_2" style="display:none;">植物新品种权名称：<span data-key="PlantVarietyRights"></span></p>
+                    <p class="IPRMode_2" style="display:none;">获得日期：<span data-key="AchieveDate"></span></p>
+                    <p class="IPRMode_3" style="display:none;">规划名称：<span data-key="PlanName"></span></p>
+                    <p class="IPRMode_3" style="display:none;">商业秘密级：<span data-key="SecretLevel"></span></p>
+                </blockquote>
+                <blockquote class="block-contract" style="display:none;">
+                    <p>合同编号：<span data-key="ContractNumber"></span></p>
+                    <p>合同登记省份：<span data-key="ContractRegisterProvince_str"></span></p>
+                    <p>合同签约时间：<span data-key="ContractSigningDate"></span></p>
+                    <p>合同开始时间：<span data-key="ContractBeginDate"></span></p>
+                    <p>合同结束时间：<span data-key="ContractEndDate"></span></p>
+                    <p id="contractValue" style="display: none;">合同金额：￥<span data-key="LastContractAmount"></span>万元</p>
+                    <p class="amount-part" style="display:none;color:#aaa;">知识产权部分转让金额：￥<span data-key="LastIPRAmount"></span>万元
+                        <br>商业秘密或者技术服务部分转让金额：￥<span data-key="LastOtherAmount"></span>万元</p>
+                    <p>销售提成情况：<span data-key="LastSalesCommission"></span></p>
+                    <p>价格确定方式：<span data-key="TransactionMode_2str"></span></p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <img src="/images/异议流程.png" class="w" style="background: white; padding:15px; margin:20px auto;">
+
+    <div id="block_dissent_list" class="w" style="display:none; margin:10px auto 20px;">
+        <div class="block-view">
+            <blockquote class="block-body">
+                <p class="title">异议列表</p>
+                <ul id="dissentlist" style="padding:0;margin:0"></ul>
+            </blockquote>
+        </div>
+    </div>
+
+    <div id="block_evaluate_content" class="w" style="display:none; margin:10px auto 20px;">
+        <div class="block-view">
+            <blockquote class="block-body">
+                <p class="title">评审意见</p>
+                <p class="content"></p>
+            </blockquote>
+        </div>
+    </div>
+
+    <div id="block_dissent_submit" class="w" style="display:none;margin:10px auto 20px;">
+        <div class="block-view">
+            <div class="block-body">
+                <form id="dissent" role="form">
+                    <textarea class="form-control col-md-12" name="content" placeholder="针对本公示如有异议，请在此填写并提交……" required></textarea>
+                </form>
+                <div class="col-md-12" style="text-align:right;">
+                    <button type="button" name="button" class="btn btn-primary btn-submit">提交异议</button>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/html" id="template_dissentlist">
+{{each resultData as item i}}
+<li data-id="{{item.ID}}" class="item">
+    {{item.Content}}<span class="time">{{item.CreatDate}}</span>
+</li>
+{{/each}}
+</script>
+
+
+<script src="../../vendor/validate/1.13.1/jquery.validate.js"></script>
+<script src="PublicityDetail.js"></script>
+<!--#include virtual="/transinclude/front-footer.html" -->

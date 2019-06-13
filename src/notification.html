@@ -1,0 +1,408 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+    <!--#include virtual="/transinclude/front-meta.html" -->
+    <title>成果列表</title>
+    <link href="css/main.css" rel="stylesheet" />
+    <style type="text/css">
+        .popover{
+            min-height: 640px;
+        }
+        #unitListNav .popover-content label{
+            padding: 10px 0;
+        }
+        #unitListNav .popover-content label:nth-child(n+2){
+            padding-left: 20px;
+        }
+        .w.classify-path{
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .classify-path{
+            padding: 10px;
+            background: white;
+        }
+        .classify-path .bread-crumb{
+            overflow: hidden;
+        }
+        .classify-path .bread-crumb .item{
+            display: inline-block;
+            position: relative;
+            margin: 0 -5px 0 0;
+            padding: 0 30px 0 15px;
+            height: 30px;
+            line-height: 30px;
+            background: #f9983f;
+            color: white;
+        }
+        .classify-path .bread-crumb .item:after{
+            content: '>';
+            display: inline-block;
+            position: absolute;
+            top: -3px;
+            right: 5px;
+            color: white;
+            transform: scale(2,7);
+            -webkit-transform: scale(2,7);
+            -o-transform: scale(2,7);
+            -moz-transform: scale(2,7);
+            -ms-transform: scale(2,7);
+        }
+        .classify-path .bread-crumb .target{
+            font-weight: bolder;
+        }
+        .classify-path .bread-crumb .target:after{
+            display: none;
+        }
+        .classify-path .child-classfy{
+            margin-top: 10px;
+        }
+        .classify-path .child-classfy .item{
+            margin: 0 5px;
+            color: #f9983f;
+        }
+        #dataTable{
+            display: block;
+            width: 100%!important;
+        }
+        #dataTable tbody{
+            display: block;
+            margin: 0 -10px;
+        }
+
+        #dataTable tbody tr{
+            display: inline-block;
+            width: 25%;
+            overflow: hidden;
+            border: 1px solid #F0F3EF;
+            border-radius: 5px;
+        }
+        #dataTable tbody tr:hover{
+            border: 1px solid #D0D0D0;
+            transform:Scale(1.05);
+            transition:all 200ms ease;
+            background: white;
+            opacity: 0.7;
+            box-shadow: 0 0 5px rgba(134,118,118,0.5);
+        }
+
+        #dataTable tbody tr td{
+            display: block;
+        }
+        #dataTable .item{
+            display:block;
+            margin: 10px;
+            color: #666;
+        }
+        #dataTable .item:hover{
+            text-decoration: none;
+        }
+        #dataTable .item .img{
+            width: 100%;
+            height: 150px;
+        }
+        #dataTable .item .content{
+            text-align: left;
+            line-height: 1.5;
+        }
+        #dataTable .item .name{
+            margin: 5px 0;
+            font-size: 14px;
+            font-weight: bold;
+            white-space: normal;
+        }
+        #dataTable .item .more{
+            font-size: 12px;
+            color: #999;
+        }
+        #dataTable .item .name, #dataTable .item .more{
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .classify div{ float: left; height: auto; background-color: white; }
+        .classify div b{ float: left; color: gray;}
+        .classify div ul{ list-style: none; float: left; margin: 0; padding: 0; width: 90%; height: 30px; overflow: hidden;}
+        .classify div ul li{ list-style: none; float: left; margin-left : 10px; cursor: pointer; color: #999999 }
+        .classify div ul li a{ color: #F9983F }
+        .classify div ul li:hover{ text-decoration: underline }
+        .classify div span{ float: right; margin-right: 10px; font-size: 18px; cursor: pointer;} 
+        
+        #identifying div{  cursor: pointer; display: none; height: 20px; background: #F3F3F3; float: left; margin-top: -5px; margin-left: 10px; padding: 0px 5px; color: red; border:1px solid #DDDDDD; line-height: 20px; }   
+        #identifying div:hover span{ background: red; color: white; }  
+        #identifying div:hover { border: 1px solid red; }
+    </style>
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/front-header.html" -->
+<div class="wrapper">
+    <div class="w" style="position:relative; margin-bottom: 10px;">
+        <div class="column left">
+            <!-- <div class="tab-list">
+                <div class="tab-title active" data-index="1">种类</div><div class="tab-title" data-index="2">地域</div><div class="tab-title" data-index="3" style="border-right: none;">单位</div>
+            </div> -->
+            <div class="tab-box" id="classNav">
+                <div class="tab-content" data-index="1">
+                    <ul class="nav-level" id="classListNav">
+
+                    </ul>
+                </div>
+                <div class="tab-content" data-index="2" style="display: none;">
+                    <!--改动 地域-->
+                    <div class="tab-content" data-index="2" style="display: none;overflow:visible">
+
+                        <ul class="nav-level" id="areaListNav">
+
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=23'" style="padding:0 0 0 10px">北京市</a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=24'">天津市</a></li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=27'" style="padding:0 0 0 10px">
+                                    河北省
+                                </a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=2'">山西省</a>
+                            </li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=3'" style="padding:0 0 0 10px">辽宁省</a><a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=4'">
+                                    吉林省
+                                </a>
+                            </li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=5'" style="padding:0 0 0 10px">黑龙江省</a> <a style="padding:5px 0 0 34px" href="#" onclick="location.href = 'notification.html?provinceID=25'">
+                                    上海市
+                                </a>
+                            </li>
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=1'" style="padding:0 0 0 10px">江苏省</a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=6'">浙江省</a></li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=7'" style="padding:0 0 0 10px">
+                                    安徽省
+                                </a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=8'">福建省</a>
+                            </li>
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=9'" style="padding:0 0 0 10px">江西省</a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=10'">山东省</a></li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=11'" style="padding:0 0 0 10px">河南省</a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=12'">
+                                    湖北省
+                                </a>
+                            </li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=13'" style="padding:0 0 0 10px">
+                                    湖南省
+                                </a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=14'"> 广东省</a>
+                            </li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=15'" style="padding:0 0 0 10px">
+                                    海南省
+                                </a>
+                                <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=26'">
+                                    重庆市
+                                </a>
+                            </li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=16'" style="padding:0 0 0 10px">四川省</a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=17'">
+                                    贵州省
+                                </a>
+                            </li>
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=18'" style="padding:0 0 0 10px">云南省</a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=19'">陕西省</a></li>
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=18'" style="padding:0 0 0 10px">甘肃省</a> <a style="padding:5px 0 0 42px" href="#" onclick="location.href = 'notification.html?provinceID=34'">西藏自治区</a></li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=21'" style="padding:0 0 0 10px">
+                                    青海省
+                                </a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=22'">
+                                    台湾省
+                                </a>
+                            </li>
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=31'" style="padding:0 0 0 10px">内蒙古自治区</a> </li>
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=30'" style="padding:0 0 0 10px">广西壮族自治区</a> </li>
+
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=33'" style="padding:0 0 0 10px">
+                                    宁夏回族自治区
+                                </a>
+                            </li>
+
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=32'" style="padding:0 0 0 10px">新疆维吾尔自治区</a></li>
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=28'" style="padding:0 0 0 10px">香港特别行政区</a></li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=29'" style="padding:0 0 0 10px">澳门特别行政区</a>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="tab-content" data-index="3" style="display: none;">
+                    <ul class="nav-level" id="unitListNav">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="column" style="margin-left:20px;height:auto; ">
+            <div class="classify-path" style="display: none;"></div>
+
+            <div class="classify">
+
+
+                <div id="identifying" style="width: 100%; height: auto; ">
+                    <div id="areaBs" a=""><a></a><span class="glyphicon glyphicon-remove"></span></div>   
+                    <div id="ownerBs" a=""><a></a><span class="glyphicon glyphicon-remove"></span></div>    
+                </div>
+
+
+                <div id="properArea" style="width: 100%; padding-left: 10px;">
+                    <b>适宜区域：</b>
+                    <ul id="area">
+                        <!-- <li><a href="javascript:void(0)" id="1">干燥跟我说高考收到货非公开哈萨克地方</a></li>
+                        <li><a href="javascript:void(0)" id="1">干燥的双方各双方各水电费水电费个回复</a></li>
+                        <li><a href="javascript:void(0)" id="1">干燥水电费水电费是的华盛顿</a></li>
+                        <li><a href="javascript:void(0)" id="1">干燥水电费水电费是的华盛顿</a></li>
+                        <li><a href="javascript:void(0)" id="1">干燥水电费水电费是的华盛顿</a></li>
+                        <li><a href="javascript:void(0)" id="1">干燥水电费水电费是的华盛顿</a></li>
+                        <li><a href="javascript:void(0)" id="1">干燥水电费水电费是的华盛顿</a></li> -->
+                    </ul>
+                    <span class="span">+</span>
+                </div>
+                <div id="owner1" style="width: 100%; padding-left: 10px;">
+                    <b>拥有人：</b>
+                    <ul id="owner">
+                        <!-- <li><a href="javascript:void(0)" id="1">四川泰隆回智生物科技有限公司</a></li>
+                        <li><a href="javascript:void(0)" id="1">四川泰隆回智生物科技有限公司</a></li>
+                        <li><a href="javascript:void(0)" id="1">中国水稻研究院</a></li>
+                        <li><a href="javascript:void(0)" id="1">中国水稻研究院</a></li>
+                        <li><a href="javascript:void(0)" id="1">中国水稻研究院</a></li>
+                        <li><a href="javascript:void(0)" id="1">中国水稻研究院</a></li>
+                        <li><a href="javascript:void(0)" id="1">中国水稻研究院</a></li>
+                        <li><a href="javascript:void(0)" id="1">中国水稻研究院</a></li>
+                        <li><a href="javascript:void(0)" id="1">中国水稻研究院</a></li>
+                        <li><a href="javascript:void(0)" id="1">中国水稻研究院</a></li>
+                        <li><a href="javascript:void(0)" id="1">中国水稻研究院</a></li>
+                        <li><a href="javascript:void(0)" id="1">中国水稻研究院</a></li>
+                        <li><a href="javascript:void(0)" id="1">中国水稻研究院</a></li>
+                        <li><a href="javascript:void(0)" id="1">中国水稻研究院</a></li> -->
+                    </ul>
+                    <span class="span">+</span>
+                </div>
+            </div>
+    
+            <table class="table-none" id="dataTable">
+                <thead style="display: none;">
+                <tr>
+                    <th>详情</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script id="classTemplate" type="text/html">
+    {{each resultData as item i}}
+    <li><a href="javascript:void(0);" data-id="{{item.ID}}" title="{{item.ClassfyName}}"
+        class="{{(!item.ChildClassfy || item.ChildClassfy.length == 0) ? 'leaf':''}}"> {{item.ClassfyName}}</a>
+        {{if item.ChildClassfy && item.ChildClassfy.length > 0}}
+        <ul>
+            {{each item.ChildClassfy as leafs index}}
+            <li><a href="javascript:void(0);" class="leaf" data-id="{{leafs.ID}}" title="{{leafs.ClassfyName}}" data-content="w343"
+                class="leaf">{{leafs.ClassfyName}}</a></li>
+            {{/each}}
+        </ul>
+
+        {{/if}}
+    </li>
+    {{/each}}
+</script>
+
+
+<!--左侧加载大类模板-->
+<script id="classPathTemplate" type="text/html">
+    <div class="bread-crumb">
+        <!-- <a href="/" class="item">首页</a> -->
+        <!-- <span class="item">种类</span> -->
+        {{each Breadcrumb as item i}}
+        {{if item.ID && item.ClassfyName}}
+            <a href="/notification.html?id={{item.ID}}" class="item">{{item.ClassfyName}}</a>
+        {{/if}}
+        {{/each}}
+        <span class="item target">{{ClassfyName}}</span>
+    </div>
+    {{if ChildClassfy.length > 0 && ChildClassfy != '[]'}}
+    <div class="child-classfy">
+        {{each ChildClassfy as item i}}
+            <a href="/notification.html?id={{item.ID}}" class="item">{{item.ClassfyName}}</a>
+        {{/each}}
+    </div>
+    {{/if}}
+</script>
+
+<!--大类模板内容部分-->
+<script id="contentTemplate" type="text/html">
+    {{each resultData as item i}}
+    <div style="margin-bottom:10px;">
+        <label style="font-size: 14px;"><a href="javascript:void(0);" data-id="{{item.ID}}">{{item.ClassfyName}}&nbsp;&nbsp;>&nbsp;&nbsp;</a></label>
+        {{if item.ChildClassfy && item.ChildClassfy!='[]' && item.ChildClassfy.length > 0}}
+        {{each item.ChildClassfy as leafs index}}
+        <span style="color: #A3A3A3">|</span>
+        <span style="margin-left:0 5px;"><a href="javascript:void(0);" data-id="{{leafs.ID}}" title="{{leafs.ClassfyName}}" style="color: #6F6F6F">{{leafs.ClassfyName}}</a></span>
+        {{/each}}
+
+        {{/if}}
+    </div>
+    {{/each}}
+</script>
+
+
+
+<script id="areaTemplate" type="text/html">
+    {{each resultData as item i}}
+    <!--<div>-->
+    {{if i!=0 && i%2 == 0}}
+    <br>
+    {{/if}}
+    <label class="province"><a href="javascript:void(0);" data-provinceID="{{item.ID}}">{{item.Province}}</a></label>
+    <!--</div>-->
+    {{/each}}
+</script>
+
+
+
+<script id="unitTemplate" type="text/html">
+    {{each resultData as item i}}
+        {{if i == 0}}
+            <div class="item">
+        {{/if}}
+        <label><a href="javascript:void(0);" data-id="{{classifyID}}" data-OrganizationName="{{item.OrganizationName}}">{{item.OrganizationName}}({{item.Sum}})</a></label>
+        {{if (i+1)%3 == 0}}
+            </div>
+            <div class="item">
+        {{/if}}
+    {{/each}}
+</script>
+
+
+
+<script id="resultTpl" type="text/html">
+    <a class="item" href="achievementinfo.html?id={{ID}}" target="_blank">
+        <div class="img" style="background:url(/images/achimg-temp/temp.jpg) no-repeat center;background-size:cover;">
+            <div style="height:100%;background:url({{Pic ? Pic:'/images/achimg-temp/'+ClassifyName+'.jpg'}}) center center;background-size:cover;"></div>
+        </div>
+        <div class="content">
+            <div class="name" title="{{AchieveName}}">
+                {{AchieveName}}
+            </div>
+            <div style="font-size:12px;line-height: 20px;">出价方式：{{IsCompetePrice==1 ? '竞价':'议价'}}</div>
+            <div style="font-size:12px;line-height: 20px;overflow:hidden;text-overflow:ellipsis;">拥有人：{{Creator}}</div>
+            <!-- <div style="font-size:12px;line-height: 20px;">更新时间：{{CreatDate}}</div> -->
+        </div>
+    </a>
+</script>
+
+
+<script src="notification.js"></script>
+<!--#include virtual="/transinclude/front-footer.html" -->

@@ -1,0 +1,91 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+    <!--#include virtual="/transinclude/front-meta.html" -->
+    <title>竞价平台</title>
+    <link href="css/main.css" rel="stylesheet" />
+    <style>
+    .table-auction-market td {
+       background-color: #FFFFFF;
+       border: 1px solid #F2F2F2;
+       text-align: center;
+       color: #666;
+   }
+   .table-auction-market th {
+       color: #333;
+       text-align: center;
+       background-color: #D9DBDF;
+   }
+    </style>
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/front-header.html" -->
+
+<div class="wrapper">
+    <div class="container">
+        <div class="w" style="margin:10px 0 20px;overflow: hidden">
+            <div class="block-view">
+                <div style="text-align: center;background-color: #656E85;color: #fff;line-height:40px;font-size:16px;" id="tradeBlock">
+                    竞价平台
+                </div>
+                <div class="block-body" style="padding: 0;">
+                    <table class="table table-auction-market" style="margin-bottom: 0;">
+                        <thead>
+                        <th>ID</th>
+                        <th>名称</th>
+                        <th>起始价格</th>
+                        <th>状态</th>
+                        <th>剩余时间</th>
+                        <th>当前价格</th>
+                        </thead>
+                        <tbody id="tbodyContent">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="myTemplate" type="text/html">
+    {{each resultData as item i}}
+    <tr>
+        <td>{{item.ID}}</td>
+        <td>{{item.AchieveName}}</td>
+        <td>{{item.StartPrice}}</td>
+        <td>{{item.Status}}</td>
+        <td>{{item.LeaveTime}}</td>
+        <td>{{item.CurrtPrice}}</td>
+    </tr>
+    {{/each}}
+</script>
+<script>
+function tableDraw() {
+    $.ajax({
+        url: Util.service.GetCompeteListRealTime,
+        type: 'POST',
+        data: {
+            VisitID: manageVisitID
+        },
+        success: function (data) {
+            Util.pageinit();
+            if (data.success === 1) {
+                data.resultData = JSON.parse(data.resultData).slice(0, 10);
+                $("#tbodyContent").html(template("myTemplate", data));
+            }
+        },
+        error: function () {
+            Util.pageinit();
+        }
+    })
+}
+
+tableDraw();
+
+setInterval(function(){
+    tableDraw();
+},15000);
+</script>
+<!--#include virtual="/transinclude/front-footer.html" -->

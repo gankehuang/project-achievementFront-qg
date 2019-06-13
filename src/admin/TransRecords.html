@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Bootstrap Advance Admin Template</title>
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!--CUSTOM BASIC STYLES-->
+    <link href="assets/css/basic.css" rel="stylesheet" />
+    <!--CUSTOM MAIN STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
+    <style type="text/css">
+        th {
+            padding: 0;
+            background: #4E8DDC;
+        }
+
+        tr {
+            background: #f00;
+        }
+
+            tr:nth-child(2n) {
+                background: #C4E1FF;
+            }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse set-radius-zero">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+
+                    <img src="/assets/img/logo1.png" />
+                </a>
+
+            </div>
+
+            <div class="right-div col-lg-8">
+
+                <div class="input-group">
+                    <input type="text" placeholder="请输入关键字" class="input-sm form-control"> <span class="input-group-btn">
+                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button>
+                    </span>
+                </div>
+                <!--</div>-->
+                <!--<a href="#" class="btn btn-danger pull-right">注册</a>
+                <a href="#" class="btn btn-danger pull-right">登录</a>-->
+            </div>
+
+        </div>
+    </div>
+    <div id="wrapper" style=" margin-top: 50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-2 col-xs-6" style=" background-color :#5bc0de ;color :black ;height :80%">
+                    <div class="sidebar-collapse" style="z-index: 1; position: absolute;width: 240px;">
+                        <ul class="nav" id="main-menu">
+
+                            <li>
+                                <a href="#"><i class="fa fa-desktop "></i>成果管理 <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <!--<li>
+                    <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>发布成果</a>
+                </li>-->
+                                    <li>
+                                        <a href="notification.html"><i class="fa fa-bell "></i>成果管理</a>
+                                    </li>
+                                    <li>
+                                        <a href="Records.html"><i class="fa fa-circle-o "></i>交易记录</a>
+                                    </li>
+                                    <!--<li>
+                    <a href="RequireCommand.html"><i class="fa fa-eyedropper "></i>需求推荐</a>
+                </li>-->
+
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="active-menu-top"><i class="fa fa-yelp "></i>需求管理 <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level collapse in">
+                                    <!--<li>
+            <a href="invoice.html"><i class="fa fa-coffee"></i>发布需求</a>
+        </li>-->
+                                    <li>
+                                        <a href="RequireMain.html"><i class="fa fa-flash "></i>需求管理</a>
+                                    </li>
+                                    <li>
+                                        <a class="active-menu" href="TransRecords.html"><i class="fa fa-key "></i>交易记录</a>
+                                    </li>
+                                    <!--<li>
+            <a href="ResultCommand.html"><i class="fa fa-send "></i>成果推荐</a>
+        </li>-->
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="ReviewManage.html"><i class="fa fa-flash "></i>审核管理 </a>
+
+                            </li>
+                            <li>
+                                <a href="index.html" ><i class="fa fa-anchor "></i>竞价大厅</a>
+                            </li>
+                            <li>
+                                <a href="tradingCenter.html"><i class="fa fa-bug "></i>交易中心</a>
+                            </li>
+                             <li>
+                                <a href="#" ><i class="fa fa-yelp "></i>用户管理<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level ">
+                                    <li>
+                                        <a href="UserManage.html" ><i class="fa fa-flash "></i>审核用户</a>
+                                    </li>
+                                   
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bicycle "></i>个人中心 <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <!--<li>
+                    <a href="Time.html"><i class="fa fa-code "></i>时间轴</a>
+                </li>-->
+                                    <li>
+                                        <a href="form.html"><i class="fa fa-desktop "></i>基本信息 </a>
+                                    </li>
+                                    <li>
+                                        <a href="form-advance.html"><i class="fa fa-code "></i>密码修改</a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--</nav>-->
+                <!-- /. NAV SIDE  -->
+                <div id="page-wrapper">
+                    <div id="page-inner">
+                        <div class="row">
+                            <div class="col-md-10 col-sm-10 col-xs-6">
+                                <a href="#">首页</a> >> <a href="javascript:void(0);">交易记录</a>
+                                <table id="fresh-table" class="table table-striped table-bordered table-hover dataTables-example">
+                                    <thead>
+                                    <th>需求名称</th>
+                                    <th>所属权类型</th>
+                                    <th>价格</th>
+                                    <th>方式（竞价\议价）</th>
+                                    <th>购买成果名称</th>
+
+                                    <th data-field="actions">操作</th>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+                        </div>
+                        <!-- /. ROW  -->
+
+
+
+                    </div>
+                    <!-- /. PAGE INNER  -->
+                </div>
+                <!-- /. PAGE WRAPPER  -->
+            </div>
+
+        </div>
+    </div>
+    <!-- /. WRAPPER  -->
+    <div id="footer-sec">
+        &copy; 2014 YourCompany | More Templates <a href="" target="_blank" title="联系我们">联系我们</a> - Collect from <a href="/" title="关于我们" target="_blank">关于我们</a>
+    </div>
+    <!-- /. FOOTER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+
+    <script type="text/javascript" src="assets/js/bootstrap-table.js"></script>
+
+    <script type="text/javascript">
+        var $table = $('#fresh-table'),
+            $alertBtn = $('#alertBtn'),
+            full_screen = false;
+
+        $().ready(function () {
+            $table.bootstrapTable({
+                showRefresh: false,
+                search: false,
+                showToggle: false,
+                showColumns: false,
+                pagination: true,
+                striped: false,
+                pageSize: 5,
+                //pageList: [8, 10, 25, 50, 100],
+
+                formatShowingRows: function (pageFrom, pageTo, totalRows) {
+                    //do nothing here, we don't want to show the text "showing x of y from..."
+                },
+                formatRecordsPerPage: function (pageNumber) {
+                    return "";//pageNumber + " rows visible";
+                },
+                //icons: {
+                //    refresh: 'fa fa-refresh',
+                //    detailOpen: 'fa fa-plus-circle',
+                //    detailClose: 'fa fa-minus-circle'
+                //}
+            });
+
+
+
+            $(window).resize(function () {
+                $table.bootstrapTable('resetView');
+            });
+
+
+            window.operateEvents = {
+                'click .like': function (e, value, row, index) {
+                    alert('You click like icon, row: ' + JSON.stringify(row));
+                    console.log(value, row, index);
+                },
+                'click .edit': function (e, value, row, index) {
+                    alert('You click edit icon, row: ' + JSON.stringify(row));
+                    console.log(value, row, index);
+                },
+                'click .remove': function (e, value, row, index) {
+                    $table.bootstrapTable('remove', {
+                        field: 'id',
+                        values: [row.id]
+                    });
+
+                }
+            };
+
+            $alertBtn.click(function () {
+                alert("You pressed on Alert");
+            });
+
+        });
+
+
+        function operateFormatter(value, row, index) {
+            return [
+                '<a rel="tooltip"  class="table-action edit" href="javascript:void(0)" title="修改">',
+                    '<i class="fa fa-edit"></i>',
+                '</a>&nbsp;',
+                '&nbsp;<a rel="tooltip"  class="table-action remove" href="javascript:void(0)" title="删除">',
+                    '<i class="fa fa-remove"></i>',
+                '</a>'
+            ].join('');
+        }
+
+
+    </script>
+</body>
+</html>

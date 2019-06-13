@@ -1,0 +1,182 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+    <!--#include virtual="/transinclude/front-meta.html" -->
+    <title>成果列表</title>
+    <link href="css/main.css" rel="stylesheet" />
+    <style type="text/css">
+        .popover{
+            min-height: 640px;
+        }
+        #unitListNav .popover-content label{
+            padding: 10px 0;
+        }
+        #unitListNav .popover-content label:nth-child(n+2){
+            padding-left: 20px;
+        }
+        .w.classify-path{
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .classify-path{
+            padding: 10px;
+            background: white;
+        }
+        .classify-path .bread-crumb{
+            overflow: hidden;
+        }
+        .classify-path .bread-crumb .item{
+            display: inline-block;
+            position: relative;
+            margin: 0 -5px 0 0;
+            padding: 0 30px 0 15px;
+            height: 30px;
+            line-height: 30px;
+            background: #f9983f;
+            color: white;
+        }
+        .classify-path .bread-crumb .item:after{
+            content: '>';
+            display: inline-block;
+            position: absolute;
+            top: -3px;
+            right: 5px;
+            color: white;
+            transform: scale(2,7);
+            -webkit-transform: scale(2,7);
+            -o-transform: scale(2,7);
+            -moz-transform: scale(2,7);
+            -ms-transform: scale(2,7);
+        }
+        .classify-path .bread-crumb .target{
+            font-weight: bolder;
+        }
+        .classify-path .bread-crumb .target:after{
+            display: none;
+        }
+        .classify-path .child-classfy{
+            margin-top: 10px;
+        }
+        .classify-path .child-classfy .item{
+            margin: 0 5px;
+            color: #f9983f;
+        }
+        #dataTable{
+            display: block;
+            width: 100%!important;
+        }
+        #dataTable tbody{
+            display: block;
+            margin: 0 -10px;
+        }
+
+        #dataTable tbody tr{
+            display: inline-block;
+            width: 25%;
+            overflow: hidden;
+            border: 1px solid #F0F3EF;
+            border-radius: 5px;
+        }
+        #dataTable tbody tr:hover{
+            border: 1px solid #D0D0D0;
+            transform:Scale(1.05);
+            transition:all 200ms ease;
+            background: white;
+            opacity: 0.7;
+            box-shadow: 0 0 5px rgba(134,118,118,0.5);
+        }
+
+        #dataTable tbody tr td{
+            display: block;
+        }
+        #dataTable .item{
+            display:block;
+            margin: 10px;
+            color: #666;
+        }
+        #dataTable .item:hover{
+            text-decoration: none;
+        }
+        #dataTable .item .img{
+            width: 100%;
+            height: 150px;
+        }
+        #dataTable .item .content{
+            text-align: left;
+            line-height: 1.5;
+        }
+        #dataTable .item .name{
+            margin: 5px 0;
+            font-size: 14px;
+            font-weight: bold;
+            white-space: normal;
+        }
+        #dataTable .item .more{
+            font-size: 12px;
+            color: #999;
+        }
+        #dataTable .item .name, #dataTable .item .more{
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .classify div{ float: left; height: auto; background-color: white; }
+        .classify div b{ float: left; color: gray;}
+        .classify div ul{ list-style: none; float: left; margin: 0; padding: 0; width: 90%; height: 30px; overflow: hidden;}
+        .classify div ul li{ list-style: none; float: left; margin-left : 10px; cursor: pointer; color: #999999 }
+        .classify div ul li a{ color: #F9983F }
+        .classify div ul li:hover{ text-decoration: underline }
+        .classify div span{ float: right; margin-right: 10px; font-size: 18px; cursor: pointer;} 
+        
+        #identifying div{  cursor: pointer; display: none; height: 20px; background: #F3F3F3; float: left; margin-top: -5px; margin-left: 10px; padding: 0px 5px; color: red; border:1px solid #DDDDDD; line-height: 20px; }   
+        #identifying div:hover span{ background: red; color: white; }  
+        #identifying div:hover { border: 1px solid red; }
+    </style>
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/front-header.html" -->
+<div class="wrapper">
+    <div class="w" style="position:relative; margin-bottom: 10px;">
+        
+        <div class="column" style="height:auto;">
+            
+            <table class="table-none" id="dataTable">
+                <thead style="display: none;">
+                <tr>
+                    <th>详情</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<script id="resultTpl" type="text/html">
+    <a class="item" href="achievementinfo.html?id={{ID}}" target="_blank">
+        <div class="img" style="background:url(/images/achimg-temp/temp.jpg) no-repeat center;background-size:cover;">
+            <div style="height:100%;background:url({{Pic ? Pic:'/images/achimg-temp/'+ClassifyName+'.jpg'}}) center center;background-size:100% 100%;"></div>
+        </div>
+        <div class="content">
+            <div class="name" title="{{AchieveName}}">
+                {{AchieveName}}
+            </div>
+            <!-- <div style="font-size:12px;line-height: 20px;">出价方式：{{IsCompetePrice==1 ? '竞价':'议价'}}</div>
+            <div style="font-size:12px;line-height: 20px;overflow:hidden;text-overflow:ellipsis;">拥有人：{{Creator}}</div> -->
+            <!-- <div style="font-size:12px;line-height: 20px;">更新时间：{{CreatDate}}</div> -->
+        </div>
+    </a>
+</script>
+
+
+<script src="itemNotification.js"></script>
+<!--#include virtual="/transinclude/front-footer.html" -->

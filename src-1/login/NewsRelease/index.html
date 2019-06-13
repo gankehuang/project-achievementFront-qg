@@ -1,0 +1,189 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+    <title></title>
+    <!--#include virtual="/transinclude/meta.html" -->
+    <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap-datetimepicker.min.css"/>
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/nav.html" -->
+<div class="col-md-12 ">
+    <ul id="breadcrumb">
+        <li><a href="/index.html"><span class="icon icon-home"> </span>首页</a></li>
+        <li><a href="javascript:void(0);"><span class="icon icon-beaker"> </span>新闻发布</a></li>
+    </ul>
+    <div class="col-md-12 col-title">
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active">
+                <a href="#home" data-toggle="tab">新闻信息</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-12 col-body">
+        <div id="myTabContent" class="tab-content col-md-10">
+            <div class="tab-pane fade in active" id="home">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form" id="homeForm">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">新闻标签</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="Tag" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">新闻名称</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="Title" required>
+                                </div>
+                            </div>                          
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">新闻来源</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="From" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">发布时间</label>
+                                <div class="col-md-10">
+                                    <!-- <input type="date" style="height:25px" name="CreateDate" required id="CreateDate" />-->
+                                    <div class='input-group date datetimepicker'>
+                                        <input type="text" class="form-control" placeholder="发布时间 yyyy-MM-dd" name="CreateDate" id="CreateDate">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">内容简介</label>
+                                <div class="col-md-10">
+                                <span class="btn btn-new-red fileinput-button">
+                                    <i class="glyphicon glyphicon-open"></i><span>&nbsp;上传</span>
+                                    <input type="file" id="wordUpload" name="fileupload" accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                </span>
+                                    <div id="s" class="alert alert-warning" role="alert" style="display: inline-block;">请知悉：word文件不能超过10M！</div>
+                                    <iframe name="wordFrame" id="wordFrame" width="100%" style="border: 1px solid #ddd;display: none;"></iframe>
+                                    <textarea name="Desc" id="Desc" style="display: none;"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">是否发布为图片新闻</label>
+                                <div class="col-md-2">
+                                    <select class="form-control" name="IsPicNews" required onchange="funchange(this)" id="IsPicNews">
+                                        <option value=" 2">
+                                            请选择
+                                        </option>
+                                        <option value="1">是</option>
+                                        <option value="0">否</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!--上传图片新闻的图片-->
+                            <div class="form-group" id="MainPic" style="display:none;">
+                                <div class="alert alert-warning" role="alert">请知悉：图片不能超过20M！</div>
+                                <label class="col-md-2 control-label">图片上传</label>
+                                <div class="form-group col-md-4">
+                                    <span class="btn btn-new-red fileinput-button">
+                                        <i class="glyphicon glyphicon-open"></i><span>&nbsp;上传</span>
+                                        <input type="file" id="imgUpload1" name="fileupload" accept="image/png,image/gif,image/jpeg">
+                                    </span>
+                                    <button class="btn btn-success" id="clearImgs1">清空图片</button>
+
+                                </div>
+                                <div class="col-md-12 box-img" id="imgBoxs1">
+                                </div>
+                            </div>
+                            <!--上传附件-->
+                            <div class="form-group">
+                                <div class="alert alert-warning" role="alert">请知悉：上传附件大小不能超过100M！</div>
+                                <label class="col-md-2 control-label">附件上传</label>
+                                <div class="form-group col-md-4">
+                                    <span class="btn btn-new-red fileinput-button">
+                                        <i class="glyphicon glyphicon-open"></i><span>&nbsp;上传</span>
+                                        <input type="file" id="FileupLoadAll" name="fileupload">
+                                    </span>
+                                    <button class="btn btn-success" id="ClearFileupLoadAll1">清空附件</button>
+
+                                </div>
+                                <div class="col-md-12" id="upLoadAll">
+                                </div>
+                            </div>
+                            <!--保存-->
+                            <div class="col-md-12" style="text-align:right;">
+                                <button type="button" name="button" class="btn btn-primary btn-save">保存</button>
+                            </div>
+                       </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="modal" tabindex="-1" role="dialog"
+    aria-labelledby="uploadProgressModal"
+    id="uploadProgressModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><span class="glyphicon glyphicon-info-sign"></span>上传进度</h4>
+            </div>
+            <div class="modal-body">
+                <div class="progress form-control">
+                    <div class="progress-bar progress-bar-info">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-reset cancel" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+    </body>
+<script>
+    //当用户选择上传的是图片新闻的时候，显示上传主图
+    function funchange(zt) {
+
+        var value = $(zt).val()
+        if (value == 2) {
+            $("#MainPic").attr("style", "display:none");
+        }
+        else if (value == 1) {
+            $("#MainPic").attr("style", "display:block");
+        }
+        else {
+            $("#MainPic").attr("style", "display:none");
+        }
+    }
+</script>
+<!--图片-->
+<script id="imgTpl" type="text/html">
+    {{each resultData as item i}}
+    <div class="img-responsive" data-id="{{item.ID}}">
+        <img src="{{item.Url}}" />
+        <span class="glyphicon glyphicon-remove"></span>
+    </div>
+    {{/each}}
+</script>
+<!--附件-->
+<script id="uploadTpl" type="text/html">
+    {{each resultData as item i}}
+    <div class="img-responsive" data-id="{{item.ID}}">
+        <span style="margin-left: 10px;">{{item.Name}}</span>
+        <span class="glyphicon glyphicon-remove"></span><br /><br />
+    </div>
+    {{/each}}
+</script>
+<script src="../../admin/assets/js/bootstrap.js"></script>
+<script src="../../vendor/bootstrap/moment.min.js"></script>
+<script src="../../vendor/bootstrap/bootstrap-datetimepicker.min.js"></script>
+<script src="../../vendor/upload/jquery.ui.widget.js"></script>
+<script src="../../vendor/upload/jquery.fileupload.js"></script>
+<script src="../../vendor/validate/1.13.1/jquery.validate.js"></script>
+<script src="index.js"></script>
+<!--#include virtual="/transinclude/footer.html" -->

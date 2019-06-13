@@ -1,0 +1,203 @@
+﻿<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+    <!--#include virtual="/transinclude/meta.html" -->
+    <style>
+        .col-corporate,.col-person{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/nav.html" -->
+
+<div class="col-md-12">
+    <ul id="breadcrumb">
+        <li><a href="/index.html"><span class="icon icon-home"> </span>首页</a></li>
+        <li><a href="javascript:void(0);"><span class="icon icon-beaker"> </span>个人信息</a></li>
+    </ul>
+    <div class="col-md-12 col-title">
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active">
+                <a href="#baseInfo" data-toggle="tab">基本信息</a>
+            </li>
+            <li><a href="#authentication" data-toggle="tab">实名认证</a></li>
+        </ul>
+    </div>
+    <div  class="tab-content col-md-12 col-body">
+        <div class="tab-pane fade in active" id="baseInfo">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" id="personForm">
+                        <input type="hidden" name="Password">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">姓名</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" name="Name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">手机号</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" name="Phone" required onblur="yzphone(this)"><span id="s1" style="color:red;font-size:smaller;"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">电话号码</label>
+                                <div class="col-md-8">
+                                    <input type="tel" class="form-control" name="TelePhone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">邮箱</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" name="LoginName" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">地址</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" name="Address" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" id="linkMan" style="display: none;">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">联系人</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" name="LinkMan" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="text-align:right;">
+                            <button type="button" name="button" class="btn btn-primary btn-save-person">保存信息</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="tab-pane fade" id="authentication">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form"  id="certifyForm">
+                        <div class="col-md-12 col-corporate" type="1">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">法人代表姓名</label>
+                                <div class="col-md-3" style="padding-left:0;">
+                                    <input name="corporateName" id="corporateName" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-corporate" type="1">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">法人证书编号</label>
+                                <div class="col-md-3" style="padding-left:0;">
+                                    <input name="corporateNumber" id="corporateNumber" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-person" type="0">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">姓名</label>
+                                <div class="col-md-3" style="padding-left:0;">
+                                    <input name="name" id="name" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-person" type="0">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">身份证号</label>
+                                <div class="col-md-3" style="padding-left:0;">
+                                    <input name="idCard" id="idCard" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" type="0">
+                            <div class="form-group">
+                                <div class="alert alert-warning col-person" role="alert">请知悉：身份证件必须是本人手持身份证照片！</div>
+                                <label class="col-md-2 control-label col-corporate">法人证书扫描件</label>
+                                <label class="col-md-2 control-label col-person">上传身份证正面扫描件</label>
+                                <div class="form-group col-md-10 btn-group">
+                                <span class="btn btn-new-red fileinput-button">
+                                    <i class="glyphicon glyphicon-open"></i><span>&nbsp;上传</span>
+                                    <input type="file" id="imgUpload" name="fileupload" accept="image/png,image/gif,image/jpeg">
+                                </span>
+                                    <button class="btn btn-success" id="clearImgs">清空图片</button>
+                                </div>
+                                <div class="col-md-12 box-img" id="imgBoxs">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-person" type="0">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">上传身份证反面扫描件</label>
+                                <div class="form-group col-md-10 btn-group">
+                                <span class="btn btn-new-red fileinput-button">
+                                    <i class="glyphicon glyphicon-open"></i><span>&nbsp;上传</span>
+                                    <input type="file" id="imgUpload2" name="fileupload" accept="image/png,image/gif,image/jpeg">
+                                </span>
+                                    <button class="btn btn-success" id="clearImgs2">清空图片</button>
+                                </div>
+                                <div class="col-md-12 box-img" id="imgBoxs2">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="text-align:right;">
+                            <button type="button" name="button" class="btn btn-primary btn-save">保存信息</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    <script>
+        //验证手机
+        function yzphone(phone) {
+
+            var phone = $(phone).val()
+            if (phone == null || phone == "") {
+                $("#s1").html("")
+            }
+            else {
+                var reg = /^1[3|4|5|7|8][0-9]{9}$/
+
+                if (reg.test(phone)) {
+
+                    $("#s1").html("");
+                }
+                else//否则 证明有错误的
+                {
+                    //提示
+                    $("#s1").html("手机格式不正确！");
+                    return;
+                }
+            }
+
+
+        }
+
+      
+    </script>
+
+<script src="../../vendor/upload/jquery.ui.widget.js"></script>
+<script src="../../vendor/upload/jquery.fileupload.js"></script>
+<script src="../../vendor/validate/1.13.1/jquery.validate.js"></script>
+<script src="index.js"></script>
+<!--#include virtual="/transinclude/footer.html" -->

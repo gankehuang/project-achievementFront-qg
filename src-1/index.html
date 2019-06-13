@@ -1,0 +1,1003 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+
+    <!--#include virtual="/transinclude/front-meta.html" -->
+    <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+    <script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+    <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+    <title>全国农业科技成果转移服务中心</title>
+    <link href="css/main.css" rel="stylesheet" />
+    <style>
+        .table-auction-market td {
+            background-color: #FFFFFF;
+            border: 1px solid #F2F2F2;
+            text-align: center;
+            color: #666;
+        }
+
+        .table-auction-market th {
+            color: #333;
+            text-align: center;
+            background-color: #D9DBDF;
+        }
+
+        .block-body .block-support a {
+            background-image: url(images/tt.png);
+            background-repeat: no-repeat;
+            background-size: 130px;
+            display: inline-block;
+            width: 130px;
+            height: 65px;
+            line-height: 65px;
+            color: #201a17;
+            font-size: 16px;
+        }
+
+        .block-body .block-support a:hover {
+            text-decoration: none;
+        }
+
+        #publicitylist {
+            display: flex;
+        }
+
+        #publicitylist .item {
+            flex: 1;
+            margin: 10px;
+        }
+
+        #publicitylist .item .img {
+            height: 180px;
+        }
+
+        #publicitylist .item p {
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        #publicitylist .item a {
+            color: #555;
+            text-decoration: none;
+        }
+
+        #publicitylist .item a:hover {
+            text-decoration: underline;
+        }
+
+        /*#myCarousel .item {
+            height: 420px;
+            width: 780px;
+        }*/
+        /* 成果推荐hover样式     科技成果交易公示hover样式*/
+        #notificationBlock .block-scroll-item{
+            padding-top: 5px; 
+            border: 1px solid white;
+            border-radius: 5px;
+
+        }
+        #notificationBlock .block-scroll-item:hover, #publicitylist .item:hover{
+            border: 1px solid #D0D0D0;
+            transform:Scale(1.07);
+            transition:all 200ms ease;
+            background: white;
+            opacity: 0.7;
+            box-shadow: 0 0 5px rgba(134,118,118,0.5);
+        }
+        /* 科技成果交易公示样式 */
+        #publicitylist .item{
+            padding: 5px; 
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+       
+    </style>
+
+</head>
+<body style="background-color: #f0f3ef">
+    <div id="loadingMask"></div>
+    <!--#include virtual="/transinclude/front-header.html" -->
+    <!--改动 距离-->
+    <div class="wrapper">
+        <div class="w" style="position: relative;">
+
+            <!--<div class="column left">
+                <div class="tab-list">
+                    <div class="tab-title active" data-index="1">种类</div><div class="tab-title" data-index="2">地域</div><div class="tab-title" data-index="3">单位</div>
+                </div>
+                <div class="tab-box" id="classNav">
+                    <div class="tab-content" data-index="1">
+                        <ul class="nav-level" id="classListNav"></ul>
+                    </div>
+                    <div class="tab-content" data-index="2" style="display: none;">
+                        <ul class="nav-level" id="areaListNav"></ul>
+
+                    </div>
+                    <div class="tab-content" data-index="3" style="display: none;">
+                        <ul class="nav-level" id="unitListNav"></ul>
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="column left">
+                <!-- <div class="tab-list">
+                    <div class="tab-title active" data-index="1">种类</div>
+                    <div class="tab-title" data-index="2" >地域</div>
+                    <div class="tab-title" data-index="3">单位</div>
+                </div> -->
+                <div class="tab-box" id="classNav">
+
+                    <div class="tab-content" data-index="1">
+                        <ul class="nav-level" id="classListNav" style="padding-top: 0"></ul>
+                    </div>
+
+                    <!--改动 地域-->
+                    <div class="tab-content" data-index="2" style="display: none;overflow:visible">
+
+                        <ul class="nav-level" id="areaListNav">
+
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=23'" style="padding:0 0 0 10px">北京市</a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=24'">天津市</a></li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=27'" style="padding:0 0 0 10px">
+                                    河北省
+                                </a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=2'">山西省</a>
+                            </li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=3'" style="padding:0 0 0 10px">辽宁省</a><a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=4'">
+                                    吉林省
+                                </a>
+                            </li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=5'" style="padding:0 0 0 10px">黑龙江省</a> <a style="padding:5px 0 0 34px" href="#" onclick="location.href = 'notification.html?provinceID=25'">
+                                    上海市
+                                </a>
+                            </li>
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=1'" style="padding:0 0 0 10px">江苏省</a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=6'">浙江省</a></li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=7'" style="padding:0 0 0 10px">
+                                    安徽省
+                                </a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=8'">福建省</a>
+                            </li>
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=9'" style="padding:0 0 0 10px">江西省</a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=10'">山东省</a></li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=11'" style="padding:0 0 0 10px">河南省</a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=12'">
+                                    湖北省
+                                </a>
+                            </li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=13'" style="padding:0 0 0 10px">
+                                    湖南省
+                                </a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=14'"> 广东省</a>
+                            </li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=15'" style="padding:0 0 0 10px">
+                                    海南省
+                                </a>
+                                <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=26'">
+                                    重庆市
+                                </a>
+                            </li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=16'" style="padding:0 0 0 10px">四川省</a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=17'">
+                                    贵州省
+                                </a>
+                            </li>
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=18'" style="padding:0 0 0 10px">云南省</a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=19'">陕西省</a></li>
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=18'" style="padding:0 0 0 10px">甘肃省</a> <a style="padding:5px 0 0 42px" href="#" onclick="location.href = 'notification.html?provinceID=34'">西藏自治区</a></li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=21'" style="padding:0 0 0 10px">
+                                    青海省
+                                </a> <a style="padding:5px 0 0 50px" href="#" onclick="location.href = 'notification.html?provinceID=22'">
+                                    台湾省
+                                </a>
+                            </li>
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=31'" style="padding:0 0 0 10px">内蒙古自治区</a> </li>
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=30'" style="padding:0 0 0 10px">广西壮族自治区</a> </li>
+
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=33'" style="padding:0 0 0 10px">
+                                    宁夏回族自治区
+                                </a>
+                            </li>
+
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=32'" style="padding:0 0 0 10px">新疆维吾尔自治区</a></li>
+                            <li class="a"><a href="#" onclick="location.href = 'notification.html?provinceID=28'" style="padding:0 0 0 10px">香港特别行政区</a></li>
+                            <li class="a">
+                                <a href="#" onclick="location.href = 'notification.html?provinceID=29'" style="padding:0 0 0 10px">澳门特别行政区</a>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <div class="tab-content" data-index="3" style="display: none;">
+                        <!--style="font-size:smaller"-->
+                        <ul class="nav-level" id="unitListNav"></ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="middle">
+                <div id="myCarousel" class="carousel slide" style="float:left;width:780px;">
+                    <!-- 轮播（Carousel）指标 -->
+                    <!--<ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>-->
+                    <!-- 轮播（Carousel）项目 --> <!--style="height:200px"-->
+                    <!--<div class="carousel-inner" style="height: 420px;">
+                        <div class="item active">
+                            background-size:cover;
+                            <a href="/news_seminar.html" target="_blank"><div class="img" style="background: url(images/banner_2.jpg) center center; background-size: cover;"></div></a>
+                        </div>
+                        <div class="item">
+                            <a href="/news_trainingcourse.html" target="_blank"><div class="img" style="background: url(images/banner_3.jpg) center center; background-size: cover;"></div></a>
+                        </div>
+                        <div class="item">
+                            <a href="/news_rice.html" target="_blank"><div class="img" style="background: url(images/banner_1.jpg) center center; background-size: cover;"></div></a>
+                        </div>
+                        <div class="item">
+                            <a href="/news_hbznew.html" target="_blank"><div class="img" style="background: url(images/banner_4.jpg) center center;  background-size:cover;"></div></a>
+                        </div>
+                    </div>-->
+                </div>
+
+                <div class="column right" style="float:right;height:420px;">
+                    <div class="login-area" style="height:200px;">
+                        <!-- <div class="login-title">用户登录</div> -->
+                        <div id="loginHint" style="text-align: center;">
+                            <img src="/images/user.png" style="width:70px; margin-top:25px;">
+                            <p style="line-height:1.3;color:#999;margin:15px 0 0;">欢迎访问！<br>登录后可进入控制台</p>
+                            <div style="margin-top:5px;">
+                                <a class="goLogin" href="javascript:void(0);">登录</a>
+                                <a class="goRegister" href="/register.html" style="margin-left:20px;">注册</a>
+                            </div>
+                        </div>
+                        <form style="display:none; margin-top:10px;" id="loginForm">
+                            <div class="input-group login-item">
+                                <span class="input-group-addon"><img src="/images/register_name.png" alt=""></span>
+                                <input type="text" class="form-control" name="userName">
+                            </div>
+                            <div class="input-group login-item">
+                                <span class="input-group-addon"><img src="/images/register.png" alt=""></span>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <div class="input-group login-item">
+                                <!-- <span class="input-group-addon1">验证码</span> -->
+                                <input type="text" class="form-control" name="Code" style="width:86px;max-width:86px;">
+                                <!--name="GUID"-->
+                                <input type="hidden" name="GUID" style="max-width:100px">
+                                <img alt="验证码" title="点击更换" class="code-img glyphicon-refresh" style="height: 34px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;">
+                                <!-- <span class="glyphicon glyphicon-refresh" style="margin-left:10px;line-height: 30px;"></span> -->
+                            </div>
+                            <div style="margin:10px 10px 0 10px;">
+                                <!--#F9983F-->
+                                <button type="submit" class="btn btn-default submit" style="width: 100%; background-color: #F9983F; color:white; ">登录</button>
+                            </div>
+                            <div class="login-bottom">
+                                <!--style="color: #FD502B"-->
+                                <a href="register.html">注册</a>
+                                <a href="FindPwd.html">忘记密码</a>
+                            </div>
+                        </form>
+                        <div id="loginSuccess" style="display: none;font-size: 14px;line-height: 36px;padding:10px;text-overflow: ellipsis;white-space: nowrap; overflow: hidden;">
+                            <span class="username"></span>
+                            <br>
+                            <a class="gotoAdmin" href="javascript:void(0)" id="gotoAdmin">前往控制台</a><br />
+                            <a class="gotoAdmin" href="javascript:void(0)" id="gotoAchieve">成果管理</a>&nbsp;&nbsp;
+                            <a class="gotoAdmin" href="javascript:void(0)" id="gotoRquire">需求管理</a><br />
+                            <a class="gotoAdmin" href="javascript:void(0)" id="gotoTrade">交易管理</a>&nbsp;&nbsp;
+                            <a class="gotoAdmin" href="javascript:void(0)" id="gotoFavorite">收藏夹</a>
+                            <br>
+                            <a id="logOut" href="javascript:void(0)" style="color:red;float:right;margin-right:20px;">退出</a>
+                        </div>
+
+                    </div>
+                    <div class="column-item">
+                        <!-- <span class="block-head" style="color:#fff;padding:0 0 0 10px;background:#73685d;">服务资源</span> -->
+                        <div>
+                            <a href="entrust.html">
+                                <img src="/images/service_1.png" alt="">
+                                <div class="title">定向委托</div>
+                            </a>
+                            <a href="finance.html">
+                                <img src="/images/service_2.png" alt="">
+                                <div class="title">科技金融</div>
+                            </a>
+                            <a href="legalaid.html">
+                                <img src="/images/service_3.png" alt="">
+                                <div class="title">法律援助</div>
+                            </a>
+                            <a href="http://www.agricec.com.cn/ip2013/Aindex.aspx">
+                                <img src="/images/service_4.png" alt="">
+                                <div class="title">价值评估</div>
+                            </a>
+                            <a href="http://www.patana.cn/">
+                                <img src="/images/service_6.png" alt="">
+                                <div class="title">专利分析</div>
+                            </a>
+                            <a href="consultation.html">
+                                <img src="/images/service_5.png" alt="">
+                                <div class="title">培训信息</div>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block-bottom">
+                    <div class="news">
+                        <div class="top-news">
+                            <span>实时动态</span>
+                            <a href="javascript:void(0)" target="_blank" id="Newsfirst"></a>
+
+                        </div>
+                        <!-- <div class="line"></div> -->
+                        <div class="news-list" style="position:relative;border-top:1px solid #ddd;" id="NewsBlock">
+                            <div class="news-item">
+                                <div class="new-title"><a href="news_jiangsu.html" target="_blank">全国农业科技成果转移服务中心组织科技成果参加“中国江苏．现代农业科技大会”</a></div>
+                                <!--<div class="new-time"></div>-->
+                            </div>
+                            <div class="news-item">
+                                <div class="new-title"><a href="/news_trainingcourse.html" target="_blank">农业科研机构知识产权管理与成果转化高级国际培训班成功举行</a></div>
+                                <!--<div class="new-time"></div>-->
+                            </div>
+                            <div class="news-item">
+                                <div class="new-title"><a href="newsdetails.html" target="_blank">京津冀三地今年首推联审品种</a></div>
+                                <!--<div class="new-time"></div>-->
+                            </div>
+                            <div class="news-item">
+                                <div class="new-title"><a href="newsdetails3.html" target="_blank">陈萌山书记率团参加2017中国国际乳业合作大会暨第十五届中国国际奶业展览会</a></div>
+                                <!--<div class="new-time"></div>-->
+                            </div>
+
+                            <div class="news-item">
+                                <div class="new-title"><a href="newsdetails4.html" target="_blank">中心主办首届中国（三亚）国际水稻论坛成果对接系列活动水稻新品种产权签约成为论坛亮点</a></div>
+                                <!--<div class="new-time"></div>-->
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="require-recommend block-view">
+                        <div class="block-head block-require-head">
+                            需求推荐
+
+                            <a style="float:right;" href="requireRecommend.html">更多&gt;&gt;</a>
+                        </div>
+                        <div class="block-body" id="requireBlock">
+                            <div class="block-item">
+                                <div class="block-title"><a href="requireDetail.html?id=107" target="_blank">育种亲本材料</a></div>
+                            </div>
+
+                            <div class="block-item">
+                                <div class="block-title"><a href="requireDetail.html?id=106" target="_blank">大刺鳅规模化人工繁育及养成技术</a></div>
+                            </div>
+
+                            <div class="block-item">
+                                <div class="block-title"><a href="requireDetail.html?id=105" target="_blank">甜柿果汁加工及柿干脱水技术</a></div>
+                            </div>
+
+                            <div class="block-item">
+                                <div class="block-title"><a href="requireDetail.html?id=104" target="_blank">高山区葡萄果汁开发技术</a></div>
+                            </div>
+
+                            <div class="block-item">
+                                <div class="block-title"><a href="requireDetail.html?id=103" target="_blank">百香果深加工技术</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div id="classNav_moreblock" style="display:none;position: absolute;top: 0;bottom: 0;left: -15px;right: -200px;z-index: 1000;"></div> -->
+            </div>
+        </div>
+
+
+        <a name="noticeRequire"></a>
+
+        <div class="w" style="margin-top:10px;overflow: hidden">
+            <div class="block-view block-achieve">
+                <div class="block-head block-achieve-head">
+                    成果推荐
+                    <a style="float:right;margin-right:14px;" href="notification.html">更多>></a>
+                </div>
+                <div id="myCarousel2" class="carousel slide">
+                    <!-- 轮播（Carousel）指标 -->
+                    <!-- <ol class="carousel-indicators">
+                        <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel2" data-slide-to="1"></li>
+                    </ol> -->
+                    <!-- 轮播（Carousel）项目 -->
+                    <div class="block-scroll-body carousel-inner" id="notificationBlock">
+
+                    </div>
+                    <!-- 轮播（Carousel）导航 -->
+                    <!-- <a class="carousel-control left prev-slide"></a> -->
+                    <!-- <a class="carousel-control right next-slide"></a> -->
+                </div>
+            </div>
+            <!-- <div class="block-view block-organization">
+                <div>
+                    <div class="block-head block-organization-head">
+                        机构推荐
+                        <a style="float:right;" href="organization.html">更多>></a>
+                    </div>
+                    <div class="block-body" id="organizationBlock">
+
+                    </div>
+                </div>
+
+                <div style="margin-top:10px;">
+                    <div class="block-head block-require-head">
+                        需求推荐
+                        <a style="float:right;" href="requireRecommend.html">更多>></a>
+                    </div>
+                    <div class="block-body" id="requireBlock">
+
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+        <!--改动 暂时不显示-->
+        <!--<div class="w" style="margin-top:10px;overflow: hidden">
+            <div class="block-view">
+                <div style="text-align: left;background:linear-gradient(to right, #656E85, #9ba3b7);color: #fff;line-height:40px;font-size:16px;padding: 0 10px;" id="tradeBlock">
+                    科技成果产权交易竞价实时展示
+                    <a style="float:right;padding-right:10px;color:#fff;" href="tradeCenter.html" target="_blank">更多>></a>
+                </div>
+                <div class="block-body" style="padding: 0;">
+                    <table class="table table-auction-market" style="margin-bottom: 0;">
+                        <thead>
+
+                        <th>名称</th>
+                        <th>起始价格</th>
+                        <th>状态</th>
+                        <th>剩余时间</th>
+                        <th>当前价格</th>
+                        </thead>
+
+                        <tbody id="tbodyContent">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+        </div>-->
+        <!-- <div class="w" style="margin-top:10px;overflow: hidden">
+            <div class="block-view">
+                <div class="block-head">
+                    全国各地服务平台<a style="float:right;" href="javascript:void(0);">更多>></a>
+                </div>
+                <div class="block-body">
+                    <div class="block-item">
+                        <div class="block-title">
+                            <a href="http://www.gdnkfw.org/index.jsp" target="_blank">广东省农业科技成果转化公共服务平台...</a>
+                        </div>
+                    </div>
+                    <div class="block-item">
+                        <div class="block-title"><a href="http://www.51nyjs.com/index.do?indexCode=0" target="_blank">浙江省农业科技成果转化交易平台...</a>
+                        </div>
+                    </div>
+                    <div class="block-item">
+                        <div class="block-title"><a href="#" target="_blank">山东省转移服务平台...</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="block-view">
+                <div class="block-head">
+                    支持与服务
+                </div>
+                <div class="block-body" style="text-align:center;">
+                    <div class="block-item">
+                        <div class="block-title block-support"><a href="http://www.patana.cn/">专利价值分析</a>&nbsp;&nbsp;<a href="http://www.agricec.com.cn/ip2013/Aindex.aspx"
+                            shape="rect">技术价值评估</a></div>
+                    </div>
+                    <div class="block-item" style="margin-top:5px;">
+                        <div class="block-title block-support"><a href="#">登记合同服务</a>&nbsp;&nbsp;<a
+                            href="#">登记增值服务</a></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div> -->
+
+        <div class="w" style="margin-top: 10px;">
+            <div class="block-view">
+                <div class="block-head" style="text-align: left;/*background: linear-gradient(to right, #ea9009, #e6cc10);*/color: #333;line-height:40px;font-size:16px;padding: 0 10px;" id="tradeBlock">
+                    科技成果交易公示
+                    <a style="float:right;padding-right:10px;color:#333;" href="PublicityList.html" target="_blank">更多>></a>
+                </div>
+                <div class="block-body">
+                    <div id="publicitylist" style="width:100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/html" id="template_publicitylist">
+            {{each data as item i}}
+            <div class="item">
+                <a href="/PublicityDetail.html?id={{item.ID}}" target="_blank">
+                    <div class="img" style="background:url({{item.ImagePath}}) center center;background-size:cover;"></div>
+                    <p class="text" style="text-align: center;">{{item.AchieveName}}</p>
+                </a>
+            </div>
+            {{/each}}
+        </script>
+
+        <div class="w" style="margin-top: 10px;">
+            <div class="block-view">
+                <div class="block-head" style="text-align: left;/*background: linear-gradient(to right, #3461f9, #cf61f8);*/color: #333;line-height:40px;font-size:16px;padding: 0 10px;">
+                    科技成果交易公告
+                    <a style="float:right;padding-right:10px;color:#333;" href="notice.html" target="_blank">更多>></a>
+                </div>
+                <div class="tab-list" style="padding-top:10px;">
+
+                    <div class="tab-title" data-index="2"><a>专利评价公告</a></div>
+                    <div class="tab-title " data-index="1"><a>品种授权公告</a></div>
+                    <div class="tab-title" data-index="3"><a>成交公告</a></div>
+                    <div class="tab-title" data-index="4" style="display:none;"><a href="transaction.html" style="display:none">成交信息</a></div>
+
+                </div>
+
+                <div class="tab-box block-table">
+                    <div class="tab-content" data-index="1" style="display: none;">
+                        <div class="block-body">
+                            <table class="table table-striped" style="margin-bottom: 0;">
+                                <thead>
+                                <th>
+                                    类型
+                                </th>
+                                <th>
+                                    名称
+                                </th>
+                                <th>
+                                    品种权号
+                                </th>
+                                <th>
+                                    公告日
+                                </th>
+                                <th>
+                                    品种权单位
+                                </th>
+                                </thead>
+                                <tbody id="noticeTbody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" data-index="2">
+                        <div class="block-body">
+                            <table class="table table-striped">
+                                <thead>
+                                <th>
+                                    专利名称
+                                </th>
+                                <th>
+                                    发明单位
+                                </th>
+                                <th>
+                                    平均分
+                                </th>
+                                </thead>
+                                <tbody id="noticeTbody2"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" data-index="3" style="display: none;">
+                        <div class="block-body">
+                            <table class="table table-striped">
+                                <thead>
+                                <th>
+                                    名称
+                                </th>
+                                <th>
+                                    转让单位
+                                </th>
+                                <th>
+                                    受让单位
+                                </th>
+                                <th>
+                                    转让方式
+                                </th>
+                                <th>
+                                    转让日期
+                                </th>
+                                </thead>
+                                <tbody id="noticeTbody3">
+                                    <tr>
+                                        <td>工业规模化发酵产黄孢原毛平革菌厚垣孢子及其制剂的方法及其制剂</td>
+                                        <td>中国农业科学院植物保护研究所</td>
+                                        <td>自然至力（北京）科技有限公司</td>
+                                        <td>使用许可</td>
+                                        <td>2017.12.7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>奶牛衣原体病灭活疫苗研究</td>
+                                        <td>中国农业科学院兰州兽医研究所</td>
+                                        <td>重庆澳龙生物制品有限公司</td>
+                                        <td>使用许可</td>
+                                        <td>2017.8.27</td>
+                                    </tr>
+                                    <tr>
+                                        <td>猪口蹄疫Ｏ型、Ａ型二价灭活疫苗（O/MYA98/BY/2010株+O/PanAsia/TZ/2011株+Re—A/WH/09株）</td>
+                                        <td>中国农业科学院兰州兽医研究所</td>
+                                        <td>中牧实业股份有限公司</td>
+                                        <td>独占许可</td>
+                                        <td>2017.8.15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>小麦新品种中育1428生产经营权许可合同</td>
+                                        <td>中国农业科学院棉花研究所</td>
+                                        <td>河南春晓种业有限公司</td>
+                                        <td>独占许可</td>
+                                        <td>2017.6.28</td>
+                                    </tr>
+                                    <tr>
+                                        <td>农大6182</td>
+                                        <td>中国农业大学</td>
+                                        <td>山东卧龙种业有限责任公司</td>
+                                        <td>独占许可</td>
+                                        <td>2017.5.12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>禾广丝苗</td>
+                                        <td width="300px">广东省农业科学院水稻研究所</td>
+                                        <td width="300px">北京金色农华种业科技股份有限公司</td>
+                                        <td width="100px">独占许可</td>
+                                        <td>2017.4.13</td>
+                                    </tr>
+                                    <tr>
+                                        <td>泸优727</td>
+                                        <td>四川省农科院水稻高粱研究所</td>
+                                        <td>中国种子集团有限公司</td>
+                                        <td>独占许可</td>
+                                        <td>2017.4.13</td>
+                                    </tr>
+                                    <tr>
+                                        <td>金龙A</td>
+                                        <td>广东省肇庆学院</td>
+                                        <td>中国种子集团有限公司</td>
+                                        <td>独占许可</td>
+                                        <td>2017.4.13</td>
+                                    </tr>
+                                    <tr>
+                                        <td>绥粳18</td>
+                                        <td>黑龙江省农业科学院绥化分院</td>
+                                        <td>绥化市盛昌种子繁育有限责任公司</td>
+                                        <td>独占许可</td>
+                                        <td>2017.4.13</td>
+                                    </tr>
+                                    <tr>
+                                        <td>松粳12</td>
+                                        <td>黑龙江省农业科学院五常水稻研究所</td>
+                                        <td>佳木斯鸿发种业有限公司</td>
+                                        <td>独占许可</td>
+                                        <td>2017.4.13</td>
+                                    </tr>
+                                    <!--<tr>
+                                        <td>冬枣脱水、烘干及枣粉加工技术</td>
+                                        <td>西南农业大学</td>
+                                        <td>重庆峻圆科技开发有限公司</td>
+                                        <td>独占许可</td>
+                                        <td>2017.4.13</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2016高致病性猪繁殖与呼吸综合征活疫苗（TJM-P92株）</td>
+                                        <td>中国农业科学院特产研究所</td>
+                                        <td>吉林特研生物技术有限责任公司</td>
+                                        <td>独占许可</td>
+                                        <td>2016.1.13</td>
+                                    </tr>-->
+                                    <!--  <tr>
+                                         <td>油菜毯状苗移栽机及育苗技术转让</td>
+                                         <td>农业部南京农业机械化研究所</td>
+                                         <td>日本洋马株式会社</td>
+                                         <td>独占许可</td>
+                                         <td>2016.5.16</td>
+                                     </tr> -->
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="w" style="margin-top:10px; overflow: hidden;">
+            <div class="block-view" style="border:none;">
+                <div class="block-head" style="text-align: left;/*background: linear-gradient(to right, #ea9009, #e6cc10);*/color: #333;line-height:40px;font-size:16px;padding: 0 10px;" id="tradeBlock">
+                    数据分析与统计
+                    <a style="float:right;padding-right:10px;color:#333;" href="morechart.html" target="_blank">更多>></a>
+                </div>
+                <!-- <a style="float:right;margin-right:14px;color: red;" target="_blank" href="morechart.html">更多统计图表</a> -->
+            </div>
+        </div>
+
+        <div class="w" style="margin-bottom: 20px; background:white;">
+            <div id="container" style="height:300px;flex:1;padding:10px;"></div>
+            <div id="container2" style="height:300px;flex:1;padding:10px;"></div>
+            <!-- </div> -->
+            <!-- <div class="w" style="margin-bottom: 20px;"> -->
+            <div id="container3" style="height:300px;flex:1;padding:10px;"></div>
+            <!-- <div id="container4" style="height:300px;flex:1;"></div> -->
+        </div>
+
+    </div>
+
+    <!--<script id="myTemplate" type="text/html">
+        {{each resultData as item i}}
+        <tr>
+             <td>{{item.ID}}</td> 
+            <td>{{item.AchieveName}}</td>
+            <td>{{item.StartPrice}}</td>
+            <td>{{item.Status}}</td>
+            <td>{{item.LeaveTime}}</td>
+            <td>{{item.CurrtPrice}}</td>
+        </tr>
+        {{/each}}
+    </script>-->
+
+    <!--中间轮播图片信息-->
+    <script id="template" type="text/html">
+
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            {{each ImageVideo.resultData as item i}}
+            {{if item.type == 0}}
+            <li data-target="#myCarousel" data-slide-to="{{i}}" class="{{i == 0 ? 'active':''}}"></li>
+            {{/if}}
+            {{/each}}
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            {{if ImageVideo.resultData.length > 0}}
+
+                {{each ImageVideo.resultData as item i}}
+                    {{if item.type == 0}}
+
+                        {{if item.NewsName =='首届全国种公牛拍卖'}}
+                            <div class="item active">
+                                <a data-i={{i}} href="newsinfoZD.html" target="_blank">
+                                    <div class="img" data-i={{i}} style="background: #fff url('{{item.Url}}') no-repeat center center; background-size: cover;"></div>
+                                </a>
+                            </div>
+                        {{else if item.NewsName == '首届中国（三亚）国际水稻论坛'}}
+                            <div class="item active">
+                                <a data-i={{i}} href="news_rice.html" target="_blank">
+                                    <div class="img" data-i={{i}} style="background: #fff url('{{item.Url}}') no-repeat center center; background-size: cover;"></div>
+                                </a>
+                            </div>
+                        {{else}}
+                            <div class="item">
+                                <a href="newsinfo.html?id={{item.newsid}}" target="_blank">
+                                    <div class="img" data-i={{i}} style="background: #fff url('{{item.Url}}') no-repeat center center; background-size: cover;"></div>
+                                </a>
+                            </div>
+                        {{/if}}
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+
+        </div>
+        <!-- <div class="carousel-inner">
+            {{if ImageVideo.resultData.length > 0}}
+
+            {{each ImageVideo.resultData as item i}}
+            {{if item.type == 0}}
+                {{if i == 0}}
+                {{if item.NewsName=='首届中国（三亚）国际水稻论坛'}}
+                <div class="item active">
+                    <a data-i={{i}} href="news_rice.html" target="_blank">
+                        <div class="img" data-i={{i}} style="background: #fff url('{{item.Url}}') no-repeat center center; background-size: cover;"></div>
+                    </a>
+                </div>
+                {{else}}
+                <div class="item active">
+                    <a href="newsinfo.html?id={{item.newsid}}" target="_blank">
+                        <div class="img" data-i={{i}} style="background: #fff url('{{item.Url}}') no-repeat center center; background-size: cover;"></div>
+                    </a>
+                </div>
+                {{/if}}
+                {{else}}
+                {{if item.NewsName=='首届中国（三亚）国际水稻论坛'}}
+                <div class="item">
+                    <a data-i={{i}} href="news_rice.html" target="_blank">
+                        <div class="img" data-i={{i}} style="background: #fff url('{{item.Url}}') no-repeat center center; background-size: cover;"></div>
+                    </a>
+                </div>
+                {{else}}
+                <div class="item">
+                    <a href="newsinfo.html?id={{item.newsid}}" target="_blank">
+                        <div class="img" data-i={{i}} style="background: #fff url('{{item.Url}}') no-repeat center center; background-size: cover;"></div>
+                    </a>
+                </div>
+                {{/if}}
+                {{/if}}
+            {{/if}}
+            {{/each}}
+            {{/if}}
+
+        </div> -->
+
+    </script>
+
+    <!--左侧加载大类模板-->
+    <script id="classTemplate" type="text/html">
+        {{each resultData as item i}}
+        <li style="">
+            <a href="javascript:void(0);" data-id="{{item.ID}}" title="{{item.ClassfyName}}"
+               class="{{(!item.ChildClassfy || item.ChildClassfy.length == 0) ? 'leaf':''}}">{{item.ClassfyName}}</a>
+            {{if item.ChildClassfy && item.ChildClassfy.length > 0}}
+            <ul>
+                {{each item.ChildClassfy as leafs index}}
+                <li>
+                    <a href="javascript:void(0);" class="leaf" data-id="{{leafs.ID}}" title="{{leafs.ClassfyName}}" data-content="w343"
+                       class="leaf">{{leafs.ClassfyName}}</a>
+                </li>
+                {{/each}}
+            </ul>
+
+            {{/if}}
+        </li>
+        {{/each}}
+    </script>
+    <!-- 大类模板内容部分 -->
+    <script id="contentTemplate" type="text/html">
+        {{each resultData as item i}}
+        <div style="margin-bottom:10px; line-height: 20px; padding-left: 5px; padding-top: 5px;">
+            <label style="font-size: 14px;"><a href="javascript:void(0);" data-id="{{item.ID}}">{{item.ClassfyName}}&nbsp;&nbsp;>&nbsp;&nbsp;</a></label>
+            {{if item.ChildClassfy && item.ChildClassfy.length > 0}}
+            {{each item.ChildClassfy as leafs index}}
+            <span style="color: #A3A3A3">|</span>
+            <span style="margin:0 5px;"><a href="javascript:void(0);" data-id="{{leafs.ID}}" title="{{leafs.ClassfyName}}" style="color: #6F6F6F">{{leafs.ClassfyName}}</a></span>
+            {{/each}}
+            
+            {{/if}}
+        </div>
+        {{/each}}
+    </script>
+
+
+
+    <!--地域列表-->
+    <script id="areaTemplate" type="text/html">
+        {{each resultData as item i}}
+        <!--<div>-->
+        {{if i!=0 && i%2 == 0}}
+        <br>
+        {{/if}}
+        <label class="province"><a href="javascript:void(0);" data-provinceid="{{item.ID}}" style="font-size:smaller;font-weight:100">{{item.Province}}</a></label>
+        <!--</div>-->
+        {{/each}}
+    </script>
+
+
+
+    <!--单位弹窗-->
+    <script id="unitTemplate" type="text/html">
+        {{each resultData as item i}}
+        {{if i == 0}}
+        <div class="item">
+            {{/if}}
+            <label><a href="javascript:void(0);" data-id="{{classifyID}}" data-organizationname="{{item.OrganizationName}}">{{item.OrganizationName}}({{item.Sum}})</a></label>
+            {{if (i+1)%2 == 0}}
+        </div>
+        <div class="item">
+            {{/if}}
+            {{/each}}
+    </script>
+
+    <!--成果推荐-->
+    <script id="notificationTemplate" type="text/html">
+        <div class="item active">
+            {{each data as item i}}
+            <!-- {{if i>=0 && i <= 9}} -->
+            <div class="block-scroll-item">
+                <div>
+                    <a href="achievementinfo.html?id={{item.AchID}}" target="_blank">
+                        <img style="border-radius:6px;width:100%;height:150px;" src="{{item.Pic ? item.Pic:'/assets/img/place.jpg'}}" alt="暂无图片或图片出错">
+                    </a>
+                </div>
+                <div class="block-title" title="{{item.AchieveName}}"><a href="achievementinfo.html?id={{item.AchID}}" target="_blank">{{item.AchieveName}}</a></div>
+            </div>
+            <!-- {{/if}} -->
+            {{/each}}
+        </div>
+        <!-- <div class="item">
+            {{each data as item i}}
+            {{if i>=10}}
+            <div class="block-scroll-item">
+                <div>
+                    <a href="achievementinfo.html?id={{item.AchID}}" target="_blank">
+                        <img style="border-radius:6px;width:100%;height:150px;" src="{{item.Pic ? item.Pic:'/assets/img/place.jpg'}}" alt="暂无图片或图片出错">
+                    </a>
+                </div>
+                <div class="block-title"><a href="achievementinfo.html?id={{item.AchID}}" target="_blank">{{item.AchieveName}}</a></div>
+            </div>
+            {{/if}}
+            {{/each}}
+        </div> -->
+    </script>
+
+
+    <!--机构推荐-->
+    <script id="organizationTemplate" type="text/html">
+        {{each data as item i}}
+        <div class="block-item">
+            <div class="block-title"><a href="company.html?name={{item.AgencyName}}" target="_blank">{{item.AgencyName}}</a></div>
+        </div>
+        {{/each}}
+    </script>
+
+    <!--需求推荐列表-->
+    <script id="requireTemplate" type="text/html">
+        {{each data as item i}}
+        <div class="block-item">
+            <div class="block-title"><a href="requireDetail.html?id={{item.ID}}" target="_blank">{{item.RequireName}}</a></div>
+        </div>
+        {{/each}}
+    </script>
+
+    <!--新闻动态列表-->
+    <!-- <script id="NewsTemplate" type="text/html">
+        {{each data as item i}}
+        <div class="news-item">
+            <div class="new-title"><a href="newsinfo.html?id={{item.ID}}" target="_blank">{{item.NewsTitle}}</a></div>
+        </div>
+        <div class="new-title" style="float:right;position:absolute;right:20px;bottom:5px;"><a class="more" href="news.html">更多>></a></div>
+        {{/each}}
+    </script> -->
+    <script id="NewsTemplate" type="text/html">
+        {{each data as item i}}
+            {{if item.NewsTitle == "首届全国种公牛拍卖"}}
+            <div class="news-item">
+                <div class="new-title"><a href="newsinfoZD.html" target="_blank">{{item.NewsTitle}}</a></div>
+            </div>
+            {{else}}
+            <div class="news-item">
+                <div class="new-title"><a href="newsinfo.html?id={{item.ID}}" target="_blank">{{item.NewsTitle}}</a></div>
+            </div>
+            {{/if}}
+            
+        <div class="new-title" style="float:right;position:absolute;right:20px;bottom:5px;"><a class="more" href="news.html">更多>></a></div>
+        {{/each}}
+    </script>
+
+
+
+    <script id="noticeTemplate" type="text/html">
+        {{each data as item i}}
+        <tr>
+            <td>{{item.Classify}}</td>
+            <td>{{item.Name}}</td>
+            <td>{{item.WeighNum}}</td>
+            <td>{{item.CreateDate}}</td>
+            <td>{{item.OwnerCompany}}</td>
+        </tr>
+        {{/each}}
+    </script>
+
+    <script id="noticeTemplate2" type="text/html">
+        {{each data as item i}}
+        <tr>
+            <td>{{item.PatentName}}</td>
+            <td>{{item.InventUnit}}</td>
+            <td>{{item.AverageScore}}</td>
+        </tr>
+        {{/each}}
+    </script>
+    <script src="index.js"></script>
+    <!--#include virtual="/transinclude/front-footer.html" -->

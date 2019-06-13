@@ -1,0 +1,167 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+
+    <!--#include virtual="/transinclude/front-meta.html" -->
+    <title>公司</title>
+    <link href="css/main.css" rel="stylesheet" />
+    <style type="text/css">
+        .banner{height:450px;overflow:hidden; margin:auto; width:100%; position: relative;}
+
+        .banner .d1{width:100%;height:100%;display:block;left:0px;top:0px;}
+
+        .banner .d2{width:100%;height:30px;clear:both;position:absolute;z-index:100;left:0px;bottom:0;}
+
+        .banner .d2 ul{float:left;position:absolute;left:50%;top:0;margin:0 0 0 -55px;display:inline;}
+
+        .banner .d2 li{width:15px;height:15px;overflow:hidden;cursor:pointer;background:url(/images/company/img1.png) no-repeat center;float:left;margin:0 3px;display:inline;}
+
+        .banner .d2 li.nuw{background:url(/images/company/img1_1.png) no-repeat center;}
+        #classList .adv-left .classlist{padding:2px 0; border: 2px solid #ebebeb; border-left: none; border-top: none;}
+        #classList .adv-left .classlist .btn{display: block; width: 162px; height: 41px; margin:2px auto; padding:0 0 0 30px; font-size: 14px; line-height:40px; text-align:left; color:white; background:url(/images/company/class_button.jpg) no-repeat center;background-size: cover;}
+        #classList .adv-left .classlist .btn:hover, #classList .adv-left .classlist .btn:active{color:white;}
+        
+        #advList .item{position:relative; width:15%; display: inline-block;margin:20px; vertical-align:top; overflow:hidden; text-overflow:ellipsis;white-space:nowrap; border: 1px solid white;}
+        #advList .item .img{width: 100%;}
+		#advList .item .name{width: 100%;text-align: center;}
+        
+        #advList .item:hover{ 
+            border: 1px solid #D0D0D0;
+            transition:all 200ms ease; 
+            background: white;
+            opacity: 0.7;
+            box-shadow: 0 0 5px rgba(134,118,118,0.5);
+        }
+
+        #achList .company-ach{overflow:hidden;text-overflow:ellipsis;white-space:nowrap; border: 1px solid white;}
+        #achList .company-ach:hover{
+            border: 1px solid #D0D0D0;
+            transition:all 200ms ease; 
+            background: white;
+            opacity: 0.7;
+            box-shadow: 0 0 5px rgba(134,118,118,0.5);
+        }
+
+        #span{ 
+            float: right; 
+            height: 25px; width: 25px; margin-top: 5px; border: 1px solid gray; line-height: 25px;margin-right: 50px; text-align: center; border-left: none; cursor: pointer; background-color: #F9983F; border: 1px solid #F9983F; color: white; border-radius: 0px 3px 3px 0px }
+        #int{ float: right; height: 25px; margin-top: 6px; border: 1px solid #F9983F; border-radius: 3px 0px 0px 3px;padding: 0 6px; width: 190px; }
+    </style>
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/front-header.html" -->
+<div class="wrapper">
+    <div class="w" style="display: block;margin-top:10px;">
+        <div style="flex:1;">
+            <h2 id="title" style="margin: 20px auto;background: url(assets/img/company_bk.jpg) no-repeat #fff;background-size: 160px;background-position: 10px;
+                height:136px;padding-left: 180px;padding-top: 49px;"></h2>
+            <div class="column left" style="width: 100%;height:auto;margin-bottom:10px;">
+                <div class="tab-list">
+                    <div class="tab-title active" data-index="1">主页</div>
+                    <div class="tab-title" data-index="2">成果</div>
+                    <div class="tab-title" data-index="3">需求</div>
+
+                    <span id="span" class="glyphicon glyphicon-search"></span>
+                    <input id="int" type="text" placeholder="请输入分类、名称、简介...">
+                </div>
+                <div class="tab-box" id="classList" style="height:auto;padding:0px;">
+                    <div class="tab-content" data-index="1">
+                        <div style="display: table;">
+                            <div class="adv-left" style="display: none;">
+                                <img src="/images/company/class_title.jpg">
+                                <ul class="classlist">
+                                  <li><a class="btn" href="javascript:void(0);" data-name="所有">所有品种</a></li>
+                                  <li><a class="btn" href="javascript:void(0);" data-name="草莓">草莓品种</a></li>
+                                  <li><a class="btn" href="javascript:void(0);" data-name="桃">桃品种</a></li>
+                                  <li><a class="btn" href="javascript:void(0);" data-name="核桃">核桃品种</a></li>
+                                  <li><a class="btn" href="javascript:void(0);" data-name="梨">梨品种</a></li>
+                                  <li><a class="btn" href="javascript:void(0);" data-name="猕猴桃">猕猴桃品种</a></li>
+                                  <li><a class="btn" href="javascript:void(0);" data-name="葡萄">葡萄品种</a></li>
+                                  <li><a class="btn" href="javascript:void(0);" data-name="甜瓜">甜瓜品种</a></li>
+                                  <li><a class="btn" href="javascript:void(0);" data-name="西瓜">西瓜品种</a></li>
+                                  <li><a class="btn" href="javascript:void(0);" data-name="樱桃">樱桃品种</a></li>
+                                </ul>
+                            </div>
+                            <div class="adv-right" style="display: table-cell;">
+                                <img src="/images/company/fenlei.jpg" width="100%" height="auto" />
+                                <div id="advList" >
+                                    <p style="text-align: center;width: 100%;font-size: 18px;margin: 170px;">正在加载，请稍等...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" data-index="2" style="display: none;">
+                        <div id="achList" style="display: flex;flex-wrap: wrap;">
+                            <p style="text-align: center;width: 100%;font-size: 18px;margin: 170px;">正在加载，请稍等...</p>
+                        </div>
+                    </div>
+                    <div class="tab-content" data-index="3" style="display: none;min-height:300px;">
+                        <div id="requireList">
+                            <p style="text-align: center;width: 100%;font-size: 18px;margin: 170px;">正在加载，请稍等...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="achTemplate" type="text/html">
+    {{each resultData as item i}}
+        <a class="company-ach" href="/achievementinfo.html?id={{item.ID}}" class="achItem">
+            <div style="height:150px;background:url({{item.Pic ? item.Pic:'/images/achimg-temp/'+(item.Classify.split(",")[item.Classify.split(",").length-1] || 'temp')+'.jpg'}}) no-repeat center;background-size:cover;">
+                <!-- <img src="{{item.Pic ? item.Pic:'/assets/img/place.jpg'}}" class="ach-img"> -->
+            </div>
+            <span class="title">{{item.AchieveName}}</span>
+        </a>
+    {{/each}}
+</script>
+
+
+
+    <script id="advTemplate" type="text/html">
+        {{each resultData as item i}}
+        <!--<a href="/achievementinfo.html?id={{item.ID}}" class="item" style="background:url({{item.Pic ? item.Pic:'/assets/img/place.jpg' }}) no-repeat center; background-size:cover;">-->
+        <a href="/achievementinfo.html?id={{item.ID}}" class="item">
+            <!-- <img class="img" src="{{item.Pic ? item.Pic:'/assets/img/place.jpg' }}"> -->
+            <div style="height:150px;background:url({{item.Pic ? item.Pic:'/images/achimg-temp/'+(item.Classify.split(",")[item.Classify.split(",").length-1] || 'temp')+'.jpg'}}) no-repeat center;background-size:cover;">
+
+            </div>
+            <span class="name">{{item.AchieveName}}</span>
+        </a>
+        {{/each}}
+    </script>
+
+
+<script id="requireTemplate" type="text/html">
+    <table class="table table-striped" style="margin-bottom: 0;">
+        <thead>
+        <th>
+            名称
+        </th>
+        <th>
+            技术类型
+        </th>
+        <th>
+            创建人
+        </th>
+        <th>
+            创建时间
+        </th>
+        </thead>
+        <tbody>
+            {{each resultData as item i}}
+                <tr>
+                    <td><a href="/requireDetail.html?id={{item.ID}}" target="_blank">{{item.RequireName}}</a></td>
+                    <td>{{item.TechType}}</td>
+                    <td>{{item.Creator}}</td>
+                    <td>{{item.CreatDate}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+</script>
+
+<script src="company.js"></script>
+<!--#include virtual="/transinclude/front-footer.html" -->

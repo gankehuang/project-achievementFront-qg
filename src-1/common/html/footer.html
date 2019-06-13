@@ -1,0 +1,180 @@
+</div>
+</div>
+<div id="footer">
+    <a target="_blank" shape="rect"><img src="/images/56a0a994Nf1b662dc.png">京公网安备
+        11010802021088号&nbsp;&nbsp;|&nbsp;&nbsp;版权所有
+        京ICP备05039029号&nbsp;&nbsp;|&nbsp;&nbsp;</a><a target="_blank" shape="rect">copyright©
+    全国农业科技成果转移服务中心 </a><br clear="none">
+    <a rel="nofollow" target="_blank" shape="rect">主办单位：中国农业科学院
+        &nbsp;&nbsp;|&nbsp;&nbsp;承办单位：全国农业科技成果转移服务中心 &nbsp;国家种业科技成果产权交易平台
+    </a><br clear="none">
+</div>
+</div>
+</div>
+</div>
+
+<!--载入中-->
+<div class="modal" tabindex="-1" role="dialog"
+    data-backdrop="static"
+    aria-labelledby="loadingModal"
+    id="loadingModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                处理中，请等待...
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--操作成功-->
+<div class="modal" tabindex="-1" role="dialog" data-backdrop="static"
+    aria-labelledby="successModal"
+    id="successModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><span class="glyphicon glyphicon-ok-sign"></span>&nbsp;&nbsp;成功</h4>
+            </div>
+            <div class="modal-body">
+                操作成功
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-ok" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--操作失败-->
+<div class="modal" tabindex="-1" role="dialog"  data-backdrop="static"
+    aria-labelledby="errorModal"
+    id="errorModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;&nbsp;失败</h4>
+            </div>
+            <div class="modal-body">
+                操作失败
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--警告提示-->
+<div class="modal" tabindex="-1" role="dialog"  data-backdrop="static"
+    aria-labelledby="warningModal"
+    id="warningModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;提示</h4>
+            </div>
+            <div class="modal-body">
+                操作提示
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning sure" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--确认提示-->
+<div class="modal" tabindex="-1" role="dialog"
+    aria-labelledby="confirmModal"
+    id="confirmModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;提示</h4>
+            </div>
+            <div class="modal-body">
+                您真的要执行此操作吗？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning sure">确定</button>
+                <button type="button" class="btn btn-reset cancel" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--登录框-->
+<div class="modal" tabindex="-1" role="dialog" id="loginModal" data-backdrop="static" aria-labelledby="loginModal" style="margin-top:150px;">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title"><span class="glyphicon glyphicon-info-sign"></span>登录</h4>
+            </div>
+            <div class="modal-body">
+                <form style=" margin-top:10px;" id="loginForm">
+                    <div class="input-group login-item" style="margin:5px 10px;">
+                        <span class="input-group-addon"><img src="/images/register_name.png" alt=""></span>
+                        <input type="text" class="form-control" name="userName">
+                      
+                    </div>
+                    <span id="yhm" style="display:none"></span>
+                    <div class="input-group login-item" style="margin:5px 10px;">
+                        <span class="input-group-addon"><img src="/images/register.png" alt=""></span>
+                        <input type="password" class="form-control" name="password">
+                      
+                    </div>
+                    <span id="mima" style="display:none"></span>
+                    <div class="input-group login-item" style="margin:5px 10px;">
+                        <!-- <span class="input-group-addon1">验证码</span> -->
+                        <input type="text" class="form-control" name="Code" style="width:86px;max-width:86px;">
+                        <!--name="GUID"-->
+                        <input type="hidden" name="GUID" style="max-width:100px" >
+                        <img alt="验证码" title="点击更换" class="code-img glyphicon-refresh" style="height: 34px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;">
+                        <!-- <span class="glyphicon glyphicon-refresh" style="margin-left:10px;line-height: 30px;"></span> -->
+                        <span id="yz" style="display:none"></span>
+                    </div>
+                    <div style="margin:10px 10px 0 10px;">
+                        <!--#F9983F-->
+                        <button type="submit" class="btn btn-default submit" style="width: 100%; background-color: #F9983F; color:white; ">登录</button>
+                    </div>
+                    <div class="login-bottom" style="margin-right: 10px; text-align: right;">
+                        <!--style="color: #FD502B"-->
+                        <a href="register.html" style="text-decoration: none; color: #999;">注册</a>
+                        <a href="FindPwd.html" style="text-decoration: none; color: #999;">忘记密码</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script id="popTpl" type="text/html">
+    <div class="row">
+        <div class="col-md-12">姓名：{{Name}}</div>
+        <div class="col-md-12">手机号：{{Phone}}</div>
+        <div class="col-md-12">邮箱：{{Email}}</div>
+    </div>
+</script>
+
+<script color="96,125,139" count="500" src="../../vendor/canvas-nest/canvas-nest.min.js"></script>
+<script>
+    $('#logOut').on('click',function (e) {
+        e.preventDefault();
+        Util.setUserLogout();
+        window.location.href="/index.html";
+    })
+    var name = Util.getUserName();
+    if(name){
+        $("#userName").html(name);
+    }else{
+        $("#userName").html("未登录");
+    }
+</script>
+
+</body>
+</html>

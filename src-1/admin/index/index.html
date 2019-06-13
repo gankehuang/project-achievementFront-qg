@@ -1,0 +1,60 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+<!--#include virtual="/transinclude/meta.html" -->
+    <style>
+        .table-auction-market th, .table-auction-market td{
+            background-color: #000000;
+            border: 1px solid #f7f7f7;
+        }
+        .table-auction-market td{
+            color:#ff0000;
+        }
+        .table-auction-market th{
+            color:#ffffff;
+        }
+    </style>
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/nav.html" -->
+
+<div class="col-md-12">
+    <ul id="breadcrumb">
+        <li><a href="/index.html"><span class="icon icon-home"> </span>首页</a></li>
+        <li><a href="javascript:void(0);"><span class="icon icon-beaker"> </span> 竞价大厅</a></li>
+    </ul>
+    <div class="col-body">
+        <table class="table table-auction-market">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>名称</th>
+                <th>起始价格(万元)</th>
+                <th>状态</th>
+                <th>剩余时间</th>
+                <th>当前价格（万元）</th>
+            </tr>
+            </thead>
+            <tbody id="tbodyContent">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script id="myTemplate" type="text/html">
+    {{each resultData as item i}}
+    <tr>
+        <td>{{item.ID}}</td>
+        <td>{{item.AchieveName}}</td>
+        <td>{{item.StartPrice/10000}}</td>
+        <td>{{item.Status}}</td>
+        <td>{{item.LeaveTime}}</td>
+        <td>{{item.CurrtPrice/10000}}</td>
+    </tr>
+    {{/each}}
+</script>
+
+<script src="index.js"></script>
+
+<!--#include virtual="/transinclude/footer.html" -->

@@ -1,0 +1,171 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+<!--#include virtual="/transinclude/meta.html" -->
+<link rel="stylesheet" href="../../vendor/bootstrap/bootstrap-datetimepicker.min.css"/>
+<style>
+    .form-group div{
+        padding-top:7px;
+    }
+</style>
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/nav.html" -->
+<div class="col-md-12">
+    <ul id="breadcrumb">
+        <li><a href="/index.html"><span class="icon icon-home"> </span>首页</a></li>
+        <li><a href="javascript:void(0);"><span class="icon icon-beaker"> </span>需求详情</a></li>
+    </ul>
+    <div class="form-group" style="float:right;">
+        <select style="display:inline-block;width:auto;" class="form-control" name="recommendSelf" id="recommendSelf" required>
+        </select>
+        <button type="button" name="button" class="btn btn-success" id="btn-recommend">自荐</button>
+    </div>
+    <div class="col-md-12 col-title">
+        <ul id="myTab" class="nav nav-tabs" style="margin-bottom:10px;">
+            <li class="active">
+                <a href="#home" data-toggle="tab">科技需求信息</a>
+            </li>
+            <li><a href="#unit" data-toggle="tab">单位信息</a></li>
+        </ul>
+    </div>
+    <div class="col-md-12 col-body">
+        <div id="myTabContent" class="tab-content col-md-10">
+        </div>
+    </div>
+</div>
+<script id="myTemplate" type="text/html">
+    <div class="tab-pane fade in active" id="home">
+        <div class="panel panel-default">
+        	<div class="panel-body">
+                <form class="form-horizontal" role="form" id="homeForm">
+                    <div class="form-group">
+                		<label class="col-md-2 control-label">需求名称</label>
+                		<div class="col-md-10">
+                             {{RequireName}}
+                		</div>
+                    </div>
+                    <div class="form-group">
+                		<label class="col-md-2 control-label">需求简介</label>
+                        <div class="col-md-10">
+                            <iframe name="wordFrame" id="wordFrame" width="100%" style="border: 1px solid #ddd;display: none;"></iframe>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">需求关键词</label>
+                        <div class="col-md-10">
+                            {{Keywords}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">技术类型</label>
+                        <div class="col-md-4">
+                            {{TechType}}
+                        </div>
+                        <label class="col-md-2 control-label">技术水平</label>
+                        <div class="col-md-4">
+                            {{TechLevel}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">技术成熟度</label>
+                        <div class="col-md-10">
+                            {{Maturity}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">所属领域</label>
+                        <div class="col-md-10">
+                            {{BelongFieldDesc}}
+                        </div>
+                    </div>
+                </form>
+        	</div>
+        </div>
+	</div>
+	<div class="tab-pane fade" id="unit">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form class="form-horizontal" role="form" id="unitForm">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">单位名称</label>
+                        <div class="col-md-10">
+                            {{OrganizationName}}
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">地址</label>
+                        <div class="col-md-10">
+                            {{Address}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">联系人</label>
+                        <div class="col-md-2">
+                            {{Contacts}}
+                        </div>
+                        <label class="col-md-1 control-label">部门</label>
+                        <div class="col-md-3">
+                            {{Department}}
+                        </div>
+                        <label class="col-md-1 control-label">职务</label>
+                        <div class="col-md-3">
+                            {{Job}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">负责人</label>
+                        <div class="col-md-2">
+                            {{Leader}}
+                        </div>
+                        <label class="col-md-1 control-label">部门</label>
+                        <div class="col-md-3">
+                            {{LeaderDepartment}}
+                        </div>
+                        <label class="col-md-1 control-label">职务</label>
+                        <div class="col-md-3">
+                            {{LeaderJob}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">电话</label>
+                        <div class="col-md-10">
+                            {{Telephone}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">手机</label>
+                        <div class="col-md-10">
+                            {{Phone}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Email</label>
+                        <div class="col-md-10">
+                            {{Email}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">传真</label>
+                        <div class="col-md-10">
+                            {{Fax}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">推荐</label>
+                        <div class="col-md-10">
+                            {{IsRecommend == 1 ? '是':'否'}}
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+	</div>
+</script>
+<script src="../../vendor/bootstrap/moment.min.js"></script>
+<script src="../../vendor/bootstrap/bootstrap-datetimepicker.min.js"></script>
+<script src="../../vendor/validate/1.13.1/jquery.validate.js"></script>
+<script src="index.js"></script>
+<!--#include virtual="/transinclude/footer.html" -->

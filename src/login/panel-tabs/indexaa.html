@@ -1,0 +1,629 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+<!--#include virtual="/transinclude/meta.html" -->
+<link rel="stylesheet" href="../../vendor/bootstrap/bootstrap-datetimepicker.min.css"/>
+</head>
+<style>
+    select.form-control{
+        width: auto;
+        display: inline-block;
+    }
+</style>
+<body>
+
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/nav.html" -->
+<div class="col-md-12">
+    <div class="alert alert-warning" role="alert">请知悉：成果编辑后需要重新审核！</div>
+    <ul id="breadcrumb">
+        <li><a href="/index.html"><span class="icon icon-home"> </span>首页</a></li>
+        <li><a href="javascript:void(0);"><span class="icon icon-beaker"> </span><em>发布成果</em></a></li>
+    </ul>
+    <div class="col-md-12 col-title">
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active">
+                <a href="#home" data-toggle="tab">成果信息</a>
+            </li>
+            <li><a href="#IPR" data-toggle="tab">知识产权信息</a></li>
+            <li><a href="#valuation" data-toggle="tab">评估评价及推广信息</a></li>
+            <li><a href="#contact" data-toggle="tab">联系人信息</a></li>
+            <li><a href="#attachUpload" data-toggle="tab">附件上传</a></li>
+        </ul>
+    </div>
+    <div class="col-md-12 col-body">
+        <div id="myTabContent" class="tab-content col-md-10">
+        	<div class="tab-pane fade in active" id="home">
+                <div class="panel panel-default">
+                	<div class="panel-body">
+                        <form class="form-horizontal" role="form" id="achievementForm">
+                            <div class="form-group" id="ClassifyIdList">
+                        		<label class="col-md-2 control-label">成果分类</label>
+                        		<div class="col-md-10">
+                                    <select class="form-control classifyChange" id="ClassifyId1" required>
+                                    </select>
+                                    <select class="form-control classifyChange" id="ClassifyId2" style="display: none;">
+                                    </select>
+                                    <select class="form-control classifyChange" id="ClassifyId3" style="display: none;">
+                                    </select>
+                                    <select class="form-control classifyChange" id="ClassifyId4" style="display: none;">
+                                    </select>
+                                    <select class="form-control" id="ClassifyId5" style="display: none;">
+                                    </select>
+                        		</div>
+
+                            </div>
+                            <div class="form-group" id="KeyNameList">
+                                <label class="col-md-2 control-label">添加关键词</label>
+                                <div class="col-md-2">
+                                    <input id="KeyName1" type="text" class="form-control" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <input id="KeyName2" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-2">
+                                    <input id="KeyName3" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-2">
+                                    <input id="KeyName4" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-2">
+                                    <input id="KeyName5" type="text" class="form-control">
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">成果名称</label>
+                                <div class="col-md-10">
+                                    <input type="text" name="AchieveName" class="form-control" placeholder="成果名称不能为空！" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">成果简介</label>
+                                <div class="col-md-10">
+                                    <span class="btn btn-new-red fileinput-button">
+                                        <i class="glyphicon glyphicon-open"></i><span>&nbsp;上传</span>
+                                        <a href="112.doc">下载</a>
+                                        <input type="file" id="wordUpload" name="fileupload" accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                    </span>
+                                    <div class="alert alert-warning" role="alert" style="display: inline-block;">请知悉：word文件不能超过10M！</div>
+                                    <textarea name="AchieveDesc" id="AchieveDesc" style="display: none;"></textarea>
+                                    <iframe name="wordFrame" id="wordFrame" width="100%" style="border: 1px solid #ddd;display: none;max-height: 400px;"></iframe>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">特性特征</label>
+                                <div class="col-md-10">
+                                    <textarea name="Feature" class="form-control" rows="3" placeholder="特征特性不能为空！没有则填无！" required></textarea>
+                                </div>
+                            </div>
+                            <!-- <div class="form-group">
+                                <label class="col-md-2 control-label">抗逆性</label>
+                                <div class="col-md-10">
+                                    <textarea name="Antireversion" class="form-control" rows="3" placeholder="抗逆性不能为空！没有则填无！" required></textarea>
+                                </div>
+                            </div> -->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">适宜种植区域</label>
+                                <div class="col-md-10">
+                                    <textarea name="SuitableArea" class="form-control" rows="3" placeholder="适宜种植区域不能为空！没有则填无！" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">品种来源</label>
+                                <div class="col-md-10">
+                                    <input name="Origin" type="text" class="form-control" placeholder="品种来源不能为空！没有则填无！" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!-- <label class="col-md-2 control-label">是否转基因</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" name="IsGMO" required>
+                                        <option value="">请选择</option>
+                                        <option value="是">是</option>
+                                        <option value="否">否</option>
+                                    </select>
+                                </div> -->
+                                <label class="col-md-2 control-label">是否新型产业</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" name="IsNewIndustry" id="IsNewIndustry" required>
+                                        <option value="">请选择</option>
+                                        <option value="是">是</option>
+                                        <option value="否">否</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" id="NewIndustry" style="display: none;">
+                                <label class="col-md-2 control-label">请选择产业</label>
+                                <div class="col-md-10" id="NewIndustryList">
+                                    <!-- radio list -->
+                                    <input name="NewIndustryName" type="text" class="form-control" style="display: inline-block;width: 200px;" id="NewIndustryName">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">研发开始时间</label>
+                                <div class="col-md-4">
+                                    <div class='input-group date datetimepicker startTime' id="DevelopStartDate">
+                                        <input name="DevelopFromDate" type="text" class="form-control" placeholder="开始日期 yyyy-MM-dd" required>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <label class="col-md-2 control-label">研发结束时间</label>
+                                <div class="col-md-4">
+                                    <div class='input-group date datetimepicker' id="DevelopEndDate">
+                                        <input name="DevelopEndDate" type="text" class="form-control" placeholder="结束日期 yyyy-MM-dd" required>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">成果成熟度</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" name="MaturityID" id="Maturity" required>
+                                    </select>
+                                </div>
+                                <!-- <label class="col-md-2 control-label">技术水平</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" name="TechLevelID" id="TechLevel" required>
+                                    </select>
+                                </div> -->
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">成熟度说明</label>
+                                <div class="col-md-10">
+                                    <input name="MaturityDesc" type="text" class="form-control" placeholder="成熟度说明不能为空！没有则填无！" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">竞价/议价</label>
+                                <div class="col-md-10">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="IsDiscussPrice" value="0" checked required> 竞价
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="IsDiscussPrice" value="1" required> 议价
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group" id="CompeteSetting">
+                                <label class="col-md-2 control-label">竞价设置</label>
+                                <div class="col-md-10">
+                                    <div class="col-md-6">
+                                        <label class="col-md-4 control-label">起拍价格</label>
+                                        <div class="col-md-8">
+                                            <div class='input-group'>
+                                                <input name="CompeteStartPrice" type="number" class="form-control" required>
+                                                <span class="input-group-addon">
+                                                    元
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-md-4 control-label">加价幅度</label>
+                                        <div class="col-md-8">
+                                            <div class='input-group'>
+                                                <input name="PriceAddRange" type="number" class="form-control" required>
+                                                <span class="input-group-addon">
+                                                    元
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" style="margin-top:10px;">
+                                        <label class="col-md-4 control-label">起始时间</label>
+                                        <div class="col-md-8">
+                                            <div class='input-group date datetimepicker' id="CompeteStartDate">
+                                                <input name="CompeteStartDate" type="text" class="form-control" placeholder="开始日期 yyyy-MM-dd" required>
+                                                <span class="input-group-addon">
+                                                 <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" style="margin-top:10px;">
+                                        <label class="col-md-4 control-label">截止时间</label>
+                                        <div class="col-md-8">
+                                            <div class='input-group date datetimepicker startTime' id="CompeteEndDate">
+                                                <input name="CompeteEndDate" type="text" class="form-control" placeholder="结束日期 yyyy-MM-dd" required>
+                                                <span class="input-group-addon">
+                                                 <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12" style="text-align:right;">
+                                <button type="button" name="button" class="btn btn-success btn-next">下一步</button>
+                            </div>
+                        </form>
+                	</div>
+                </div>
+        	</div>
+        	<div class="tab-pane fade" id="IPR">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form" id="IPRForm">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">登记（审定）号</label>
+                                <div class="col-md-10">
+                                    <input name="RegistNumber" type="text" class="form-control" placeholder="登记(审定)号不能为空！没有则填无！" required>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">新品种授权号</label>
+                                <div class="col-md-10">
+                                    <input name="LicenseNumber" type="text" class="form-control" placeholder="新品种授权号不能为空！没有则填无！" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">知识产权编号</label>
+                                <div class="col-md-10" id="IPRNumberSelect">
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="alert alert-warning" role="alert">请知悉：单张图片不能超过2M！</div>
+                                <label class="col-md-2 control-label">专利证书上传</label>
+                                <div class="form-group col-md-4">
+                                    <span class="btn btn-new-red fileinput-button">
+                                        <i class="glyphicon glyphicon-open"></i><span>&nbsp;上传</span>
+                                        <input type="file" id="imgUpload2" name="fileupload" accept="image/png,image/gif,image/jpeg">
+                                    </span>
+                                    <button class="btn btn-success" id="clearImgs2">清空图片</button>
+                                </div>
+                                <div class="col-md-12 box-img" id="imgBoxs2">
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">知识产权情况说明</label>
+                                <div class="col-md-10">
+                                    <textarea name="IPRDesc" class="form-control" rows="3" placeholder="知识产权情况说明不能为空！没有则填无！" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">所属领域</label>
+                                <div class="col-md-10" id="OwnerFieldsSelect">
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">成果获奖情况</label>
+                                <div class="col-md-10">
+                                    <input name="Award" type="text" class="form-control" placeholder="成果获奖情况不能为空！没有则填无！" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">成果权属类型</label>
+                                <div class="col-md-10">
+                                    <select class="form-control" name="TechTypeID" id="TechTypeID" required>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">产权归属国家和地区</label>
+                                <div class="col-md-10">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="OwnerCountry" value="中国大陆地区"> 中国大陆地区
+                                    </label>
+                                    <select class="form-control" name="OwnerCityID" id="OwnerCitySelect" style="display: inline-block;width: auto;">
+                                    </select>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="OwnerCountry" value="中国港澳台地区"> 中国港澳台地区
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="OwnerCountry" value="国外"> 国外
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="OwnerCountry" value="国内合作"> 国内合作
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">产权归属单位</label>
+                                <div class="col-md-10">
+                                    <input name="OwnerOrganization" type="text" class="form-control" placeholder="产权归属单位不能为空！没有则填无！" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">产权其他归属</label>
+                                <div class="col-md-10">
+                                    <input name="OtherOwner" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="text-align:right;">
+                                <button type="button" name="button" class="btn btn-default btn-back">返回</button>
+                                <button type="button" name="button" class="btn btn-success btn-next">下一步</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        	</div>
+            <div class="tab-pane fade" id="valuation">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form" id="valuationForm">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">是否经过第三方评价</label>
+                                <div class="col-md-10">
+                                    <select class="form-control" name="IsThirdPartyEvalua" required>
+                                        <option value="">请选择</option>
+                                        <option value="是">是</option>
+                                        <option value="否">否</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="form-group" style="display: none;" id="AgencyItem">
+                                <label class="col-md-2 control-label">评价评估机构</label>
+                                <div class="col-md-10">
+                                    <input name="Agency" type="text" class="form-control" required>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">交易价格上限</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <input name="ExpectMaxPrice" type="number" class="form-control" required>
+                                        <span class="input-group-addon">
+                                            元
+                                        </span>
+                                    </div>
+                                </div>
+                                <label class="col-md-2 control-label">交易价格下限</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <input name="ExpectMinPrice" type="number" class="form-control" required>
+                                        <span class="input-group-addon">
+                                            元
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">预期交易方式</label>
+                                <div class="col-md-10" id="ExpectTransMethodSelect">
+
+                                </div>
+                                <!-- <div class="col-md-10">
+                                    <select class="form-control" name="ExpectTransMethodID" id="ExpectTransMethod" required>
+                                    </select>
+                                </div> -->
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">转化条件及成果应用事项</label>
+                                <div class="col-md-10">
+                                    <textarea name="Attention" class="form-control" rows="3" placeholder="转化条件及成果应用事项不能为空！没有则填无！" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">推广应用情况说明</label>
+                                <div class="col-md-10">
+                                    <textarea name="PopularDesc" class="form-control" rows="3" placeholder="推广应用情况说明不能为空！没有则填无！" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">有无合作案例</label>
+                                <div class="col-md-10">
+                                    <select class="form-control" name="IsHavaCase" required>
+                                        <option value="">请选择</option>
+                                        <option value="有">有</option>
+                                        <option value="无">无</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="form-group" id="CaseDescItem" style="display: none;">
+                                <label class="col-md-2 control-label">案例介绍</label>
+                                <div class="col-md-10">
+                                    <textarea name="CaseDesc" class="form-control" rows="3" placeholder="推广应用情况说明不能为空！没有则填无！" required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="text-align:right;">
+                                <button type="button" name="button" class="btn btn-default btn-back">返回</button>
+                                <button type="button" name="button" class="btn btn-success btn-next">下一步</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        	</div>
+            <div class="tab-pane fade" id="contact">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form" id="contactForm">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">联系部门</label>
+                                <div class="col-md-10">
+                                    <input name="Department" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">联系人</label>
+                                <div class="col-md-10">
+                                    <input name="Contacts" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">联系电话</label>
+                                <div class="col-md-10">
+                                    <input name="ContactTelephone" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">手机</label>
+                                <div class="col-md-10">
+                                    <input name="Phone" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">传真</label>
+                                <div class="col-md-10">
+                                    <input name="Fax" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">邮箱</label>
+                                <div class="col-md-10">
+                                    <input name="Email" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">联系地址</label>
+                                <div class="col-md-10">
+                                    <input name="Address" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">邮政编码</label>
+                                <div class="col-md-10">
+                                    <input name="PostCode" type="text" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="text-align:right;">
+                                <button type="button" name="button" class="btn btn-default btn-back">返回</button>
+                                <button type="button" name="button" class="btn btn-success btn-next">下一步</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        	</div>
+            <div class="tab-pane fade" id="attachUpload">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="alert alert-warning" role="alert">请知悉：单张图片不能超过2M！</div>
+                                <label class="col-md-2 control-label">相关图片上传</label>
+                                <div class="form-group col-md-4">
+                                    <span class="btn btn-new-red fileinput-button">
+                                        <i class="glyphicon glyphicon-open"></i><span>&nbsp;上传</span>
+                                        <input type="file" id="imgUpload" name="fileupload" accept="image/png,image/gif,image/jpeg">
+                                    </span>
+                                    <button class="btn btn-success" id="clearImgs">清空图片</button>
+                                </div>
+                                <div class="col-md-12 box-img" id="imgBoxs">
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="alert alert-warning" role="alert">请知悉：单个视频不能超过100M！</div>
+                                <label class="col-md-2 control-label">相关视频上传</label>
+                                <div class="form-group col-md-4">
+                                    <span class="btn btn-new-red fileinput-button">
+                                        <i class="glyphicon glyphicon-open"></i><span>&nbsp;上传</span>
+                                        <input type="file" id="mediaUpload" name="fileupload" accept="video/mp4,video/WebM,video/3gp,video/MPEG4,video/ogg">
+                                    </span>
+                                    <button class="btn btn-success" id="clearMedias">清空视频</button>
+                                </div>
+                                <div class="col-md-12 box-img" id="mediaBoxs">
+
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="text-align:right;">
+                                <button type="button" name="button" class="btn btn-default btn-back">返回</button>
+                                <button type="button" name="button" class="btn btn-primary btn-save">保存信息</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog"
+    aria-labelledby="uploadProgressModal"
+    id="uploadProgressModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><span class="glyphicon glyphicon-info-sign"></span>上传进度</h4>
+            </div>
+            <div class="modal-body">
+                <div class="progress form-control">
+                    <div class="progress-bar progress-bar-info">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-reset cancel" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="template1" type="text/html">
+    {{each resultData as item i}}
+        <div class="form-inline" style="margin-bottom: 10px;">
+            <label class="checkbox-inline">
+                <input type="checkbox" name="IPRNumberTypeID" value="{{item.id}}">{{item.name}}
+            </label>
+            <input name="IPRNumber" type="text" class="form-control">
+        </div>
+    {{/each}}
+</script>
+
+
+<script id="template2" type="text/html">
+    {{each resultData as item i}}
+    <label class="checkbox-inline">
+        <input type="checkbox" name="OwnerField" value="{{item.id}}">{{item.name}}
+    </label>
+    {{/each}}
+</script>
+
+<script id="template4" type="text/html">
+    {{each resultData as item i}}
+    <label class="checkbox-inline">
+        <input type="checkbox" name="ExpectTransMethod" value="{{item.id}}">{{item.name}}
+    </label>
+    {{/each}}
+</script>
+
+<script id="template3" type="text/html">
+    {{each resultData as item i}}
+    <label class="radio-inline">
+        <input type="radio" name="NewIndustryName" value="{{item.name}}">{{item.name}}
+    </label>
+    {{/each}}
+</script>
+
+<script id="imgTpl" type="text/html">
+    {{each resultData as item i}}
+    <div class="img-responsive" data-id="{{item.ID}}">
+        <img src="{{item.Url}}"/>
+        <span class="glyphicon glyphicon-remove"></span>
+    </div>
+    {{/each}}
+</script>
+
+
+
+<script id="videoTpl" type="text/html">
+    {{each resultData as item i}}
+    <div class="media-responsive" data-id="{{item.ID}}">
+        <video src="{{item.Url}}" controls="controls"></video>
+        <span class="glyphicon glyphicon-remove"></span>
+    </div>
+    {{/each}}
+</script>
+
+<script src="../../vendor/bootstrap/moment.min.js"></script>
+<script src="../../vendor/bootstrap/bootstrap-datetimepicker.min.js"></script>
+<script src="../../vendor/upload/jquery.ui.widget.js"></script>
+<script src="../../vendor/upload/jquery.fileupload.js"></script>
+<script src="../../vendor/validate/1.13.1/jquery.validate.js"></script>
+<script src="index.js"></script>
+<!--#include virtual="/transinclude/footer.html" -->

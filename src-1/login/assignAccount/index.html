@@ -1,0 +1,137 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+    <!--#include virtual="/transinclude/meta.html" -->
+
+    <style>
+        label.error {
+            font-weight: bold;
+            color: #e53935;
+            margin-left: 10px;
+        }
+
+        input.form-control{
+            display: inline-block;
+            width: 200px;
+        }
+        em{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/nav.html" -->
+
+<div class="col-md-12">
+    <ul id="breadcrumb">
+        <li><a href="/index.html"><span class="icon icon-home"> </span>首页</a></li>
+        <li><a href="javascript:void(0);"><span class="icon icon-beaker"> </span>分配账号</a></li>
+    </ul>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <form class="row" role="form" id="registerForm">
+                    <div class="col-md-12 form-inline">
+                        <input type="hidden" name="userid" id="userid">
+                        <label>账号</label>
+                        <input type="email" name="loginName" class="form-control" placeholder="请输入邮箱" required>
+                        <em>*</em>
+
+                        <label >姓名</label>
+                        <input type="text" name="name" class="form-control" placeholder="姓名" required>
+                        <em>*</em>
+
+                        <label>手机号</label>
+                        <input type="text" name="phone" class="form-control" placeholder="手机号" required onblur="yzphone(this)"><span id="s1" style="color:red"></span>
+                        <em>*</em>
+
+                        <label>电话</label>
+                        <input type="text" name="telephone"  class="form-control" placeholder="电话">
+                        <br/>
+                        <label>地址</label>
+                        <input type="text" name="address" class="form-control" placeholder="地址">
+                        <button type="submit" class="btn btn-new-red" id="registerBtn">分配新账号</button>
+                    </div>
+                </form>
+                <!--搜索关键词表单-->
+                <form class="row" id="formSearchInfo">
+                    <div class="col-md-12 form-inline">
+                        <label>登录账号</label>&nbsp;&nbsp;
+                        <input type="text" name="loginName" class="form-control" placeholder="请输入邮箱">&nbsp&nbsp;
+                        <label>手机号</label>&nbsp;&nbsp;
+                        <input type="text" name="phone" class="form-control" placeholder="手机号" onblur="yzphone2(this)"><span id="s2" style="color:red"></span>&nbsp;
+                        <label>姓名</label>&nbsp;&nbsp;
+                        <input type="text" name="name" class="form-control" placeholder="姓名">
+                        <button class="btn btn-info" id="searchBtn">
+                            <span class="glyphicon glyphicon-search"></span>&nbsp;搜 索
+                        </button>
+                        <button class="btn btn-default" id="resetBtn">
+                            <span class="glyphicon glyphicon-repeat"></span>&nbsp;全 部
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-body">
+        <table class="table table-striped table-bordered table-hover table-new" id="dataTable">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>登录账号</th>
+                <th>用户姓名</th>
+                <th>登录密码</th>
+                <th>手机号</th>
+                <th>详情</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    function yzphone(phone) {
+            var reg = /^1[3|4|5|7|8][0-9]{9}$/
+            var phone = $(phone).val()
+            if (phone == null || phone == "") {
+                $("#s1").html("请输入手机号！")
+            }
+            else {
+                if (!reg.test(phone)) {
+                    $("#s1").html("手机号不合法！")
+                    return;
+                }
+                else {
+                    $("#s1").html("")
+                }
+            }
+
+
+    }
+
+    function yzphone2(phone) {
+     
+        var reg = /^1[3|4|5|7|8][0-9]{9}$/
+        var phone = $(phone).val()
+        if (phone == null || phone == "") {
+            $("#s2").html("请输入手机号！")
+        }
+        else {
+            if (!reg.test(phone)) {
+                $("#s2").html("手机号不合法！")
+                return;
+            }
+            else {
+                $("#s2").html("")
+            }
+        }
+
+
+    }
+    </script>
+<script src="../../vendor/validate/1.13.1/jquery.validate.js"></script>
+<script src="index.js"></script>
+<!--#include virtual="/transinclude/footer.html" -->

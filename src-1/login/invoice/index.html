@@ -1,0 +1,205 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+<!--#include virtual="/transinclude/meta.html" -->
+<link rel="stylesheet" href="../../vendor/bootstrap/bootstrap-datetimepicker.min.css"/>
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/nav.html" -->
+<div class="col-md-12 ">
+    <ul id="breadcrumb">
+        <li><a href="/index.html"><span class="icon icon-home"> </span>首页</a></li>
+        <li><a href="javascript:void(0);"><span class="icon icon-beaker"> </span>发布需求</a></li>
+    </ul>
+    <div class="col-md-12 col-title">
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active">
+                <a href="#home" data-toggle="tab">科技需求信息</a>
+            </li>
+            <li><a href="#unit" data-toggle="tab">单位信息</a></li>
+        </ul>
+    </div>
+    <div class="col-md-12 col-body">
+        <div id="myTabContent" class="tab-content col-md-10">
+            <div class="tab-pane fade in active" id="home">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form" id="homeForm">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">需求名称</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="RequireName" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">需求简介</label>
+                                <div class="col-md-10">
+                                <span class="btn btn-new-red fileinput-button">
+                                    <i class="glyphicon glyphicon-open"></i><span>&nbsp;上传</span>
+                                    <input type="file" id="wordUpload" name="fileupload" accept="application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                </span>
+                                    <iframe name="wordFrame" id="wordFrame" width="100%" style="border: 1px solid #ddd;display: none;"></iframe>
+                                    <textarea name="RequireDesc" id="RequireDesc" style="display: none;"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">需求关键词</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" placeholder="关键词之间以逗号分隔,如:关键词1,关键词2" name="Keywords" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">技术类型</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" name="TechTypeID" id="TechTypeID" required></select>
+                                </div>
+                                <label class="col-md-2 control-label">技术水平</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" name="TechLevelID" id="TechLevel" required></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">技术成熟度</label>
+                                <div class="col-md-10">
+                                    <select class="form-control" name="MaturityID" id="Maturity" required>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">所属领域</label>
+                                <div class="col-md-10" id="OwnerFieldsSelect" required>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="text-align:right;">
+                                <button type="button" name="button" class="btn btn-success btn-next">下一步</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="unit">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form" id="unitForm">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">单位名称</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="OrganizationName" required>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">地址</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="Address" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">联系人</label>
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" name="Contacts" required>
+                                </div>
+                                <label class="col-md-1 control-label">部门</label>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name="Department" required>
+                                </div>
+                                <label class="col-md-1 control-label">职务</label>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name="Job" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">负责人</label>
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" name="Leader" required>
+                                </div>
+                                <label class="col-md-1 control-label">部门</label>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name="LeaderDepartment" required>
+                                </div>
+                                <label class="col-md-1 control-label">职务</label>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name="LeaderJob" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">电话</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="Telephone" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">手机</label>
+                                <div class="col-md-10">
+                                    <input type="tel" class="form-control" name="Phone" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Email</label>
+                                <div class="col-md-10">
+                                    <input type="email" class="form-control" name="Email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">传真</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="Fax" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">推荐</label>
+                                <div class="col-md-10">
+                                    <select class="form-control" name="IsRecommend" required>
+                                        <option value="1">是</option>
+                                        <option value="0">否</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="text-align:right;">
+                                <button type="button" name="button" class="btn btn-default btn-back">返回</button>
+                                <button type="button" name="button" class="btn btn-primary btn-save">保存信息</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog"
+    aria-labelledby="uploadProgressModal"
+    id="uploadProgressModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><span class="glyphicon glyphicon-info-sign"></span>上传进度</h4>
+            </div>
+            <div class="modal-body">
+                <div class="progress form-control">
+                    <div class="progress-bar progress-bar-info">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-reset cancel" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="template" type="text/html">
+    {{each resultData as item i}}
+        <label class="checkbox-inline">
+            <input type="checkbox" name="BelongField" value="{{item.id}}">{{item.name}}
+        </label>
+    {{/each}}
+</script>
+<script src="../../vendor/bootstrap/moment.min.js"></script>
+<script src="../../vendor/bootstrap/bootstrap-datetimepicker.min.js"></script>
+<script src="../../vendor/upload/jquery.ui.widget.js"></script>
+<script src="../../vendor/upload/jquery.fileupload.js"></script>
+<script src="../../vendor/validate/1.13.1/jquery.validate.js"></script>
+<script src="index.js"></script>
+<!--#include virtual="/transinclude/footer.html" -->

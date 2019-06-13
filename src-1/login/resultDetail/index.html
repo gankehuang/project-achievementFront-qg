@@ -1,0 +1,361 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+    <!--#include virtual="/transinclude/meta.html" -->
+    <style>
+        .form-group div{
+            padding-top:7px;
+        }
+    </style>
+</head>
+<body>
+<div id="loadingMask"></div>
+<!--#include virtual="/transinclude/nav.html" -->
+
+<div class="col-md-12">
+    <ul id="breadcrumb">
+        <li><a href="/index.html"><span class="icon icon-home"> </span>首页</a></li>
+        <li><a href="javascript:void(0);"><span class="icon icon-beaker"> </span>成果详情</a></li>
+    </ul>
+</div>
+<ul id="myTab" class="nav nav-tabs" style="margin-bottom:10px;">
+    <li class="active">
+        <a href="#home" data-toggle="tab">成果信息</a>
+    </li>
+    <li><a href="#IPR" data-toggle="tab">知识产权信息</a></li>
+    <li><a href="#valuation" data-toggle="tab">评估评价及推广信息</a></li>
+    <li><a href="#contact" data-toggle="tab">联系人信息</a></li>
+    <li><a href="#attachUpload" data-toggle="tab">附件</a></li>
+</ul>
+<div id="myTabContent" class="tab-content col-md-10">
+</div>
+<script id="myTemplate" type="text/html">
+    <div class="tab-pane fade in active" id="home">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form class="form-horizontal" role="form" id="achievementForm">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">成果分类</label>
+                        {{each AchievementClassify as item i}}
+                        <div class="col-md-2">
+                            {{item.name}}
+                        </div>
+                        {{/each}}
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">添加关键词</label>
+                        {{each Keywords as item i}}
+                        <div class="col-md-2">
+                            {{item.name}}
+                        </div>
+                        {{/each}}
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">成果名称</label>
+                        <div class="col-md-10">
+                            {{AchieveName}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">成果简介</label>
+                        {{each AchievementImageIPRNumber as item i}}
+                        <div class="col-md-2">
+                            {{item.IPRNumber}}
+                        </div>
+                        {{/each}}
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">特性特征</label>
+                        <div class="col-md-10">
+                            {{Feature}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">抗逆性</label>
+                        <div class="col-md-10">
+                            {{Antireversion}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">适宜种植区域</label>
+                        <div class="col-md-10">
+                            {{SuitableArea}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">品种来源</label>
+                        <div class="col-md-10">
+                            {{Origin}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">是否转基因</label>
+                        <div class="col-md-4">
+                            {{IsGMO}}
+                        </div>
+                        <label class="col-md-2 control-label">是否新型产业</label>
+                        <div class="col-md-4">
+                            {{IsNewIndustry}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">研发开始时间</label>
+                        <div class="col-md-4">
+                            {{DevelopFromDate}}
+                        </div>
+                        <label class="col-md-2 control-label">研发结束时间</label>
+                        <div class="col-md-4">
+                            {{DevelopEndDate}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">成果成熟度</label>
+                        <div class="col-md-4">
+                            {{Maturity}}
+                        </div>
+                        <label class="col-md-2 control-label">技术水平</label>
+                        <div class="col-md-4">
+                            {{TechLevel}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">成熟度说明</label>
+                        <div class="col-md-10">
+                            {{MaturityDesc}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="IPR">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form class="form-horizontal" role="form" id="IPRForm">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">登记（审定）号</label>
+                        <div class="col-md-10">
+                            <input name="RegistNumber" type="text" class="form-control" placeholder="登记(审定)号不能为空！没有则填无！">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">新品种授权号</label>
+                        <div class="col-md-10">
+                            <input name="LicenseNumber" type="text" class="form-control" placeholder="新品种授权号不能为空！没有则填无！">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">知识产权编号</label>
+                        <div class="col-md-10" id="IPRNumberSelect">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">知识产权情况说明</label>
+                        <div class="col-md-10">
+                            {{IPRDesc}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">所属领域</label>
+                        <div class="col-md-10" id="OwnerFieldsSelect">
+                            {{OwnerField}}
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">成果获奖情况</label>
+                        <div class="col-md-10">
+                            {{Award}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">成果权属类型</label>
+                        <div class="col-md-10">
+                           {{TechType}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">产权归属国家和地区</label>
+                        <div class="col-md-10">
+                            {{OwnerCountry}}{{OwnerCity}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">产权归属单位</label>
+                        <div class="col-md-10">
+                            {{OwnerOrganization}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">产权其他归属</label>
+                        <div class="col-md-10">
+                            {{OtherOwner}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="valuation">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form class="form-horizontal" role="form" id="valuationForm">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">是否经过第三方评价</label>
+                        <div class="col-md-10">
+                            {{IsThirdPartyEvalua}}
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">评价评估机构</label>
+                        <div class="col-md-10">
+                            {{Agency}}
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">交易价格上限</label>
+                        <div class="col-md-4">
+                            {{ExpectMaxPrice}} 万元
+                        </div>
+                        <label class="col-md-2 control-label">交易价格下限</label>
+                        <div class="col-md-4">
+                            {{ExpectMinPrice}} 万元
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">预期交易方式</label>
+                        <div class="col-md-10">
+                            {{ExpectTransMethod}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">转化条件及成果应用事项</label>
+                        <div class="col-md-10">
+                            {{Attention}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">推广应用情况说明</label>
+                        <div class="col-md-10">
+                            {{PopularDesc}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">有无合作案例</label>
+                        <div class="col-md-10">
+                            {{IsHavaCase}}
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">案例介绍</label>
+                        <div class="col-md-10">
+                            {{CaseDesc}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="contact">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form class="form-horizontal" role="form" id="contactForm">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">联系部门</label>
+                        <div class="col-md-10">
+                            {{Department}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">联系人</label>
+                        <div class="col-md-10">
+                            {{Contacts}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">联系电话</label>
+                        <div class="col-md-10">
+                            {{ContactTelephone}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">手机</label>
+                        <div class="col-md-10">
+                            {{Phone}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">传真</label>
+                        <div class="col-md-10">
+                            {{Fax}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">邮箱</label>
+                        <div class="col-md-10">
+                            {{Email}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">联系地址</label>
+                        <div class="col-md-10">
+                            {{Address}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">邮政编码</label>
+                        <div class="col-md-10">
+                            {{PostCode}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="attachUpload">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-md-12">相关图片</label>
+                    </div>
+                    <div class="row">
+                        {{each ImageVideo as item i}}
+                        {{if item.Type === 0}}
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <div><strong>{{item.FileName}}</strong></div>
+                            <img src="{{item.FilePath+item.FileExtension}}" alt="tupian">
+                            <div>{{item.FileDesc}}</div>
+                        </div>
+                        {{/if}}
+                        {{/each}}
+                    </div>
+                    <div class="form-group" style="margin-top:30px;">
+                        <label class="col-md-12">相关视频</label>
+                    </div>
+                    <div class="row" style="margin-bottom:30px;">
+                        {{each ImageVideo as item i}}
+                        {{if item.Type === 1}}
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <div><strong>{{item.FileName}}</strong></div>
+                            <video controls="controls" src="{{item.FilePath+item.FileExtension}}"></video>
+                            <div>{{item.FileDesc}}</div>
+                        </div>
+                        {{/if}}
+                        {{/each}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</script>
+<script src="index.js"></script>
+<!--#include virtual="/transinclude/footer.html" -->

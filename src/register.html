@@ -1,0 +1,123 @@
+<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+    <!--#include virtual="/transinclude/front-meta.html" -->
+    <title>注册</title>
+</head>
+<style>
+    label.error {
+        font-weight: bold;
+        color: #e53935;
+        margin-left: 10px;
+    }
+
+    input.form-control {
+        display: inline-block;
+        width: 200px;
+    }
+
+    em {
+        color: red;
+    }
+</style>
+<body>
+    <div id="loadingMask"></div>
+    <!--#include virtual="/transinclude/front-header.html" -->
+    <div class="container">
+
+        <form class="form-horizontal" role="form" id="registerForm" style="width:500px;margin:0 auto;">
+            <div class="form-group">
+                <label class="col-md-3 control-label"></label>
+                <div class="col-md-9">
+                    <label class="radio-inline">
+                        <input type="radio" name="type" value="0" checked id="r1" onchange="ck1()">自然人账号
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="type" value="1" onchange="ck()" id="r2">法人账号<span id="em" style="color: #F9983F;margin-left:10px "></span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">账号</label>
+                <input id="email" type="email" name="loginName" class="form-control" placeholder="请输入邮箱" required>
+                <em>*</em><p />
+
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">密码</label>
+                <input type="password" name="password" class="form-control" placeholder="密码" required>
+                <em>*</em>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">密码</label>
+                <input type="password" name="newPassword" class="form-control" placeholder="再次输入密码" required equalto="[name=password]">
+                <em>*</em>
+            </div>
+            <div class="form-group" id="registerName">
+                <label class="col-md-3 control-label">姓名</label>
+                <input type="text" name="name" class="form-control" placeholder="姓名" required>
+                <em id="registerEm">*</em>
+            </div>
+            <div class="form-group" id="Dep" style="display:none;">
+                <label class="col-md-3 control-label">单位性质</label>
+                <!--<input type="text" name="Properties" class="form-control" placeholder="单位性质" required>-->
+                <select class="form-control" name="properties" id="properties" style="width:200px;" required>
+                    <option value="">请选择</option>
+                    <option value="1">高校</option>
+                    <option value="2">企业</option>
+                    <option value="3">科研单位</option>
+                </select>
+                <em style="float:right;margin-top:-25px;margin-right:187px;">*</em>
+            </div>
+            <div class="form-group" id="LinkMan" style="display:none;">
+                <label class="col-md-3 control-label">联系人</label>
+                <input type="text" name="LinkMan" class="form-control" placeholder="联系人" required>
+                <em>*</em>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">手机号</label>
+                <input type="mobile" name="phone" class="form-control" placeholder="手机号" required>
+                <em>*</em>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">电话</label>
+                <input type="text" name="telephone" class="form-control" placeholder="电话">
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">地址</label>
+                <input type="text" name="address" class="form-control" placeholder="地址">
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label"></label>
+                <div class="col-md-9" style="text-align: center;">
+                    <button type="submit" class="btn btn-primary" id="registerBtn">注册</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+
+        function ck() {
+            var checked = $("#r1").attr("checked")
+            if (checked == true) {
+                $("#em").html("")
+            }
+            else {
+                $("#em").html("请尽量使用公共邮箱注册！")
+            }
+        }
+
+        function ck1() {
+            var checked = $("#r2").attr("checked")
+            if (checked == true) {
+                $("#em").html("请尽量使用公共邮箱注册！")
+
+            }
+            else {
+                $("#em").html("")
+            }
+        }
+
+    </script>
+    <script src="vendor/validate/1.13.1/jquery.validate.js"></script>
+    <script src="register.js"></script>
+    <!--#include virtual="/transinclude/front-footer.html" -->

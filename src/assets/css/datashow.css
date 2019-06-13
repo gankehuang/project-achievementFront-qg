@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+body{font-family: "微软雅黑";}
+.top{background:none;z-index: 6; line-height:50px;}
+.top a{color:#fff; line-height:50px;}
+#dowebok{z-index: 3;padding-top:50px;}
+#p1{ height: 80%;}
+#p3{ height: 130%;}
+#p2{height: 70%;}
+#p4{height: 70%;}
+.section1{background:#40A3E1;}
+.section2{background:#E89C38; text-align: center;}
+.section3{background:#6CBB52;}
+.section { color:#fff; padding:0 30px;}
+.section-title h1{margin-top: 50%; color:#fff; display:inline-block; margin-left:50px; margin-right:50px; font-size:50px;}
+.section-body{margin-left:50px; margin-top:50px;}
+.section-body h2{color:#fff; font-weight:300;}
+.section ul{padding-left:0;}
+.section ul li{line-height: 35px; font-size: 14px;}
+.section1 .section-title .hour{font-size:36px; color:#F6FF07;}
+
+.section2  h2{margin-top:30%;color:#fff;font-weight:300; text-align: center;}
+.section2 button{margin-top: 30px; width: 350px; height: 40px;}
+.section3 i{font-size:160px;}
+.section3 span{display:inline-block; padding:5px 8px; font-size:28px;}
+.highcharts-container .highcharts-axis-labels text{color: #fff;}

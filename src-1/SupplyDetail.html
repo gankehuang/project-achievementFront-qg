@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>技术供给详情</title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME STYLE  -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/css/fresh-bootstrap-table.css" rel="stylesheet" />
+
+    <!-- CUSTOM STYLE  -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+
+
+    <!-- GOOGLE FONT -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
+    <style type="text/css">
+       <style type="text/css">
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border-left: 1px solid #ff6633;
+            border-top: 1px solid #ff6633;
+              border-right : 1px solid #ff6633;
+            border-bottom : 1px solid #ff6633;
+            /*background: #efefef;*/
+        }
+
+        th, td {
+            border-right: 1px solid #ff6633;
+            border-bottom: 1px solid #ff6633;
+             border-left : 1px solid #ff6633;
+            border-top : 1px solid #ff6633;
+            padding: 5px 5px 5px;
+        }
+
+        th {
+            font-weight: bold;
+            background: #ccc;
+        }
+
+        input[type='text'] {
+            width: 200px;
+            height: 25px;
+        }
+    </style>
+    </style>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse set-radius-zero">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+
+                    <img src="assets/img/logo1.png" />
+                </a>
+
+            </div>
+
+            <div class="right-div col-lg-8">
+
+                <div class="input-group">
+                    <input type="text" placeholder="请输入关键字" class="input-sm form-control"> <span class="input-group-btn">
+                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button>
+                    </span>
+                </div>
+                <!--</div>-->
+                <!--<a href="#" class="btn btn-danger pull-right">注册</a>
+                <a href="#" class="btn btn-danger pull-right">登录</a>-->
+            </div>
+        </div>
+    </div>
+    <!-- LOGO HEADER END-->
+    <section class="menu-section">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="navbar-collapse collapse ">
+                        <ul id="menu-top" class="nav navbar-nav navbar-right">
+                            <li><a href="index.html" class="menu-top-active"><b>首页</b></a></li>
+
+                            <li><a href="news.html"><b>新闻中心</b></a></li>
+                            <li>
+                                <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown"><b>成果展示</b><i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="ResultsClass.html">成果分类导航</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">成果发布</a></li>
+                                    <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">优秀成果推荐</a></li>-->
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-toggle" id="A1" data-toggle="dropdown"><b>交易服务</b><i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="TechSupply.html">供需对接</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">定向委托</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">成果竞价平台</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">中介服务</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="TechnologyAndFinance.html">科技金融</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-toggle" id="A2" data-toggle="dropdown"><b>评估服务</b><i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="Assessment.html">成果评价公告</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="Evaluation.html">评估评价机构</a></li>
+                                    <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#">成果价格评估</a></li>
+                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">技术前景测评</a></li>-->
+                                </ul>
+                            </li>
+                            <li><a href="tab.html"><b>政策咨讯</b></a></li>
+                            <li><a href="tab.html"><b>专家库</b></a></li>
+                            <!--<li><a href="table.html">TABLES</a></li>
+        <li><a href="blank.html">BLANK PAGE</a></li>-->
+
+                        </ul>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+    <!-- MENU SECTION END-->
+    <div class="content-wrapper ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-xs-6">
+                <a href="#">首页</a> >> <a href="javascript:void(0);">成果详情</a>
+                <form>
+                    <!--<div class="col-md-8 col-md-offset-2" style="text-align: center;">
+                        <strong style="font-size:18px">内蒙古：全方位拓展科技合作 跨区域推动创新协同</strong></p>
+                        <strong style="font-size:12px;color:Gray">发布时间：2017-05-08</strong></p>
+                        </div>-->
+                    <table width="100%" cellspacing="2" cellpadding="2" align="center">
+                        <tr>
+                            <td colspan="4" style="text-align: center;"><strong>内蒙古：全方位拓展科技合作 跨区域推动创新协同：</strong><br />发布时间：2017-05-08</td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="2"><strong>所属领域：</strong><a href="Resultmatch.html">抗旱基因发掘</a></td>
+                            <td rowspan="6" colspan="2" width="40%">虚拟展示区
+                             <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel" >
+			   
+				                                        <div class="carousel-inner">
+					                                        <div class="item active">
+
+						                                        <img src="assets/img/1.jpg" alt="" />
+					   
+					                                        </div>
+					                                        <div class="item">
+						                                        <img src="assets/img/1.jpg" alt="" />
+					  
+					                                        </div>
+					                                        <div class="item">
+						                                        <img src="assets/img/1.jpg" alt="" />
+					   
+					                                        </div>
+				                                        </div>
+				                                        <!--INDICATORS-->
+				                                            <ol class="carousel-indicators">
+					                                        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+					                                        <li data-target="#carousel-example" data-slide-to="1"></li>
+					                                        <li data-target="#carousel-example" data-slide-to="2"></li>
+				                                        </ol>
+				                                        <!--PREVIUS-NEXT BUTTONS-->
+				                                            <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                        </a>
+                                        <a class="right carousel-control" href="#carousel-example" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                        </a>
+			                                        </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="30%" style="border-right-style:none;border-bottom-style:none;"><strong>完成人：</strong><a href="Resultmatch.html" >***</a></td>
+                            <td style="border-left-style:none;border-bottom-style:none"><strong>完成单位：</strong><a href="Resultmatch.html">******</a></td>
+                        </tr>
+                        <tr>
+                            <td style="border-right-style:none;border-bottom-style:none;border-top-style:none"><strong>预期投资额度：</strong><a href="Resultmatch.html">***</a>万元</td>
+                            <td style="border-left-style:none;border-bottom-style:none;border-top-style:none"><strong>项目研发时间：</strong><a href="Resultmatch.html">***</a></td>
+                        </tr>
+                        <tr>
+                            <td width="30%" style="border-right-style:none;border-bottom-style:none;border-top-style:none"><strong>技术类型：</strong><a href="Resultmatch.html">***</a></td>
+                            <td style="border-left-style:none;border-bottom-style:none;border-top-style:none"><strong>专利号：</strong><a href="Resultmatch.html">***</a></td>
+                        </tr>
+                        <tr>
+                            <td style="border-right-style:none;border-bottom-style:none;border-top-style:none"><strong>技术成熟度：</strong><a href="Resultmatch.html">***</a></td>
+                            <td style="border-left-style:none;border-bottom-style:none;border-top-style:none"><strong>技术水平：</strong><a href="Resultmatch.html">***</a></td>
+                        </tr>
+                        <tr>
+                            <td style="border-right-style:none;border-top-style:none"><strong>预期交易方式：</strong><a href="Resultmatch.html">***</a></td>
+                            <td style="border-left-style:none;border-top-style:none"><strong>预期交易价格：</strong><a href="Resultmatch.html">***</a>万元</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"style="border-right-style:none;"><a data-toggle="modal" data-target="#myModal">竞价</a>/<a data-toggle="modal" data-target="#myModal1">议价</a>   </td>
+                            <td style="border-right-style:none;border-left-style:none">添加到收藏夹</td>
+                            <td style="border-left-style:none;">查看收藏夹</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><font color="red">技术简介</font></p>成果的详细介绍、包括文字、图片甚至视频等材料</td>
+                             <td rowspan="5" style="vertical-align:top ">相关成果推荐</br>
+                                            <a href="SupplyDetail.html"> <img src="assets/img/1.jpg" width="100px" height="100px"alt="" /></a> 
+                                           <a href="SupplyDetail.html"><img src="assets/img/1.jpg" width="100px" height="100px" alt="" /></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><font color="red">知识产权情况</font></p>专利已授权</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><font color="red">成熟度说明</font></p>已通过技术检测</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <font color="red">联系人信息</font></p>联系人：</br>传真：</br>地址：</br>联系电话：
+                                </br>手机：</br>邮箱：
+                            </td>
+                        </tr>
+                       
+                    </table>
+
+                </form>
+
+            </div>
+        </div>
+          <!-- 模态框（Modal） --><!--竞价-->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" vertical-align=" middle">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="H1">
+                                竞价
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <table id="Table2" class="table table-striped table-bordered ">
+                             <tr>
+                                    <td align="right">成果名称</td>
+                                    <td> <lable  style="width:100px;">****</lable></td>
+
+                                </tr>
+                                <tr>
+                                    <td align="right">起拍价格</td>
+                                    <td> <lable  style="width:100px;">10万元</lable></td>
+
+                                </tr>
+                                <tr style="background:#FBFBFF">
+                                    <td align="right">加价幅度</td>
+                                    <td> <lable  style="width:100px;">1万元</lable></td>
+
+                                </tr>
+                                 <tr style="background:#FBFBFF">
+                                    <td align="right">现价</td>
+                                    <td> <lable  style="width:100px;">20万元</lable></td>
+
+                                </tr>
+                                 <tr style="background:#FBFBFF">
+                                    <td align="right">竞拍次数</td>
+                                    <td> <lable  style="width:100px;">10次</lable></td>
+
+                                </tr>
+                                <tr style="background:#FBFBFF">
+                                    <td align="right">截止时间：</td>
+                                    <td><lable  style="width:100px;">2017年5月10号</lable></td>
+
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                关闭
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                               出价
+                            </button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+
+            <!--议价-->
+            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" vertical-align=" middle">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                留言
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <table id="Table1" class="table table-striped table-bordered ">
+                                <tr>
+                                    <td align="right">留言</td>
+                                    <td><textarea rows="5" cols="60" id="chatText"></textarea></td>
+
+                                </tr>                               
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                关闭
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                                提交更改
+                            </button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+    </div>
+    <!-- /. PAGE INNER  -->
+</div>
+        <!-- CONTENT-WRAPPER SECTION END-->
+        <section class="footer-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="#">联系我们</a>|<a href="#">关于我们</a><br />
+                        Copyright &copy; 2017.Company name All rights reserved.
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- FOOTER SECTION END-->
+        <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+        <!-- CORE JQUERY  -->
+        <script src="assets/js/jquery-1.10.2.js"></script>
+        <!-- BOOTSTRAP SCRIPTS  -->
+        <script src="assets/js/bootstrap.js"></script>
+        <!-- CUSTOM SCRIPTS  -->
+        <script src="assets/js/custom.js"></script>
+</body>
+</html>

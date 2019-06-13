@@ -1,0 +1,248 @@
+﻿<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+    <!--#include virtual="/transinclude/meta.html" -->
+    <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap-datetimepicker.min.css" />
+    <title></title>
+</head>
+
+<body>
+
+    <div id="loadingMask"></div>
+
+    <!--#include virtual="/transinclude/nav.html" -->
+
+    <div class="col-md-12">
+
+        <ul id="breadcrumb">
+            <li><a href="/index.html"><span class="icon icon-home"> </span>首页</a></li>
+            <li><a href="javascript:void(0);"><span class="icon icon-beaker"> </span>成果草稿</a></li>
+        </ul>
+
+        <!--搜索关键词表单-->
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <form class="row" id="formSearchInfo">
+                        <div class="col-md-12 form-inline">
+                            <label>成果名称</label>&nbsp;&nbsp;
+                            <input type="text" class="form-control" placeholder="成果名称" name="Name">&nbsp;&nbsp;
+                            <label>所属权类型</label>&nbsp;&nbsp;
+                            <select class="form-control" name="Type" id="Type">
+                                <option value="">全部</option>
+                            </select>&nbsp;&nbsp;
+                            <label>方式</label>&nbsp;&nbsp;
+                            <select class="form-control" name="Way">
+                                <option value="">全部</option>
+                                <option value="0">竞价</option>
+                                <option value="1">议价</option>
+                            </select>&nbsp;&nbsp;
+                           
+                          
+                            <button class="btn btn-info" id="searchBtn">
+                                <span class="glyphicon glyphicon-search"></span>&nbsp;搜 索
+                            </button>
+                            <button class="btn btn-default" id="resetBtn">
+                                <span class="glyphicon glyphicon-repeat"></span>&nbsp;全 部
+                            </button>
+                            <a class="btn btn-success" href="/login/panel-tabs/index.html">发布新成果</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--内容-->
+        <div class="col-body">
+            <table class="table table-striped table-bordered table-hover table-new" id="dataTable">
+                <thead>
+                    <tr>
+                        <th style="width:50px;">序号</th>
+                        <th>成果名称</th>
+                        <th style="width:80px;">所属权类型</th>
+                        <th style="width:150px;">保存时间</th>
+                        <th style="width:70px;">交易方式</th>
+                        <th style="width:120px;">交易状态</th>
+                        <th style="width:140px;">查看智能配对需求</th>
+                        <th style="width:90px;">操作选择</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--竞价查看-->
+    <div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" vertical-align=" middle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="H1">
+                        竞价列表
+                    </h4>
+
+                </div>
+
+                <div class="modal-body">
+                    成果名称：<span class="achName"></span>
+                    <table id="Table1" class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                        <th>竞价者</th>
+                        <th>竞价</th>
+                        <th>时间</th>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <!--议价查看-->
+    <div class="modal fade" id="checkModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" vertical-align=" middle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="H2">
+                        议价列表
+                    </h4>
+
+                </div>
+                <div class="modal-body">
+                    成果名称：<span class="achName"></span>
+                    <table id="Table2" class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                        <th></th>
+                        <th>议价者</th>
+                        <th>议价内容</th>
+                        <th>时间</th>
+                        <th>操作</th>
+
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class="chatlist" id="chatlist">
+                        <!--
+                        <div class="chat me">
+                            <div class="name">我</div>
+                            <div class="text">nihaoeererererere</div>
+                        </div>
+                        <div class="chat other">
+                            <div class="name">网三</div>
+                            <div class="text">nihaoeererererere</div>
+                        </div>
+                        -->
+                    </div>
+                    <label>回复</label>
+                    <textarea name="message" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                    <button type="button" class="btn btn-default submit">
+                        提交
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <!-- 确认交易 -->
+    <div class="modal fade" id="tradeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" vertical-align=" middle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">
+                        确认交易
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="tradeForm">
+                        <input name="discussID" type="hidden">
+                        <div class="form-group" id="KeyNameList">
+                            <label class="col-md-4 control-label">交易金额</label>
+                            <div class="col-md-8">
+                                <input id="price" name="price" type="text" class="form-control" required>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                    <button type="button" class="btn btn-default submit">
+                        提交
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+
+</body>
+
+<script id="template1" type="text/html">
+    {{each resultData as item i}}
+    <tr>
+        <td>{{item.CompetePerson}}</td>
+        <td>{{item.CompetePrice}}</td>
+        <td>{{item.CompeteDate}}</td>
+    </tr>
+    {{/each}}
+</script>
+
+<script id="template2" type="text/html">
+    {{each resultData as item i}}
+    <tr>
+        <td>
+            <input type="checkbox" name="DiscussPersons" value="{{item.ID}}">
+        </td>
+        <td>
+            <a class="detail" href="javascript:void(0)" data-id="{{item.ID}}" data-name="{{item.DiscussPerson}}">{{item.DiscussPerson}}</a>
+            <a href="javascript:void(0);" class="pop-person" data-id="{{item.UserID}}"><span class="glyphicon glyphicon-info-sign"></span></a>
+        </td>
+        <td>{{item.DiscussContent}}</td>
+        <td>{{item.DiscussDate}}</td>
+        <td>
+            {{if item.IsTradeShow}}
+            <button data-id="{{item.ID}}" class="trade">发起交易</button>
+            {{/if}}
+            {{if item.IsComfirmShow}}
+            <button data-id="{{item.ID}}" class="confirm">确认交易</button>
+            <button data-id="{{item.ID}}" class="refuse">拒绝交易</button>
+            {{/if}}
+        </td>
+    </tr>
+    {{/each}}
+</script>
+
+<script id="template3" type="text/html">
+    {{each resultData as item i}}
+    <div class="chat {{ item.IsAcheOwner == 1 ? 'me':'other'}}">
+        <div class="name">{{item.IsAcheOwner == 1 ? '我':name }}</div>
+        <div class="text">{{item.DiscussContent}}</div>
+    </div>
+    {{/each}}
+</script>
+
+<script src="../../vendor/bootstrap/moment.min.js"></script>
+<script src="../../vendor/bootstrap/bootstrap-datetimepicker.min.js"></script>
+<script src="../../vendor/validate/1.13.1/jquery.validate.js"></script>
+<script src="draft.js"></script>
+<!--#include virtual="/transinclude/footer.html" -->

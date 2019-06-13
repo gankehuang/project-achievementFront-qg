@@ -1,0 +1,279 @@
+<div id="loading-main">
+    <div class="loading">
+        <div class="dot white"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>
+
+<nav class="navbar navbar-blue navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand navbar-brand-blue" href="/index.html">
+                <img src="/login/assets/img/麦子.png" alt="tupian">
+                <!-- <span class="glyphicon glyphicon-th-large"></span> -->
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-nav-left">
+                <li><a href="/index.html" class="navbar-brand-blue">国家种业科技成果产权交易平台<br/>全国农业科技成果转移服务平台</a></li>
+            </ul>
+            <!-- <form class="navbar-form navbar-left" role="search" style="padding: 25px 0 0 40px;">
+                <div class="form-group">
+                    <input type="text" class="form-control input-lg" placeholder="输入搜索关键字" style="width: 290px;height:40px;background-color: #e2e2e2;">
+                    <button id="search" class="btn" style="background-color: #1c7fdf;color: #fff;width: 90px;height: 40px;">搜索</button>
+                </div>
+            </form> -->
+            <ul class="nav navbar-nav navbar-right navbar-right-white">
+                <li><span><img src="/login/assets/img/portrait.png" alt="tupian" style="width:45px;vertical-align:bottom;">
+                    <div style="display:inline-block;margin:25px 15px 0 10px;"><span id="userName"></span><br/><span role="button" id="logOut" style="color:#ea4c3c;font-size:14px;">退出</span></div></span>
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li><a href="#" class="editPwd"><span class="glyphicon glyphicon-lock"></span>修改密码</a>-->
+                        <!--</li>-->
+                        <!--<li><a href="javascript:void(0);" class="exit" id="logOut"><span-->
+                            <!--class="glyphicon glyphicon-off"></span>退出</a></li>-->
+                    <!--</ul>-->
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="sidebar">
+
+
+
+            <!-- 系统管理员 -->
+            <ul class="nav nav-sidebar" role="1">
+                <li class="header"><a href="#">待办事项管理</a></li>
+                <li>
+                    <a href="../Backlog/index.html">
+                        <img class="icon" src="/login/assets/img/序列.png" alt="tupian">待办事项
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-sidebar" role="1">
+                <li class="header"><a href="#"><img src="/login/assets/img/文件夹.png" alt="tupian">&nbsp;&nbsp;成果管理</a></li>
+                <li><a href="../notification/index.html"><img class="icon" src="/login/assets/img/序列.png" alt="tupian">成果管理</a></li>
+                <li><a href="../records/index.html"><img class="icon" src="/login/assets/img/序列.png" alt="tupian">交易记录</a></li>
+                <li><a href="../publicityManage/propertyRightUnit.html"><img class="icon" src="/login/assets/img/序列.png" alt="tupian">产权单位</a></li>
+                <li><a href="../publicityManage/dataStatistics.html"><img class="icon" src="/login/assets/img/序列.png" alt="tupian">数据统计</a></li>
+            </ul>
+            <!-- <ul class="nav nav-sidebar" role="1">
+                <li class="header"><a href="#"><img src="/login/assets/img/文件夹.png" alt="tupian">&nbsp;&nbsp;产权单位</a></li>
+                <li><a href="../publicityManage/propertyRightUnit.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">产权单位</a></li>
+            </ul> -->
+            <ul class="nav nav-sidebar" role="1">
+                <li class="header"><a href="#"><img src="/login/assets/img/电脑.png" alt="tupian">&nbsp;&nbsp;需求管理</a></li>
+                <li><a href="../requireMain/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">需求管理</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="1">
+                <li class="header"><a href="#">审核管理</a></li>
+                <li><a href="../reviewManage/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">审核管理</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="1">
+                <li class="header"><a href="#">竞价大厅</a></li>
+                <li><a href="../index/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">竞价大厅</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="1">
+                <li class="header"><a href="#"><img src="/login/assets/img/锤子.png" alt="tupian">&nbsp;&nbsp;交易中心</a></li>
+                <li><a href="../tradingCenter/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">交易中心</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="1">
+                <li class="header"><a href="#"><img src="/login/assets/img/电脑.png" alt="tupian">&nbsp;&nbsp;公示公告</a></li>
+                <li><a href="../publicityManage/list.html"><img class="icon" src="/login/assets/img/序列.png" alt="tupian">公示管理</a></li>
+                <li><a href="../publicityManage/list1.html"><img class="icon" src="/login/assets/img/序列.png" alt="tupian">公告管理</a></li>
+                <li><a href="../publicityManage/announcement.html"><img class="icon" src="/login/assets/img/序列.png" alt="tupian">数据统计</a></li>
+            </ul>
+            <!-- <ul class="nav nav-sidebar" role="1">
+                <li class="header"><a href="#"><img src="/login/assets/img/电脑.png" alt="tupian">&nbsp;&nbsp;数据统计</a></li>
+                <li><a href="../publicityManage/dataStatistics.html"><img class="icon" src="/login/assets/img/序列.png" alt="tupian">数据统计</a></li>
+            </ul> -->
+            <ul class="nav nav-sidebar" role="1">
+                <li class="header"><a href="#">用户管理</a></li>
+                <li><a href="../userManage/index.html"><img class="icon" src="/login/assets/img/序列.png" alt="tupian">审核用户</a></li>
+                <li><a href="../publicityManage/userStatistics.html"><img class="icon" src="/login/assets/img/序列.png" alt="tupian">数据统计</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="1">
+                <li class="header"><a href="#"><img src="/login/assets/img/个人.png" alt="tupian">&nbsp;&nbsp;个人中心</a></li>
+                <!--<li><a href="../form/index.html"><span-->
+                    <!--class="glyphicon glyphicon-th-list"></span>基本信息</a></li>-->
+                <li><a href="../editPwd/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian"></span>密码修改</a></li>
+            </ul>
+            <!-- 普通用户 -->
+            <ul class="nav nav-sidebar" role="2">
+                <li class="header"><a href="../index/index.html">用户中心首页</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="2">
+                <li class="header"><a href="#"><img src="/login/assets/img/文件夹.png" alt="tupian">&nbsp;&nbsp;成果管理</a></li>
+                <li><a href="../panel-tabs/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">成果发布</a></li>
+
+               
+
+
+                <li><a href="../notification/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">成果管理</a></li>
+                <!--更改 添加成果草稿--><!--href="../notification/draft.html"-->
+                <li>
+                    <a href="../notification/draft.html">
+                        <img class="icon" src="/login/assets/img/序列.png" alt="tupian">成果草稿
+                    </a>
+                </li>
+                <li><a href="../records/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">交易记录</a></li>
+                <li><a href="../requireCommand/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">需求推荐</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="2">
+                <li class="header"><a href="#"><img src="/login/assets/img/电脑.png" alt="tupian">&nbsp;&nbsp;需求管理</a></li>
+                <li><a href="../invoice/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">需求发布</a></li>
+                <li><a href="../requireMain/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">需求管理</a></li>
+                <li><a href="../resultCommand/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">成果推荐</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="2">
+                <li class="header"><a href="#"><img src="/login/assets/img/锤子.png" alt="tupian">&nbsp;&nbsp;交易中心</a></li>
+                <li><a href="../tradingCenter/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">交易中心</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="2">
+                <li class="header"><a href="#"><img src="/login/assets/img/公示公告.png" alt="tupian">&nbsp;&nbsp;公示公告</a></li>
+                <li><a href="../publicityManage/edit.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">公示发布</a></li>
+                <li><a href="../publicityManage/editall.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">公告发布</a></li>
+                <li><a href="../publicityManage/list.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">公示公告管理</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="2">
+                <li class="header"><a href="#"><img src="/login/assets/img/收藏.png" alt="tupian">&nbsp;&nbsp;收藏夹</a></li>
+                <li><a href="../favorite/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">收藏夹</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="2">
+                <li class="header"><a href="#"><img src="/login/assets/img/个人.png" alt="tupian">&nbsp;&nbsp;个人中心</a></li>
+                <!--<li><a href="../time/index.html"><img-->
+                    <!--class="icon" src="/login/assets/img/序列.png" alt="tupian">时间轴</a></li>-->
+                <li><a href="../baseInfor/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">基本信息</a></li>
+                <li><a href="../editPwd/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">密码修改</a></li>
+            </ul>
+
+
+
+
+
+
+            <!-- 所级管理员 -->
+            <ul class="nav nav-sidebar" role="3">
+                <li class="header"><a href="../index/index.html">用户中心首页</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="3">
+                <li class="header"><a href="../assignAccount/index.html">分配账号</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="3">
+                <li class="header"><a href="#">待办事项管理</a></li>
+                <li>
+                    <a href="../Backlog/index.html">
+                        <img class="icon" src="/login/assets/img/序列.png" alt="tupian">待办事项
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-sidebar" role="3">
+                <li class="header"><a href="#"><img src="/login/assets/img/文件夹.png" alt="tupian">&nbsp;&nbsp;成果管理</a></li>
+                <li><a href="../panel-tabs/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">成果发布</a></li>
+                <li><a href="../notification/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">成果管理</a></li>
+                <li>
+                    <a href="../notification/draft.html">
+                        <img class="icon" src="/login/assets/img/序列.png" alt="tupian">成果草稿
+                    </a>
+                </li>
+                <li><a href="../records/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">交易记录</a></li>
+                <li><a href="../requireCommand/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">需求推荐</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="3">
+                <li class="header"><a href="#">新闻管理</a></li>
+                <li>
+                    <a href="../NewsRelease/index.html">
+                        <img class="icon" src="/login/assets/img/序列.png" alt="tupian">新闻发布
+                    </a>
+                    <a href="../NewsManagement/index.html">
+                        <img class="icon" src="/login/assets/img/序列.png" alt="tupian">新闻管理
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav nav-sidebar" role="3">
+                <li class="header"><a href="#"><img src="/login/assets/img/电脑.png" alt="tupian">&nbsp;&nbsp;需求管理</a></li>
+                <li><a href="../invoice/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">需求发布</a></li>
+                <li><a href="../requireMain/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">需求管理</a></li>
+                <li><a href="../resultCommand/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">成果推荐</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="3">
+                <li class="header"><a href="#">审核管理</a></li>
+                <li><a href="../reviewManage/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">审核管理</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="3">
+                <li class="header"><a href="#"><img src="/login/assets/img/锤子.png" alt="tupian">&nbsp;&nbsp;交易中心</a></li>
+                <li><a href="../tradingCenter/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">交易中心</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="3">
+                <li class="header"><a href="#"><img src="/login/assets/img/公示公告.png" alt="tupian">&nbsp;&nbsp;公示公告</a></li>
+                <li><a href="../publicityManage/edit.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">公示发布</a></li>
+                <li><a href="../publicityManage/editall.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">公告发布</a></li>
+                <li><a href="../publicityManage/list.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">公示公告管理</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="3">
+                <li class="header"><a href="#"><img src="/login/assets/img/收藏.png" alt="tupian">&nbsp;&nbsp;收藏夹</a></li>
+                <li><a href="../favorite/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">收藏夹</a></li>
+            </ul>
+            <ul class="nav nav-sidebar" role="3">
+                <li class="header"><a href="#"><img src="/login/assets/img/个人.png" alt="tupian">&nbsp;&nbsp;个人中心</a></li>
+                <!--<li><a href="../time/index.html"><img-->
+                    <!--class="icon" src="/login/assets/img/序列.png" alt="tupian">时间轴</a></li>-->
+                <li><a href="../baseInfor/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">基本信息</a></li>
+                <li><a href="../editPwd/index.html"><img
+                    class="icon" src="/login/assets/img/序列.png" alt="tupian">密码修改</a></li>
+            </ul>
+
+
+
+
+        </div>
+        <div class="main">
+            <div class="container-fluid">
+                <div class="row">

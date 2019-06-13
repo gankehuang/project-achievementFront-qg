@@ -1,0 +1,70 @@
+﻿<!--#include virtual="/transinclude/doctype.html" -->
+<head>
+    <!--#include virtual="/transinclude/front-meta.html" -->
+    <title>忘记密码</title>
+</head>
+<style>
+    label.error {
+        font-weight: bold;
+        color: #e53935;
+        margin-left: 10px;
+    }
+
+    input.form-control {
+        display: inline-block;
+        width: 200px;
+    }
+
+    em {
+        color: red;
+    }
+</style>
+<body>
+    <div id="loadingMask"></div>
+    <!--#include virtual="/transinclude/front-header.html" -->
+    <div class="container">
+     
+        <form class="form-horizontal" role="form" id="findpwdForm" style="width:500px;margin:0 auto;">
+            <div class="form-group text-center">
+                <div class="label label-warning col-md-10">
+                    请填写以下信息，系统将把新密码发送至您的注册邮箱
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label"></label>
+                <div class="col-md-9">
+                    <label class="radio-inline">
+                        <input type="radio" name="type" value="0" checked>自然人账号
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="type" value="1">法人账号
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">账号</label>
+                <input type="email" name="loginName" class="form-control" placeholder="请输入注册时的邮箱" required>
+                <em>*</em>
+            </div>
+            <div class="form-group" id="registerName">
+                <label class="col-md-3 control-label">姓名</label>
+                <input type="text" name="name" class="form-control" placeholder="姓名" required>
+                <em>*</em>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">手机号</label>
+                <input type="mobile" name="phone" class="form-control" placeholder="手机号" required>
+                <em>*</em>
+            </div>
+            <div class="form-group">
+                <label class="col-md-1 control-label"></label>
+                <div class="col-md-8" style="text-align: center;">
+                    <button type="submit" class="btn btn-primary" id="findpwdBtn">发送邮件</button>
+					  <a class="btn btn-primary" href="index.html">取消</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="vendor/validate/1.13.1/jquery.validate.js"></script>
+    <script src="FindPwd.js"></script>
+    <!--#include virtual="/transinclude/front-footer.html" -->
